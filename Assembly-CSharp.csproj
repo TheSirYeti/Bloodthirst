@@ -70,6 +70,9 @@
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProGrids">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
     </Reference>
@@ -97,6 +100,9 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
@@ -105,12 +111,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

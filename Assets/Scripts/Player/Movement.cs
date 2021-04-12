@@ -2,39 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour
+namespace Player.Behaviour
 {
-    public      string              horizontalAxis              = "Horizontal";
-    public      string              verticalAxis                = "Vertical";
-    public      string              jumpButtonName              = "Jump";
-    public      float               movementSpeed               = 2f;
-    public      float               jumpForce                   = 10f;
-    public      ForceMode           jumpForceMode               = ForceMode.Impulse;
-    public      Rigidbody           rigidBody;
-    public      int                 jumpCount;
-    public      int                 maxJumpCount                = 2;
-    public      Animator            animator;
-    public      string              runningSpeedParameterName   = "runningSpeed";
-    public      Transform           cameraDirection;
-    private     Vector3             inputVector;
-
-    void Update()
+    public class Movement : MonoBehaviour
     {
-        inputVector.x = Input.GetAxis(horizontalAxis);
+        public      string      horizontalAxis              = "Horizontal";
+        public      string      verticalAxis                = "Vertical";
+        public      string      jumpButtonName              = "Jump";
+        public      float       movementSpeed               = 2f;
+        public      float       jumpForce                   = 10f;
+        public      ForceMode   jumpForceMode               = ForceMode.Impulse;
+        public      Rigidbody   rigidBody;
+        public      int         jumpCount;
+        public      int         maxJumpCount                = 2;
+        public      Animator    animator;
+        public      string      runningSpeedParameterName   = "runningSpeed";
+        public      Transform   cameraDirection;
+        private     Vector3     inputVector = Vector3.zero;
 
-        inputVector.z = Input.GetAxis(verticalAxis);
-
-        if (Input.GetButtonDown(jumpButtonName))
+        void Update()
         {
-            rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
+            inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
+            inputVector.y = 0f;
+
+            if (Input.GetButtonDown(jumpButtonName))
+            {
+                rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
+            }
         }
-    }
 
-    private void FixedUpdate()
-    {
-        transform.LookAt(transform.position + inputVector);
+        private void FixedUpdate()
+        {
+            transform.LookAt(transform.position + inputVector);
 
-        rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
-        animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
+            rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
+            animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
+        }
     }
 }

@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.2576249, z: -3.8469288}
+  m_FollowOffset: {x: 0, y: 2.3861449, z: -4.1724286}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -406,7 +406,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.8925081, y: 1}
+    m_SensorSize: {x: 1.1156352, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -422,7 +422,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628385904}
-  m_LocalRotation: {x: 0.34413758, y: 1e-45, z: -0, w: 0.93891925}
+  m_LocalRotation: {x: 0.25683376, y: -0.000000016629203, z: 0.0000000044191792, w: 0.96645564}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -599,8 +599,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.33056518, y: -0.000000015112178, z: 0.0000000052931224, w: 0.94378316}
-  m_LocalPosition: {x: 7.699, y: 8.257625, z: -14.339464}
+  m_LocalRotation: {x: 0.24287347, y: 0, z: 0, w: 0.970058}
+  m_LocalPosition: {x: 7.699, y: 5.3861446, z: -14.664965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -691,9 +691,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093682848}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   maxJumpCount: 2
   animator: {fileID: 1093682849}
   runningSpeedParameterName: runningSpeed
-  cameraDirection: {fileID: 2042092045}
+  cameraDirection: {fileID: 963194228}
 --- !u!1 &1126220168
 GameObject:
   m_ObjectHideFlags: 3
@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.2576249, z: -3.8469288}
+  m_FollowOffset: {x: 0, y: 2.3861449, z: -4.1724286}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -902,7 +902,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.8925081, y: 1}
+    m_SensorSize: {x: 1.1156352, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -918,7 +918,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1172912141}
-  m_LocalRotation: {x: 0.3169241, y: -0.000000011117602, z: 0.0000000037149372, w: 0.9484509}
+  m_LocalRotation: {x: 0.22886258, y: 0.000000016749704, z: -0.000000003937897, w: 0.97345877}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -941,13 +941,12 @@ PrefabInstance:
     - target: {fileID: -6057140222963153312, guid: 2995817699d51ae459a70be8d7db4656,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed by
-        Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:RightArm'\n\tTransform
-        'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
-        'mixamorig:Head'\n\tTransform 'mixamorig:LeftUpLeg'\n\tand more ...\n\tFrom
-        animation clip 'mixamo.com'"
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 2995817699d51ae459a70be8d7db4656,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
         type: 3}
@@ -957,7 +956,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
         type: 3}
@@ -1003,6 +1002,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 2995817699d51ae459a70be8d7db4656,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 2995817699d51ae459a70be8d7db4656,
         type: 3}
@@ -1084,7 +1098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: 3.2576249, z: -3.8469288}
+  m_FollowOffset: {x: 0, y: 2.3861449, z: -4.1724286}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1190,7 +1204,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.8925081, y: 1}
+    m_SensorSize: {x: 1.1156352, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1206,7 +1220,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359553511}
-  m_LocalRotation: {x: 0.28962946, y: 0.000000016471326, z: -0.00000000498421, w: 0.9571389}
+  m_LocalRotation: {x: 0.20088783, y: -0.000000018845148, z: 0.0000000038645425, w: 0.97961426}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1529,7 +1543,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13832
+  m_Name: pb_Mesh14428
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1733,7 +1747,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 0
-    m_SensorSize: {x: 1.8925081, y: 1}
+    m_SensorSize: {x: 1.1156352, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1747,7 +1761,7 @@ MonoBehaviour:
     m_MaxSpeed: 2
     m_AccelTime: 0.2
     m_DecelTime: 0.1
-    m_InputAxisName: JoystickLeftYAxis
+    m_InputAxisName: Mouse Y
     m_InputAxisValue: 0
     m_InvertInput: 0
     m_MinValue: 0
@@ -1771,7 +1785,7 @@ MonoBehaviour:
     m_MaxSpeed: 300
     m_AccelTime: 0.1
     m_DecelTime: 0.1
-    m_InputAxisName: JoystickLeftXAxis
+    m_InputAxisName: Mouse X
     m_InputAxisValue: 0
     m_InvertInput: 1
     m_MinValue: -180
@@ -1796,12 +1810,12 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 0.238
   m_Orbits:
-  - m_Height: 4
-    m_Radius: 2
+  - m_Height: 2.5
+    m_Radius: 4
   - m_Height: 2
-    m_Radius: 5
-  - m_Height: 0
-    m_Radius: 2
+    m_Radius: 4.2
+  - m_Height: 1
+    m_Radius: 4
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 628385905}
@@ -1815,7 +1829,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2042092043}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.699, y: 8.257625, z: -14.339464}
+  m_LocalPosition: {x: 7.699, y: 5.3861446, z: -14.664965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 628385906}

@@ -64,6 +64,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Camera\CameraDirection.cs" />
+    <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
@@ -103,6 +105,12 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -280,6 +288,9 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="clipper_library">
+      <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/PackageCache/com.unity.cinemachine@2.7.3/Runtime/ThirdParty/clipper_library.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

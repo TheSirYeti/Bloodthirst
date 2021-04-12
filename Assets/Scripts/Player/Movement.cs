@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public      string horizontalAxis = "Horizontal";
-    public      string verticalAxis = "Vertical";
-    public      string jumpButtonName = "Jump";
-    public      float movementSpeed = 2f;
-    public      float jumpForce = 10f;
-    public      ForceMode jumpForceMode = ForceMode.Impulse;
-    public      Rigidbody rigidBody;
-    private     Vector3 inputVector;
+    public      string              horizontalAxis              = "Horizontal";
+    public      string              verticalAxis                = "Vertical";
+    public      string              jumpButtonName              = "Jump";
+    public      float               movementSpeed               = 2f;
+    public      float               jumpForce                   = 10f;
+    public      ForceMode           jumpForceMode               = ForceMode.Impulse;
+    public      Rigidbody           rigidBody;
+    public      int                 jumpCount;
+    public      int                 maxJumpCount                = 2;
+    public      Animator            animator;
+    public      string              runningSpeedParameterName   = "runningSpeed";
+    public      Transform           cameraDirection;
+    private     Vector3             inputVector;
 
     void Update()
     {
@@ -27,9 +32,9 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //myRigidBody.MoveRotation(transform.rotation * Quaternion.Euler(airplaneRotationSpeed * airplaneRotationInput * Time.deltaTime, rotationSpeed * rotationInput * Time.deltaTime, 0));
         transform.LookAt(transform.position + inputVector);
 
         rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
+        animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
     }
 }

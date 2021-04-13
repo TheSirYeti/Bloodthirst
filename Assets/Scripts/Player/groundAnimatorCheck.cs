@@ -5,7 +5,7 @@ using UnityEngine;
 public class groundAnimatorCheck : MonoBehaviour
 {
     public Animator animator;
-    public string boolParameterName = "IsOnGround";
+    public string boolParameterName = "isOnGround";
     private int currentColliderStatus;
 
     private void OnTriggerEnter(Collider other)

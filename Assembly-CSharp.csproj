@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraDirection.cs" />
+    <Compile Include="Assets\Scripts\Camera\TeleportToPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\BasicAttacks.cs" />
     <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
@@ -293,6 +294,12 @@
     </Reference>
     <Reference Include="clipper_library">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/PackageCache/com.unity.cinemachine@2.7.3/Runtime/ThirdParty/clipper_library.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+      <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions.Common">
+      <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>T:/Users/JP/UnityEditor/2019.2.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

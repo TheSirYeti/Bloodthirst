@@ -6,16 +6,21 @@ namespace Player.Behaviour
 {
     public class BasicAttacks : MonoBehaviour
     {
-        public float attackCooldown = 0.1f;
-        public float timeToNextAttack = -1f;
-        public float timeToCombo = 0.4f;
-        public float comboTimeRemaining = -1f;
-        public int attackTurn = 0;
-        public int maxCombo = 3;
-        public Animator animator;
-        public string attackButtonParameterName = "Fire1";
-        public string attackAnimatorBoolParameterName = "isAttacking";
-        public string attackTurnAnimatorParameterName = "attackTurn";
+        public      float           attackCooldown                      = 0.1f;
+        public      float           timeToNextAttack                    = -1f;
+        public      float           timeToCombo                         = 0.4f;
+        public      float           comboTimeRemaining                  = -1f;
+        public      int             attackTurn                          = 0;
+        public      int             maxCombo                            = 3;
+        public      Animator        animator;
+        public      string          attackButtonParameterName           = "Fire1";
+        public      string          attackAnimatorBoolParameterName     = "isAttacking";
+        public      string          attackAnimatorTriggerParameterName  = "attack";
+        public      string          attackTurnAnimatorParameterName     = "attackTurn";
+        public      Rigidbody       rigidBody;
+        public      float           attackForce                         = 10f;
+        public      GameObject      player;
+        public      ForceMode       attackForceMode                     = ForceMode.Impulse;
 
         public void attack()
         {        
@@ -24,23 +29,34 @@ namespace Player.Behaviour
             //else animator.SetBool(attackAnimatorBoolParameterName, false);
         }
 
+        public void airAttack()
+        {
+            animator.SetTrigger(attackAnimatorTriggerParameterName);
+            rigidBody.velocity = new Vector3(0f, 0f, 0f);
+            rigidBody.AddForce((player.transform.forward + (player.transform.up / 2)) * attackForce, attackForceMode);
+        }
+
         void attackAnimation()
         {
             animator.SetBool(attackAnimatorBoolParameterName, true);
+            animator.SetTrigger(attackAnimatorTriggerParameterName);
             animator.SetInteger(attackTurnAnimatorParameterName, attackTurn);
             switch (attackTurn)
             {
                 case 0:
+                    moveAttack();
                     timeToNextAttack = attackCooldown + Time.time;
                     comboTimeRemaining = timeToCombo + Time.time;
                     attackTurn++;
                     break;
                 case 1:
+                    moveAttack();
                     timeToNextAttack = attackCooldown + Time.time;
                     comboTimeRemaining = timeToCombo + Time.time;
                     attackTurn++;
                     break;
                 case 2:
+                    moveAttack();
                     timeToNextAttack = attackCooldown + Time.time;
                     comboTimeRemaining = timeToCombo + Time.time;
                     attackTurn = 0;
@@ -62,5 +78,11 @@ namespace Player.Behaviour
         {
             return animator.GetBool(attackAnimatorBoolParameterName);
         }
+
+        void moveAttack()
+        {
+            rigidBody.velocity = new Vector3(0f, 0f, 0f);
+            rigidBody.AddForce(player.transform.forward * attackForce, attackForceMode);
+        }
     }
-}
+} 

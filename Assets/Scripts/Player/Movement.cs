@@ -47,6 +47,7 @@ namespace Player.Behaviour
         {
             if (animator.GetBool("isOnGround") || jumpCount < maxJumpCount - 1)
             {
+                rigidBody.velocity = new Vector3(0f, 0f, 0f);
                 rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
                 jumpCount++;
             }

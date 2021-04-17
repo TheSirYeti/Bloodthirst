@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
         basicAttacks.checkCombo();
         if (Input.GetButtonDown(attackButtonName))
         {
-            basicAttacks.attack();
+            if (movement.groundCheck.getStatus() > 0) basicAttacks.attack();
+            else basicAttacks.airAttack();
         }
     }
 

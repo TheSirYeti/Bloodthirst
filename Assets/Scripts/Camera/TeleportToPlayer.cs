@@ -10,6 +10,6 @@ public class TeleportToPlayer : MonoBehaviour
     
     void FixedUpdate()
     {
-        this.transform.position = Vector3.Lerp(this.transform.position, target.position, smoothingTime);
+        this.transform.position = target.position;
     }
 }

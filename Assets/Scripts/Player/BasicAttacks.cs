@@ -7,7 +7,9 @@ namespace Player.Behaviour
     public class BasicAttacks : MonoBehaviour
     {
         public      float           attackCooldown                      = 0.1f;
+        public      float           airAttackCooldown                   = 5f;
         public      float           timeToNextAttack                    = -1f;
+        public      float           timeToNextAirAttack                 = -1f;
         public      float           timeToCombo                         = 0.4f;
         public      float           comboTimeRemaining                  = -1f;
         public      int             attackTurn                          = 0;
@@ -18,7 +20,7 @@ namespace Player.Behaviour
         public      string          attackAnimatorTriggerParameterName  = "attack";
         public      string          attackTurnAnimatorParameterName     = "attackTurn";
         public      Rigidbody       rigidBody;
-        public      float           attackForce                         = 10f;
+        public      float           attackForce                         = 1f;
         public      GameObject      player;
         public      ForceMode       attackForceMode                     = ForceMode.Impulse;
 
@@ -31,9 +33,12 @@ namespace Player.Behaviour
 
         public void airAttack()
         {
-            animator.SetTrigger(attackAnimatorTriggerParameterName);
-            rigidBody.velocity = new Vector3(0f, 0f, 0f);
-            rigidBody.AddForce((player.transform.forward + (player.transform.up / 2)) * attackForce, attackForceMode);
+                timeToNextAttack = airAttackCooldown + Time.time;
+                comboTimeRemaining = timeToCombo + Time.time;
+                animator.SetTrigger(attackAnimatorTriggerParameterName);
+                rigidBody.velocity = Vector3.zero;
+                rigidBody.angularVelocity = Vector3.zero;
+                rigidBody.AddForce((player.transform.forward + player.transform.up) * attackForce, attackForceMode);
         }
 
         void attackAnimation()
@@ -82,7 +87,16 @@ namespace Player.Behaviour
         void moveAttack()
         {
             rigidBody.velocity = new Vector3(0f, 0f, 0f);
-            rigidBody.AddForce(player.transform.forward * attackForce, attackForceMode);
+            //rigidBody.AddForce(player.transform.forward * attackForce, attackForceMode);
+        }
+
+        public bool checkAirAttackCooldown()
+        {
+            if (timeToNextAttack < Time.time)
+            {
+                return true;
+            }
+            else return false;
         }
     }
 } 

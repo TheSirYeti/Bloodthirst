@@ -64,12 +64,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csAnimationSpin.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csMouseOrbit.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csParticleMove.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csShowAllEffect.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectChanger.cs" />
+    <Compile Include="Assets\External Assets\52SpecialEffectPack\EffectEditor\ShurikenEffectEditor\csShurikenEffectEditor.cs" />
+    <Compile Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\DemoToonVFX.cs" />
+    <Compile Include="Assets\Prefabs\Enemies\EnemyMovement.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraDirection.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraTrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\TeleportToPlayer.cs" />
     <Compile Include="Assets\Scripts\Player\BasicAttacks.cs" />
     <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\swordEffects.cs" />
+    <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\FadeSlash.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Distortion.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Prefabs\Readme.txt" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Blend_CenterGlow.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\SlashOld.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Add_CenterGlow.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\DissolveNoise.shader" />
+    <None Include="Assets\External Assets\New Text Document.txt" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Scene files\Readme.txt" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Readme.txt" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash2.shader" />
+    <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Readme.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

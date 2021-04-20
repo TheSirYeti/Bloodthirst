@@ -22,7 +22,10 @@ namespace Player.Behaviour
         public      groundAnimatorCheck     groundCheck;
         public      BasicAttacks            basicAttacks;
         private     Vector3                 inputVector                 = Vector3.zero;
-        private     float                   originalMovementSpeedValue; 
+        private     float                   originalMovementSpeedValue;
+
+        private float floatingTime = 0.75f;
+        private float cooldown;
 
 
         private void Start()
@@ -30,30 +33,41 @@ namespace Player.Behaviour
             originalMovementSpeedValue = movementSpeed;
         }
 
+        private void FixedUpdate()
+        {
+            if(cooldown < Time.time)
+            {
+                rigidBody.useGravity = true;
+            }
+        }
+
         public void Move()
         {
-            inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
+            inputVector.z = Input.GetAxis(verticalAxis); 
+            inputVector.x = Input.GetAxis(horizontalAxis);
             inputVector.y = 0f;
 
             transform.LookAt(transform.position + inputVector);
-            if (!basicAttacks.isAttacking())
-            {
+
                 rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
                 animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
-            }
+            
         }
 
         public void Jump()
         {
-            if (animator.GetBool("isOnGround") || jumpCount < maxJumpCount - 1)
+            if (!basicAttacks.isAttacking())
             {
-                rigidBody.velocity = new Vector3(0f, 0f, 0f);
-                rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
-                jumpCount++;
-            }
+                if (animator.GetBool("isOnGround") || jumpCount < maxJumpCount - 1)
+                {
+                    rigidBody.velocity = new Vector3(0f, 0f, 0f);
+                    rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
+                    jumpCount++;
+                }
 
-            if (groundCheck.getStatus() > 0)
-                jumpCount = 0;
+                if (groundCheck.getStatus() > 0)
+                    jumpCount = 0;
+            }
         }
 
         public void restrictMovement()
@@ -63,6 +77,12 @@ namespace Player.Behaviour
                 movementSpeed = 0f;
             }
             else movementSpeed = originalMovementSpeedValue;
+        }
+
+        public void toggleFloat()
+        {
+            rigidBody.useGravity = false;
+            cooldown = floatingTime + Time.time;
         }
     }
 }

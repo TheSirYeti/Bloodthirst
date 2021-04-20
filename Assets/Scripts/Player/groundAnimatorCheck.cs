@@ -29,6 +29,7 @@ namespace Player.Animations
             if (currentColliderStatus < 1)
             {
                 animator.SetBool(groundParameterName, false);
+                animator.SetBool(landingParameterName, false);
             }
         }
 
@@ -36,7 +37,7 @@ namespace Player.Animations
         {
             if (resetLandingAnimation <= Time.time)
             {
-                animator.SetBool(landingParameterName, false);
+                
                 animator.SetBool(groundParameterName, true);
             }
         }

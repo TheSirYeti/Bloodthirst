@@ -9,7 +9,7 @@ public class CameraTrigger : MonoBehaviour
     private CinemachineVirtualCamera originalCameraSettings;
     public Vector3 newPosition;
 
-    public GameObject enabledCamera;
+    public GameObject enabledCamera = null;
     public GameObject transitionCamera;
 
     private void Start()
@@ -19,7 +19,10 @@ public class CameraTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        enabledCamera.SetActive(false);
+        if(enabledCamera != null)
+        {
+            enabledCamera.SetActive(false);
+        }
         transitionCamera.SetActive(true);
     }
 }

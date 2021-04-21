@@ -23,50 +23,31 @@ namespace Player.Behaviour
         public      float           attackForce                         = 1f;
         public      GameObject      player;
         public      ForceMode       attackForceMode                     = ForceMode.Impulse;
+        public      Collider        attackCollider;
+        private     float           colliderCooldown;
+        private     float           colliderTime                        = 0.25f;
+
 
         public void attack()
-        {        
+        {
             if (timeToNextAttack < Time.time)
-                attackAnimation();
-            //else animator.SetBool(attackAnimatorBoolParameterName, false);
+            {
+                animator.SetTrigger(attackAnimatorTriggerParameterName);
+                attackCollider.enabled = true;
+                colliderCooldown = colliderTime + Time.time;
+            }
         }
 
         public void airAttack()
         {
-                timeToNextAttack = airAttackCooldown + Time.time;
-                comboTimeRemaining = timeToCombo + Time.time;
-                animator.SetTrigger(attackAnimatorTriggerParameterName);
-                rigidBody.velocity = Vector3.zero;
-                rigidBody.angularVelocity = Vector3.zero;
-                rigidBody.AddForce((player.transform.forward + player.transform.up) * attackForce, attackForceMode);
-        }
-
-        void attackAnimation()
-        {
-            animator.SetBool(attackAnimatorBoolParameterName, true);
+            attackCollider.enabled = true;
+            colliderCooldown = colliderTime + Time.time;
+            timeToNextAttack = airAttackCooldown + Time.time;
+            comboTimeRemaining = timeToCombo + Time.time;
             animator.SetTrigger(attackAnimatorTriggerParameterName);
-            animator.SetInteger(attackTurnAnimatorParameterName, attackTurn);
-            switch (attackTurn)
-            {
-                case 0:
-                    moveAttack();
-                    timeToNextAttack = attackCooldown + Time.time;
-                    comboTimeRemaining = timeToCombo + Time.time;
-                    attackTurn++;
-                    break;
-                case 1:
-                    moveAttack();
-                    timeToNextAttack = attackCooldown + Time.time;
-                    comboTimeRemaining = timeToCombo + Time.time;
-                    attackTurn++;
-                    break;
-                case 2:
-                    moveAttack();
-                    timeToNextAttack = attackCooldown + Time.time;
-                    comboTimeRemaining = timeToCombo + Time.time;
-                    attackTurn = 0;
-                    break;
-            }
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
+            rigidBody.AddForce((player.transform.forward + player.transform.up) * attackForce, attackForceMode);
         }
 
         public void checkCombo()
@@ -84,12 +65,6 @@ namespace Player.Behaviour
             return animator.GetBool(attackAnimatorBoolParameterName);
         }
 
-        void moveAttack()
-        {
-            rigidBody.velocity = new Vector3(0f, 0f, 0f);
-            //rigidBody.AddForce(player.transform.forward * attackForce, attackForceMode);
-        }
-
         public bool checkAirAttackCooldown()
         {
             if (timeToNextAttack < Time.time)
@@ -97,6 +72,14 @@ namespace Player.Behaviour
                 return true;
             }
             else return false;
+        }
+
+        private void FixedUpdate()
+        {
+            if(colliderCooldown < Time.time)
+            {
+                attackCollider.enabled = false;
+            }
         }
     }
 } 

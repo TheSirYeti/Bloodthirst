@@ -15,31 +15,41 @@ namespace Player.Animations
 
         private void OnTriggerEnter(Collider other)
         {
-            currentColliderStatus++;
-            if (currentColliderStatus > 0)
+            if (other.gameObject.tag == "Floor")
             {
-                animator.SetBool(landingParameterName, true);
-                resetLandingAnimation = Time.time + landingAnimationCooldown;
+                currentColliderStatus++;
+                if (currentColliderStatus > 0)
+                {
+                    animator.SetBool(landingParameterName, true);
+                    resetLandingAnimation = Time.time + landingAnimationCooldown;
+                }
             }
         }
 
         private void OnTriggerExit(Collider other)
         {
-            currentColliderStatus--;
-            if (currentColliderStatus < 1)
+            if(other.gameObject.tag == "Floor")
             {
-                animator.SetBool(groundParameterName, false);
-                animator.SetBool(landingParameterName, false);
+                currentColliderStatus--;
+                if (currentColliderStatus < 1)
+                {
+                    animator.SetBool(groundParameterName, false);
+                    animator.SetBool(landingParameterName, false);
+                }
             }
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (resetLandingAnimation <= Time.time)
+            if (other.gameObject.tag == "Floor")
             {
-                
-                animator.SetBool(groundParameterName, true);
+                if (resetLandingAnimation <= Time.time)
+                {
+
+                    animator.SetBool(groundParameterName, true);
+                }
             }
+
         }
         public int getStatus()
         {

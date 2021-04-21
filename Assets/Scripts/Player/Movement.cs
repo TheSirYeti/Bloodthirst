@@ -43,8 +43,7 @@ namespace Player.Behaviour
 
         public void Move()
         {
-            inputVector.z = Input.GetAxis(verticalAxis); 
-            inputVector.x = Input.GetAxis(horizontalAxis);
+            inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
             inputVector.y = 0f;
 
             transform.LookAt(transform.position + inputVector);

@@ -44,5 +44,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         movement.Move();
+
     }
 }

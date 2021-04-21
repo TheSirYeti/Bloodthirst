@@ -76,6 +76,10 @@
     <Compile Include="Assets\Scripts\Camera\CameraDirection.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraTrigger.cs" />
     <Compile Include="Assets\Scripts\Camera\TeleportToPlayer.cs" />
+    <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\resetLevel.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\spawnEnemies.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\Teleport.cs" />
     <Compile Include="Assets\Scripts\Player\BasicAttacks.cs" />
     <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />

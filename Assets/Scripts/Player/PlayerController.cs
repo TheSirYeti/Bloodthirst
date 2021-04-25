@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     public string jumpButtonName = "Jump";
     public string attackButtonName = "Fire1";
 
-    private bool airAttackCooldown;
-
     private void Update()
     {
         //movement.restrictMovement();
@@ -26,19 +24,20 @@ public class PlayerController : MonoBehaviour
         {
             movement.Jump();
         }
-        basicAttacks.checkCombo();
-        if (Input.GetButtonDown(attackButtonName))
+
+        if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) { 
                 basicAttacks.attack(); 
-                playerVFX.enableVFX(0); 
+                playerVFX.enableGroundVFX(basicAttacks.getCurrentAttackTurn() - 1); 
             }
-            else if(basicAttacks.checkAirAttackCooldown()){ 
+            else { 
                 basicAttacks.airAttack(); 
                 movement.toggleFloat(); 
-                playerVFX.enableVFX(1); 
+                playerVFX.enableAirVFX(0); 
             }
         }
+        basicAttacks.checkCombo();
     }
 
     private void FixedUpdate()

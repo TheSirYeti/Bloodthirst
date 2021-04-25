@@ -6,7 +6,7 @@ namespace Player.Behaviour
 {
     public class BasicAttacks : MonoBehaviour
     {
-        public      float           attackCooldown                      = 0.1f;
+        public      float           attackCooldown                      = 0.3f;
         public      float           airAttackCooldown                   = 5f;
         public      float           timeToNextAttack                    = -1f;
         public      float           timeToNextAirAttack                 = -1f;
@@ -33,14 +33,13 @@ namespace Player.Behaviour
             if (timeToNextAttack < Time.time)
             {
                 animator.SetTrigger(attackAnimatorTriggerParameterName);
-                attackCollider.enabled = true;
-                colliderCooldown = colliderTime + Time.time;
+                timeToNextAttack = attackCooldown + Time.time;
+                attackTurn++;
             }
         }
 
         public void airAttack()
         {
-            attackCollider.enabled = true;
             colliderCooldown = colliderTime + Time.time;
             timeToNextAttack = airAttackCooldown + Time.time;
             comboTimeRemaining = timeToCombo + Time.time;
@@ -50,22 +49,12 @@ namespace Player.Behaviour
             rigidBody.AddForce((player.transform.forward + player.transform.up) * attackForce, attackForceMode);
         }
 
-        public void checkCombo()
-        {
-            if (comboTimeRemaining < Time.time)
-            {
-                animator.SetBool(attackAnimatorBoolParameterName, false);
-                attackTurn = 0;
-                animator.SetInteger(attackTurnAnimatorParameterName, attackTurn);
-            }
-        }
-
         public bool isAttacking()
         {
             return animator.GetBool(attackAnimatorBoolParameterName);
         }
 
-        public bool checkAirAttackCooldown()
+        public bool checkAttackCooldown()
         {
             if (timeToNextAttack < Time.time)
             {
@@ -74,11 +63,18 @@ namespace Player.Behaviour
             else return false;
         }
 
-        private void FixedUpdate()
+        public int getCurrentAttackTurn()
         {
-            if(colliderCooldown < Time.time)
+            return attackTurn;
+        }
+
+        public void checkCombo()
+        {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsTag("NoAttack") || attackTurn >= 3)
             {
-                attackCollider.enabled = false;
+                attackTurn = 0;
+                timeToNextAttack = Time.time + (attackCooldown * 2f);
+                //animator.SetTrigger("attack");
             }
         }
     }

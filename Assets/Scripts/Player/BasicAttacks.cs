@@ -26,16 +26,19 @@ namespace Player.Behaviour
         public      Collider        attackCollider;
         private     float           colliderCooldown;
         private     float           colliderTime                        = 0.25f;
+        private     bool            colliderBool;
+        [SerializeField]private     float           attackTurnCooldown;
+        private     float           attackTurnTime                      = 0.3f;
 
 
         public void attack()
         {
-            if (timeToNextAttack < Time.time)
-            {
-                animator.SetTrigger(attackAnimatorTriggerParameterName);
-                timeToNextAttack = attackCooldown + Time.time;
-                attackTurn++;
-            }
+            
+            //attackTurn++;
+            animator.SetTrigger(attackAnimatorTriggerParameterName);
+            timeToNextAttack = attackCooldown + Time.time;
+            StartCoroutine(enableCollider());
+            checkCombo();
         }
 
         public void airAttack()
@@ -58,9 +61,17 @@ namespace Player.Behaviour
         {
             if (timeToNextAttack < Time.time)
             {
-                return true;
+                return true;   
             }
             else return false;
+        }
+
+        public void resetAttackTurn()
+        {
+            if((attackTurnCooldown < Time.time && attackTurn != 0) || attackTurn >= 3)
+            {
+                attackTurn = 0;
+            }
         }
 
         public int getCurrentAttackTurn()
@@ -70,12 +81,28 @@ namespace Player.Behaviour
 
         public void checkCombo()
         {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsTag("NoAttack") || attackTurn >= 3)
+            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash1"))
             {
-                attackTurn = 0;
-                timeToNextAttack = Time.time + (attackCooldown * 2f);
-                //animator.SetTrigger("attack");
+                attackTurn = 1;
+                attackTurnCooldown = attackTurnTime + Time.time;
             }
+            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
+            {
+                attackTurn = 2;
+                attackTurnCooldown = attackTurnTime + Time.time;
+            }
+            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
+            {
+                attackTurn = 3;
+                attackTurnCooldown = attackTurnTime + Time.time;
+            }
+        }
+
+        IEnumerator enableCollider()
+        {
+            attackCollider.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            attackCollider.enabled = false;
         }
     }
 } 

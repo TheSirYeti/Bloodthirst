@@ -5,17 +5,13 @@ using Cinemachine;
 
 public class CameraTrigger : MonoBehaviour
 {
-    public CinemachineVirtualCamera cameraSettings;
-    private CinemachineVirtualCamera originalCameraSettings;
     public Vector3 newPosition;
 
     public GameObject enabledCamera = null;
     public GameObject transitionCamera;
 
-    private void Start()
-    {
-        originalCameraSettings = cameraSettings;
-    }
+    public bool changeDimension;
+    public PlayerController player;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,5 +20,7 @@ public class CameraTrigger : MonoBehaviour
             enabledCamera.SetActive(false);
         }
         transitionCamera.SetActive(true);
+
+        player.movement.TwoDimensionMovement = changeDimension;
     }
 }

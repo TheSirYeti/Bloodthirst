@@ -19,30 +19,29 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        //movement.restrictMovement();
         if (Input.GetButtonDown(jumpButtonName))
         {
             movement.Jump();
         }
-
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) { 
-                basicAttacks.attack(); 
-                playerVFX.enableGroundVFX(basicAttacks.getCurrentAttackTurn() - 1); 
+                basicAttacks.attack();
+                //basicAttacks.checkCombo();
+                playerVFX.enableGroundVFX(basicAttacks.getCurrentAttackTurn());
+                //movement.restrictMovement();
             }
             else { 
                 basicAttacks.airAttack(); 
-                movement.toggleFloat(); 
+                movement.toggleFloat();
                 playerVFX.enableAirVFX(0); 
             }
         }
-        basicAttacks.checkCombo();
+        basicAttacks.resetAttackTurn();
     }
 
     private void FixedUpdate()
     {
         movement.Move();
-
     }
 }

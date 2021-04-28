@@ -23,6 +23,7 @@ namespace Player.Behaviour
         public      BasicAttacks            basicAttacks;
         private     Vector3                 inputVector                 = Vector3.zero;
         private     float                   originalMovementSpeedValue;
+        public      bool                    TwoDimensionMovement;
 
         private float floatingTime = 0.75f;
         private float cooldown;
@@ -30,6 +31,7 @@ namespace Player.Behaviour
 
         private void Start()
         {
+            TwoDimensionMovement = false;
             originalMovementSpeedValue = movementSpeed;
         }
 
@@ -43,7 +45,17 @@ namespace Player.Behaviour
 
         public void Move()
         {
-            inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
+            float xValue;
+            if (TwoDimensionMovement)
+            {
+                xValue = 0;
+                if(IsBetween(transform.rotation.y, 0f, 90f))
+                {
+                    transform.rotation = Quaternion.Euler(transform.rotation.x, 0, transform.rotation.z);
+                } else transform.rotation = Quaternion.Euler(transform.rotation.x, 180, transform.rotation.z);
+            }
+            else xValue = Input.GetAxis(verticalAxis);
+            inputVector = cameraDirection.forward * xValue + cameraDirection.right * Input.GetAxis(horizontalAxis);
             inputVector.y = 0f;
 
             transform.LookAt(transform.position + inputVector);
@@ -82,6 +94,11 @@ namespace Player.Behaviour
         {
             rigidBody.useGravity = false;
             cooldown = floatingTime + Time.time;
+        }
+
+        public bool IsBetween(float value, float bound1, float bound2)
+        {
+            return (value >= Mathf.Min(bound1, bound2) && value <= Mathf.Max(bound1, bound2));
         }
     }
 }

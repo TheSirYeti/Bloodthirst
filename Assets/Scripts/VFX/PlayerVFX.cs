@@ -34,6 +34,10 @@ namespace VFX.Player
                 {
                     particleSystem.Stop();
                 }
+                foreach (ParticleSystem particleSystem in airAttackVFX)
+                {
+                    particleSystem.Stop();
+                }
             }
         }
 

@@ -49,15 +49,9 @@ public class PlayerController : MonoBehaviour
             }
         }
         basicAttacks.resetAttackTurn();
-    }
-
-    private void FixedUpdate()
-    {
-        movement.Move();
-
         if (Input.GetButtonDown(lockButtonName))
         {
-            if(lockSystem.isLocked == false)
+            if (lockSystem.isLocked == false)
             {
                 lockSystem.isLocked = true;
                 lockSystem.index = 0;
@@ -67,11 +61,12 @@ public class PlayerController : MonoBehaviour
                     crosshair.setCrosshairPosition(lockSystem.currentEnemy().GetComponent<Enemy>().lookAtPoint.transform);
                     center.position = centerPosition;
                     vcamera.m_LookAt = center;
-                } else lockSystem.isLocked = false;
+                }
+                else lockSystem.isLocked = false;
             }
             else
             {
-                vcamera.m_LookAt = transform; 
+                vcamera.m_LookAt = transform;
                 lockSystem.isLocked = false;
             }
         }
@@ -81,19 +76,24 @@ public class PlayerController : MonoBehaviour
             crosshair.setCrosshairPosition(lockSystem.currentEnemy().GetComponent<Enemy>().lookAtPoint.transform);
         }
 
-        if(lockSystem.isLocked == true && checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 2f)
+        if (lockSystem.isLocked == true && checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 2f)
         {
             Vector3 centerPosition = (lockSystem.currentEnemy().transform.position + transform.position) / 2;
             center.position = centerPosition;
             vcamera.m_LookAt = center;
         }
 
-        if(lockSystem.isLocked == true && (checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) <= 2f ||
+        if (lockSystem.isLocked == true && (checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) <= 2f ||
             checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 25f))
         {
             vcamera.m_LookAt = transform;
             lockSystem.isLocked = false;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        movement.Move();
     }
 
     float checkMagnitude(Vector3 value1, Vector3 value2)

@@ -15,6 +15,10 @@ public class Crosshair : MonoBehaviour
         {
             transform.position = Camera.main.WorldToScreenPoint(currentTarget.position);
         }
+    }
+
+    private void FixedUpdate()
+    {
         transform.Rotate(0f, 0f, 1f);
     }
 

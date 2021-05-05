@@ -28,6 +28,7 @@ namespace Player.Behaviour
         private float floatingTime = 0.75f;
         private float cooldown;
 
+        private bool isAttacking;
 
         private void Start()
         {
@@ -40,6 +41,12 @@ namespace Player.Behaviour
             if(cooldown < Time.time)
             {
                 rigidBody.useGravity = true;
+            }
+
+
+            if(isAttacking == false)
+            {
+                movementSpeed = originalMovementSpeedValue;
             }
         }
 
@@ -58,10 +65,22 @@ namespace Player.Behaviour
             inputVector = cameraDirection.forward * xValue + cameraDirection.right * Input.GetAxis(horizontalAxis);
             inputVector.y = 0f;
 
-            transform.LookAt(transform.position + inputVector);
+            if (animator.GetBool("isOnGround"))
+            {
+                Vector3 bottom = transform.position - new Vector3(0, transform.position.y / 2, 0);
+                RaycastHit hit;
+                if (Physics.Raycast(bottom, Vector3.down, out hit, 2f))
+                {
+                    rigidBody.MovePosition(new Vector3(0, -hit.distance, 0));
+                }
+            }
 
-                rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
-                animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
+            if (!isAttacking)
+            {
+                transform.LookAt(transform.position + inputVector);
+            }
+            rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
+            animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
             
         }
 
@@ -85,7 +104,7 @@ namespace Player.Behaviour
         {
             if (groundCheck.getLandingStatus())
             {
-                movementSpeed = 0f;
+                StartCoroutine(stopMovement());
             }
             else movementSpeed = originalMovementSpeedValue;
         }
@@ -99,6 +118,21 @@ namespace Player.Behaviour
         public bool IsBetween(float value, float bound1, float bound2)
         {
             return (value >= Mathf.Min(bound1, bound2) && value <= Mathf.Max(bound1, bound2));
+        }
+
+        IEnumerator stopMovement()
+        {
+            movementSpeed = 0f;
+            isAttacking = true;
+            yield return new WaitForSeconds(0.75f);
+            isAttacking = false;
+        }
+
+        public IEnumerator stopRotation()
+        {
+            isAttacking = true;
+            yield return new WaitForSeconds(0.75f);
+            isAttacking = false;
         }
     }
 }

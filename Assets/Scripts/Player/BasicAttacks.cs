@@ -30,7 +30,6 @@ namespace Player.Behaviour
         [SerializeField]private     float           attackTurnCooldown;
         private     float           attackTurnTime                      = 0.3f;
 
-
         public void attack()
         {
             
@@ -85,16 +84,23 @@ namespace Player.Behaviour
             {
                 attackTurn = 1;
                 attackTurnCooldown = attackTurnTime + Time.time;
+                SoundManager.instance.Play(SoundID.SWORD_SLASH2, false, 0.8f, 1f);
             }
-            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
+            else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
             {
                 attackTurn = 2;
                 attackTurnCooldown = attackTurnTime + Time.time;
+                SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
             }
-            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
+            else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
             {
                 attackTurn = 3;
                 attackTurnCooldown = attackTurnTime + Time.time;
+                SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
+            }
+            else
+            {
+                SoundManager.instance.Play(SoundID.SWORD_SLASH1, false, 0.8f, 1f);
             }
         }
 
@@ -104,5 +110,7 @@ namespace Player.Behaviour
             yield return new WaitForSeconds(0.5f);
             attackCollider.enabled = false;
         }
+
+
     }
 } 

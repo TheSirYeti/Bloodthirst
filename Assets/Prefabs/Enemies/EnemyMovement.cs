@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement : Enemy
 {
-    public  float speedEnemy;
-    public float speedRotationLerp;
+    public  float speedRotationLerp;
     public  float lineOfSite;
     public  float aboutPlayer;
     private float wanderRadius = 3f;
@@ -13,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
 
     Vector3 targetPosition;
     Vector3 towardsTarget;
+
 
     [SerializeField] private Transform Player;
 
@@ -28,13 +28,18 @@ public class EnemyMovement : MonoBehaviour
         if (distancefromplayer > lineOfSite && distancefromplayer > aboutPlayer)
         {
             Patrolling();
-            speedEnemy = 1.3f;
+            speed = 1.3f;
         }
         else
         {
             MovementEnemyAttack();
             RecalculeteTargetPosition();
-            speedEnemy = 5;
+            speed = 5;
+        }
+
+        if(hp <= 0)
+        {
+            StartCoroutine(die());
         }
     }
     ///Funciones///
@@ -59,7 +64,7 @@ public class EnemyMovement : MonoBehaviour
         //Quaternion son matrices 4x4 que se utilizan para gestionar rotaciones, la explicacion matematica es mas compleja.
         Quaternion towardsTargetRotation = Quaternion.LookRotation(towardsTarget, Vector3.up);  //Nos permite especificar un vector hacia el cual queremos mirar y otro que corresponde con el eje de rotacion queremos usar.
         transform.rotation = Quaternion.Lerp(transform.rotation, towardsTargetRotation, speedRotationLerp * Time.deltaTime);  //Funcion de interpolacion propia de quaternion "Lerp" 
-        transform.position += transform.forward * speedEnemy * Time.deltaTime;
+        transform.position += transform.forward * speed * Time.deltaTime;
 
         Debug.DrawLine(transform.position, targetPosition, Color.green);
 
@@ -75,7 +80,7 @@ public class EnemyMovement : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = Color.yellow;
 
-            transform.position = Vector3.MoveTowards(this.transform.position, Player.position, speedEnemy * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(this.transform.position, Player.position, speed * Time.deltaTime);
 
             transform.LookAt(Player.position); //Se la pasa un punto en el espacio cual produce una rotacion tal que el vector forward mire hacia el punto de targetposition;
             transform.position += transform.forward * Time.deltaTime;
@@ -83,9 +88,18 @@ public class EnemyMovement : MonoBehaviour
         else if (distancefromplayer <= aboutPlayer)
         {
             GetComponent<Renderer>().material.color = Color.red;
-
-            print("About Player");
         }
+    }
+
+    IEnumerator die()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
+    public override void takeDamage()
+    {
+
     }
 
     private void OnDrawGizmosSelected()

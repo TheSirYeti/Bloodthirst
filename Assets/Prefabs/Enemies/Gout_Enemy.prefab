@@ -107,10 +107,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74d6ac6121ae8444cb444cc21534afb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedEnemy: 1.5
+  hp: 6
+  speed: 5
+  lookAtPoint: {fileID: 6862997714882253890}
   speedRotationLerp: 4
   lineOfSite: 6
   aboutPlayer: 2
+  Player: {fileID: 0}
 --- !u!54 &6862997714712805335
 Rigidbody:
   m_ObjectHideFlags: 0

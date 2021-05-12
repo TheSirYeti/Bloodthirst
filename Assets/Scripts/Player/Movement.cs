@@ -65,25 +65,16 @@ namespace Player.Behaviour
             inputVector = cameraDirection.forward * xValue + cameraDirection.right * Input.GetAxis(horizontalAxis);
             inputVector.y = 0f;
 
-            if (animator.GetBool("isOnGround"))
-            {
-                Vector3 bottom = transform.position - new Vector3(0, transform.position.y / 2, 0);
-                RaycastHit hit;
-                if (Physics.Raycast(bottom, Vector3.down, out hit, 2f))
-                {
-                    //rigidBody.MovePosition(new Vector3(0, -hit.distance, 0));
-                }
-            }
-
             if (!isAttacking)
             {
                 transform.LookAt(transform.position + inputVector);
             }
-
             transform.position += inputVector * (movementSpeed * Time.deltaTime);
+
+
             //rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
-            
-            if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround"))
+
+            if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround") || movementSpeed == 0f)
             {
                 SoundManager.instance.Stop(SoundID.RUN);
                 runningSFXPlaying = false;

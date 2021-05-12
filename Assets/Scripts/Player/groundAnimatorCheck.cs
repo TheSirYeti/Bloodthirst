@@ -59,6 +59,7 @@ namespace Player.Animations
                 if (resetLandingAnimation <= Time.time)
                 {
                     resetLandingAnimation = Time.time + landingAnimationCooldown;
+                    animator.SetBool(landingParameterName, true);
                     animator.SetBool(groundParameterName, true);
                 }
 

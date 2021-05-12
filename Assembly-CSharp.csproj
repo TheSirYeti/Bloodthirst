@@ -82,10 +82,12 @@
     <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyLife.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\platformRotate.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\resetLevel.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\spawnEnemies.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Other\NotAmogus.cs" />
     <Compile Include="Assets\Scripts\Player\AnimatorStateBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player\BasicAttacks.cs" />
     <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />

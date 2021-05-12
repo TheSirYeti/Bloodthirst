@@ -7,28 +7,28 @@ namespace Player.Behaviour
 {
     public class Movement : MonoBehaviour
     {
-        public      string                  horizontalAxis              = "Horizontal";
-        public      string                  verticalAxis                = "Vertical";
-        public      string                  jumpButtonName              = "Jump";
-        public      float                   movementSpeed               = 2f;
-        public      float                   jumpForce                   = 10f;
-        public      ForceMode               jumpForceMode               = ForceMode.Impulse;
-        public      Rigidbody               rigidBody;
-        public      int                     jumpCount;
-        public      int                     maxJumpCount                = 1;
-        public      Animator                animator;
-        public      string                  runningSpeedParameterName   = "runningSpeed";
-        public      Transform               cameraDirection;
-        public      groundAnimatorCheck     groundCheck;
-        public      BasicAttacks            basicAttacks;
-        private     Vector3                 inputVector                 = Vector3.zero;
-        private     float                   originalMovementSpeedValue;
-        public      bool                    TwoDimensionMovement;
+        public      string                      horizontalAxis              = "Horizontal";
+        public      string                      verticalAxis                = "Vertical";
+        public      string                      jumpButtonName              = "Jump";
+        public      float                       movementSpeed               = 2f;
+        public      float                       jumpForce                   = 10f;
+        public      ForceMode                   jumpForceMode               = ForceMode.Impulse;
+        public      Rigidbody                   rigidBody;
+        public      int                         jumpCount;
+        public      int                         maxJumpCount                = 1;
+        public      Animator                    animator;
+        public      string                      runningSpeedParameterName   = "runningSpeed";
+        public      Transform                   cameraDirection;
+        public      groundAnimatorCheck         groundCheck;
+        public      BasicAttacks                basicAttacks;
+        private     Vector3                     inputVector                 = Vector3.zero;
+        private     float                       originalMovementSpeedValue;
+        public      bool                        TwoDimensionMovement;
+        public      bool                        runningSFXPlaying;
 
-        private float floatingTime = 0.75f;
-        private float cooldown;
-
-        private bool isAttacking;
+        private     float                       floatingTime = 0.75f;
+        private     float                       cooldown;
+        public      bool                        isAttacking;
 
         private void Start()
         {
@@ -71,7 +71,7 @@ namespace Player.Behaviour
                 RaycastHit hit;
                 if (Physics.Raycast(bottom, Vector3.down, out hit, 2f))
                 {
-                    rigidBody.MovePosition(new Vector3(0, -hit.distance, 0));
+                    //rigidBody.MovePosition(new Vector3(0, -hit.distance, 0));
                 }
             }
 
@@ -79,19 +79,33 @@ namespace Player.Behaviour
             {
                 transform.LookAt(transform.position + inputVector);
             }
-            rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
+
+            transform.position += inputVector * (movementSpeed * Time.deltaTime);
+            //rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
+            
+            if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround"))
+            {
+                SoundManager.instance.Stop(SoundID.RUN);
+                runningSFXPlaying = false;
+            } else if (!runningSFXPlaying && animator.GetBool("isOnGround"))
+            {
+                runningSFXPlaying = true;
+                SoundManager.instance.Play(SoundID.RUN, true, 0.3f, 1);
+            }
+
             animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
             
         }
 
         public void Jump()
         {
-            if (!basicAttacks.isAttacking())
+            if (!isAttacking)
             {
                 if (animator.GetBool("isOnGround") || jumpCount < maxJumpCount - 1)
                 {
                     rigidBody.velocity = new Vector3(0f, 0f, 0f);
                     rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
+                    SoundManager.instance.Play(SoundID.JUMP, false, 0.3f, 1);
                     jumpCount++;
                 }
 
@@ -100,11 +114,11 @@ namespace Player.Behaviour
             }
         }
 
-        public void restrictMovement()
+        public void restrictMovement(float time)
         {
             if (groundCheck.getLandingStatus())
             {
-                StartCoroutine(stopMovement());
+                StartCoroutine(stopMovement(time));
             }
             else movementSpeed = originalMovementSpeedValue;
         }
@@ -120,11 +134,11 @@ namespace Player.Behaviour
             return (value >= Mathf.Min(bound1, bound2) && value <= Mathf.Max(bound1, bound2));
         }
 
-        IEnumerator stopMovement()
+        IEnumerator stopMovement(float time)
         {
             movementSpeed = 0f;
             isAttacking = true;
-            yield return new WaitForSeconds(0.75f);
+            yield return new WaitForSeconds(time);
             isAttacking = false;
         }
 

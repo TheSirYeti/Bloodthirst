@@ -14,9 +14,9 @@ ScriptsOnlyBuild:
     - Teleport
     - TeleportToPlayer
     - VFX.Player.PlayerVFX
+    - platformRotate
     - resetLevel
     - staticEnemy
-    - swordEffects
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineCollider
@@ -30,13 +30,13 @@ ScriptsOnlyBuild:
     Unity.ProBuilder.Editor.dll:
     - UnityEditor.ProBuilder.EditorToolbar
     - UnityEditor.ProBuilder.ProBuilderEditor
-    Unity.ProBuilder.dll:
-    - UnityEngine.ProBuilder.ProBuilderMesh
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -132,8 +132,6 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11390}
     - Class: 114
-      Script: {instanceID: 11404}
-    - Class: 114
       Script: {instanceID: 11474}
     - Class: 114
       Script: {instanceID: 11668}
@@ -151,6 +149,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12478}
     - Class: 114
       Script: {instanceID: 12544}
+    - Class: 114
+      Script: {instanceID: 88488}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 135
@@ -176,7 +176,7 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
-      Hash: 047778a36bc2c5d69d4dd4ec60c3d716
+      Hash: ce5b6c5040ccc7041466985353cf6651
     assemblyName: Assembly-CSharp.dll
     namespaceName: VFX.Player
     className: PlayerVFX
@@ -596,7 +596,7 @@ ScriptsOnlyBuild:
     className: ColliderBehaviour
   - hash:
       serializedVersion: 2
-      Hash: 8bdc8871d0ebc056af682d7e63494039
+      Hash: 91dd8520c9280209b9cb59d927aa7a9a
     assemblyName: Assembly-CSharp.dll
     namespaceName: Player.Behaviour
     className: Movement
@@ -656,7 +656,7 @@ ScriptsOnlyBuild:
     className: IgnoreSnap
   - hash:
       serializedVersion: 2
-      Hash: e7917bce05b2a29c5ef2d05c4083d22a
+      Hash: e71b989985cb4209e6f2a72be2b401aa
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -680,7 +680,7 @@ ScriptsOnlyBuild:
     className: spawnEnemies
   - hash:
       serializedVersion: 2
-      Hash: 1e663622a42a695bf2e44ccfacdcb846
+      Hash: b625ab601609f4c5e4686f0a717e27ac
     assemblyName: Assembly-CSharp.dll
     namespaceName: Player.Behaviour
     className: BasicAttacks
@@ -1094,7 +1094,7 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
-      Hash: 585cf98b06a3a6425ebdf7936bc3aa7b
+      Hash: eb7d44ebf2f2b33ca6a90c31ff1f55fe
     assemblyName: Assembly-CSharp.dll
     namespaceName: Player.Animations
     className: groundAnimatorCheck
@@ -1110,8 +1110,19 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: platformRotate
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: NotAmogus
   platform: 5
   scenePathNames:
   - Assets/Scenes/DebugLevel.unity
-  playerPath: "T:/Users/JP/Documents/3C/Dise\xF1o y Produccion/Bloodthirst - Build
-    Unity/Bloodthirst.exe"
+  playerPath: T:/Users/JP/Documents/GitHub/Bloodthirst-BUILD-/Bloodthirst.exe

@@ -9,6 +9,8 @@ public class CameraLock : MonoBehaviour
     public int index = 0;
     public bool isLocked = false;
 
+    private float toggleTime;
+
     public List<GameObject> enemiesInRange = new List<GameObject>();
 
     private void Update()
@@ -45,17 +47,36 @@ public class CameraLock : MonoBehaviour
         enemiesInRange.Remove(enemy);
     }
 
-    public GameObject toggleEnemy()
+    public GameObject toggleEnemy(float input)
     {
-        if (index >= enemiesInRange.Count - 1)
-            index = 0;
-        else index++;
-        return enemiesInRange[index];
+        if(toggleTime < Time.time && Mathf.Abs(input) > 0.7)
+        {
+            toggleTime = 0.4f + Time.time; 
+            if (input > 0.7f)
+            {
+                if (index <= 0)
+                    index = enemiesInRange.Count - 1;
+                else index--;
+            }
+
+            if (input < -0.7f)
+            {
+                if (index >= enemiesInRange.Count - 1)
+                    index = 0;
+                else index++;
+            }
+        }
+
+        if (enemiesInRange.Count > 0)
+            return enemiesInRange[index];
+        else return null;
     }
 
     public GameObject currentEnemy()
     {
-        return enemiesInRange[index];
+        if (enemiesInRange.Count > 0)
+            return enemiesInRange[index];
+        else return null;
     }
 
     public bool checkEnemiesAround()

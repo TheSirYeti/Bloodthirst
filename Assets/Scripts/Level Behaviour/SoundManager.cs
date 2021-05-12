@@ -39,8 +39,6 @@ public class SoundManager : MonoBehaviour
         channels[(int)id].loop = loop;
         channels[(int)id].volume = volume;
         channels[(int)id].pitch = pitch;
-
-
     }
 
     public void StopAll()
@@ -78,5 +76,10 @@ public enum SoundID
     SWORD_SLASH2,
     SWORD_SLASH3,
     SWORD_SLASH4,
-    SWORD_SLASH5
+    SWORD_SLASH5,
+    JUMP,
+    RUN,
+    CHANGE_SWORD,
+    EXPLOSION1,
+    AMOGUS
 }

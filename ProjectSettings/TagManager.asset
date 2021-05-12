@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - EnemyLock
   - Manager
+  - SpinnyThing
+  - bigAttackFX
   layers:
   - Default
   - TransparentFX

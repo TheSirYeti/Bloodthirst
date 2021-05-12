@@ -27,13 +27,16 @@ public class Crosshair : MonoBehaviour
         var wantedPos = Camera.main.WorldToScreenPoint(enemyPosition.position);
         transform.position = wantedPos;
         currentTarget = enemyPosition;
-        StartCoroutine(enableImage());
+        enableImage();
     }
 
-    public IEnumerator enableImage()
+    public void enableImage()
     {
         image.enabled = true;
-        yield return new WaitForSeconds(2);
+    }
+
+    public void disableImage()
+    {
         image.enabled = false;
     }
 }

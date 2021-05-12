@@ -15,6 +15,11 @@ namespace Player.Behaviour
         public      int             attackTurn                          = 0;
         public      int             maxCombo                            = 3;
         public      Animator        animator;
+        public      RuntimeAnimatorController       dualWield;
+        public GameObject dualsword1, dualsword2;
+        public GameObject sword;
+        public      RuntimeAnimatorController       bigSword;
+        public int currentWeapon;
         public      string          attackButtonParameterName           = "Fire1";
         public      string          attackAnimatorBoolParameterName     = "isAttacking";
         public      string          attackAnimatorTriggerParameterName  = "attack";
@@ -24,19 +29,33 @@ namespace Player.Behaviour
         public      GameObject      player;
         public      ForceMode       attackForceMode                     = ForceMode.Impulse;
         public      Collider        attackCollider;
+        public      Collider        bigAttackCollider;
         private     float           colliderCooldown;
         private     float           colliderTime                        = 0.25f;
         private     bool            colliderBool;
         [SerializeField]private     float           attackTurnCooldown;
         private     float           attackTurnTime                      = 0.3f;
 
+        private void Start()
+        {
+            currentWeapon = 1;
+            changeWeapons();
+        }
+
         public void attack()
         {
-            
             //attackTurn++;
             animator.SetTrigger(attackAnimatorTriggerParameterName);
             timeToNextAttack = attackCooldown + Time.time;
-            StartCoroutine(enableCollider());
+            StartCoroutine(enableCollider(0));
+            checkCombo();
+        }
+
+        public void heavyAttack()
+        {
+            animator.SetTrigger(attackAnimatorTriggerParameterName);
+            timeToNextAttack = (attackCooldown * 8f) + Time.time;
+            StartCoroutine(enableBigCollider(2.45f));
             checkCombo();
         }
 
@@ -80,37 +99,71 @@ namespace Player.Behaviour
 
         public void checkCombo()
         {
-            if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash1"))
+            switch (currentWeapon)
             {
-                attackTurn = 1;
-                attackTurnCooldown = attackTurnTime + Time.time;
-                SoundManager.instance.Play(SoundID.SWORD_SLASH2, false, 0.8f, 1f);
-            }
-            else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
-            {
-                attackTurn = 2;
-                attackTurnCooldown = attackTurnTime + Time.time;
-                SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
-            }
-            else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
-            {
-                attackTurn = 3;
-                attackTurnCooldown = attackTurnTime + Time.time;
-                SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
-            }
-            else
-            {
-                SoundManager.instance.Play(SoundID.SWORD_SLASH1, false, 0.8f, 1f);
+                case 0:
+                    if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash1"))
+                    {
+                        attackTurn = 1;
+                        attackTurnCooldown = attackTurnTime + Time.time;
+                        SoundManager.instance.Play(SoundID.SWORD_SLASH2, false, 0.8f, 1f);
+                    }
+                    else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
+                    {
+                        attackTurn = 2;
+                        attackTurnCooldown = attackTurnTime + Time.time;
+                        SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
+                    }
+                    else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
+                    {
+                        attackTurn = 3;
+                        attackTurnCooldown = attackTurnTime + Time.time;
+                        SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
+                    }
+                    else
+                    {
+                        SoundManager.instance.Play(SoundID.SWORD_SLASH1, false, 0.8f, 1f);
+                    }
+                    break;
             }
         }
 
-        IEnumerator enableCollider()
+        IEnumerator enableCollider(float time)
         {
+            yield return new WaitForSeconds(time);
             attackCollider.enabled = true;
             yield return new WaitForSeconds(0.5f);
             attackCollider.enabled = false;
         }
 
+        public IEnumerator enableBigCollider(float time)
+        {
+            yield return new WaitForSeconds(time);
+            bigAttackCollider.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            bigAttackCollider.enabled = false;
+        }
+
+        public void changeWeapons() {
+            switch (currentWeapon)
+            {
+                case 0:
+                    animator.runtimeAnimatorController = bigSword;
+                    dualsword1.SetActive(false);
+                    dualsword2.SetActive(false);
+                    sword.SetActive(true);
+                    currentWeapon = 1;
+                    break;
+                case 1:
+                    animator.runtimeAnimatorController = dualWield;
+                    dualsword1.SetActive(true);
+                    dualsword2.SetActive(true);
+                    sword.SetActive(false);
+                    currentWeapon = 0;
+                    break;
+            }   
+                
+        }
 
     }
 } 

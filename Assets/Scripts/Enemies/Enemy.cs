@@ -20,6 +20,11 @@ public abstract class Enemy : MonoBehaviour
             hp--;
             takeDamage();
         }
+
+        if (other.gameObject.tag == "bigAttackFX")
+        {
+            hp -= 3;
+        }
     }
 
     public abstract void takeDamage();

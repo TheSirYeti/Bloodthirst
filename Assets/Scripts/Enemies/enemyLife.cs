@@ -18,6 +18,8 @@ public class enemyLife : MonoBehaviour
     {
         if (hp <= 0)
         {
+            Debug.Log("Entra");
+            SoundManager.instance.Play(SoundID.AMOGUS, false, 0.3f, 1);
             Destroy(gameObject);
         }
     }

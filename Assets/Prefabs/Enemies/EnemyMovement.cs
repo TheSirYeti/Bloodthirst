@@ -39,6 +39,7 @@ public class EnemyMovement : Enemy
 
         if(hp <= 0)
         {
+            SoundManager.instance.Play(SoundID.AMOGUS, false, 0.15f, 1);
             StartCoroutine(die());
         }
     }

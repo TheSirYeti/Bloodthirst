@@ -106,23 +106,23 @@ namespace Player.Behaviour
                     {
                         attackTurn = 1;
                         attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.Play(SoundID.SWORD_SLASH2, false, 0.8f, 1f);
+                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH2, false, 1f);
                     }
                     else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
                     {
                         attackTurn = 2;
                         attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
+                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH5, false, 1f);
                     }
                     else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
                     {
                         attackTurn = 3;
                         attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.Play(SoundID.SWORD_SLASH5, false, 0.8f, 1f);
+                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH5, false, 1f);
                     }
                     else
                     {
-                        SoundManager.instance.Play(SoundID.SWORD_SLASH1, false, 0.8f, 1f);
+                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH1, false, 1f);
                     }
                     break;
             }

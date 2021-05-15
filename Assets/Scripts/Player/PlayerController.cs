@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown(switchWeaponName) && !movement.isAttacking)
         {
             basicAttacks.changeWeapons();
-            SoundManager.instance.Play(SoundID.CHANGE_SWORD, false, 0.25f, 1);
+            SoundManager.instance.PlaySound(SoundID.CHANGE_SWORD, false, 1);
         }
         basicAttacks.resetAttackTurn();
         lockingSystem();

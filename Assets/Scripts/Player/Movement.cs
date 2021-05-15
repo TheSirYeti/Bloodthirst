@@ -76,12 +76,12 @@ namespace Player.Behaviour
 
             if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround") || movementSpeed == 0f)
             {
-                SoundManager.instance.Stop(SoundID.RUN);
+                SoundManager.instance.StopSound(SoundID.RUN);
                 runningSFXPlaying = false;
             } else if (!runningSFXPlaying && animator.GetBool("isOnGround"))
             {
                 runningSFXPlaying = true;
-                SoundManager.instance.Play(SoundID.RUN, true, 0.3f, 1);
+                SoundManager.instance.PlaySound(SoundID.RUN, true, 1);
             }
 
             animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
@@ -96,7 +96,7 @@ namespace Player.Behaviour
                 {
                     rigidBody.velocity = new Vector3(0f, 0f, 0f);
                     rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
-                    SoundManager.instance.Play(SoundID.JUMP, false, 0.3f, 1);
+                    SoundManager.instance.PlaySound(SoundID.JUMP, false, 1);
                     jumpCount++;
                 }
 

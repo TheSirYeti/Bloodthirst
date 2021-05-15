@@ -80,7 +80,7 @@ namespace VFX.Player
             heavyGroundExplosionVFX[0].Play();
             heavyGroundExplosionVFX[1].Play();
             heavyGroundExplosionVFX[2].Play();
-            SoundManager.instance.Play(SoundID.EXPLOSION1, false, 0.2f, 1);
+            SoundManager.instance.PlaySound(SoundID.EXPLOSION1, false, 1);
             cooldown = disableTimer + Time.time;
         }
 

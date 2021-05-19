@@ -11,6 +11,8 @@ namespace VFX.Player
         public List<ParticleSystem> heavyGroundExplosionVFX = new List<ParticleSystem>();
         public List<ParticleSystem> airAttackVFX = new List<ParticleSystem>();
 
+        public List<GameObject> bullets = new List<GameObject>();
+
 
         private float disableTimer = 0.5f;
         private float cooldown;
@@ -30,6 +32,11 @@ namespace VFX.Player
             foreach (ParticleSystem particleSystem in heavyGroundAttackVFX)
             {
                 particleSystem.Stop();
+            }
+
+            foreach (GameObject g in bullets)
+            {
+                g.SetActive(false);
             }
         }
 
@@ -67,12 +74,12 @@ namespace VFX.Player
             dualGroundAttackVFX[index].Stop();
         }
 
-        public void enableHeavyGroundVFX(int index, float time)
+        public void enableHeavyGroundVFX(float time)
         {
-            StartCoroutine(toggleHeavyVFX(index, time));
+            StartCoroutine(toggleHeavyVFX(time));
         }
 
-        IEnumerator toggleHeavyVFX(int index, float time)
+        IEnumerator toggleHeavyVFX(float time)
         {
             yield return new WaitForSeconds(time);
             //heavyGroundAttackVFX[index].Play();
@@ -93,6 +100,13 @@ namespace VFX.Player
         public void disableAirVFX(int index)
         {
             airAttackVFX[index].Stop();
+        }
+
+        public void vfxBullet(int index)
+        {
+            GameObject bullet = Instantiate(bullets[index], transform);
+            bullet.SetActive(true);
+            bullet.GetComponent<BulletBehaviour>().fire = true;
         }
     }
 }

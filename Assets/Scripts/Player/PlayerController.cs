@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public string toggleLockName = "ToggleLock";
     public string switchWeaponName = "SwitchWeapon";
 
+    public SpecialAttackBar bar;
     private void Update()
     {
         if (Input.GetButtonDown(jumpButtonName))
@@ -35,32 +36,40 @@ public class PlayerController : MonoBehaviour
             {
                 basicAttacks.airAttack();
                 movement.toggleFloat();
-                playerVFX.enableAirVFX(0);
-                movement.StartCoroutine(movement.stopRotation());
+                //playerVFX.enableAirVFX(0);
+                //movement.StartCoroutine(movement.stopRotation());
             }
         }
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) {
+                bar.addValue(0.05f);
                 switch (basicAttacks.currentWeapon)
                 {
                     case 0:
                         basicAttacks.attack();
-                        playerVFX.enableDualGroundVFX(basicAttacks.getCurrentAttackTurn());
+                        //playerVFX.enableDualGroundVFX(basicAttacks.getCurrentAttackTurn());
                         movement.restrictMovement(0.55f);
                         break;
                     case 1:
                         basicAttacks.heavyAttack();
-                        playerVFX.enableHeavyGroundVFX(basicAttacks.getCurrentAttackTurn(), 1.7f);
+                        //playerVFX.enableHeavyGroundVFX(basicAttacks.getCurrentAttackTurn(), 1.7f);
                         movement.restrictMovement(4.7f);
                         break;
                 }
             }
         }
-        if (Input.GetButtonDown(switchWeaponName) && !movement.isAttacking)
+
+        if (Input.GetButtonDown("Fire4"))
         {
-            basicAttacks.changeWeapons();
-            SoundManager.instance.PlaySound(SoundID.CHANGE_SWORD, false, 1);
+            basicAttacks.checkCombo();
+        }
+
+
+        if (Input.GetButtonDown("HeavyAttack") && bar.getValue() == 1f && !movement.isAttacking)
+        {
+            movement.animator.SetTrigger("specialAttack");
+            bar.resetValue();
         }
         basicAttacks.resetAttackTurn();
         lockingSystem();
@@ -132,7 +141,5 @@ public class PlayerController : MonoBehaviour
                 crosshair.disableImage();
             }
         }
-
-        
     }
 }

@@ -7,12 +7,18 @@ public class ContinueInput : MonoBehaviour
 {
 
     public Animator animator;
+
     void Update()
     {
         if (Input.GetButtonDown("Start"))
         {
-            SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
-            animator.SetTrigger("fade");   
+            fadeProgram(); 
         }
+    }
+
+    public void fadeProgram()
+    {
+        SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
+        animator.SetTrigger("fade");
     }
 }

@@ -6,6 +6,6 @@ public class staticEnemy : Enemy
 {
     public override void takeDamage()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 }

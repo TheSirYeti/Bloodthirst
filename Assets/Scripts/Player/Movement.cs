@@ -47,6 +47,9 @@ namespace Player.Behaviour
             if(isAttacking == false)
             {
                 movementSpeed = originalMovementSpeedValue;
+            } else
+            {
+                movementSpeed = 0.65f;
             }
         }
 
@@ -76,12 +79,12 @@ namespace Player.Behaviour
 
             if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround") || movementSpeed == 0f)
             {
-                SoundManager.instance.StopSound(SoundID.RUN);
+                //SoundManager.instance.StopSound(SoundID.RUN);
                 runningSFXPlaying = false;
             } else if (!runningSFXPlaying && animator.GetBool("isOnGround"))
             {
                 runningSFXPlaying = true;
-                SoundManager.instance.PlaySound(SoundID.RUN, true, 1);
+                //SoundManager.instance.PlaySound(SoundID.RUN, true, 1);
             }
 
             animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
@@ -96,7 +99,7 @@ namespace Player.Behaviour
                 {
                     rigidBody.velocity = new Vector3(0f, 0f, 0f);
                     rigidBody.AddForce(Vector3.up * jumpForce, jumpForceMode);
-                    SoundManager.instance.PlaySound(SoundID.JUMP, false, 1);
+                    //SoundManager.instance.PlaySound(SoundID.JUMP, false, 1);
                     jumpCount++;
                 }
 
@@ -127,7 +130,6 @@ namespace Player.Behaviour
 
         IEnumerator stopMovement(float time)
         {
-            movementSpeed = 0f;
             isAttacking = true;
             yield return new WaitForSeconds(time);
             isAttacking = false;
@@ -138,6 +140,13 @@ namespace Player.Behaviour
             isAttacking = true;
             yield return new WaitForSeconds(0.75f);
             isAttacking = false;
+        }
+
+        IEnumerator lowerSpeed()
+        {
+            movementSpeed = 0.4f;
+            yield return new WaitForSeconds(0.45f);
+            movementSpeed = 2f;
         }
     }
 }

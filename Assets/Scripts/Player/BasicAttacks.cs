@@ -38,8 +38,7 @@ namespace Player.Behaviour
 
         private void Start()
         {
-            currentWeapon = 1;
-            changeWeapons();
+
         }
 
         public void attack()
@@ -48,7 +47,7 @@ namespace Player.Behaviour
             animator.SetTrigger(attackAnimatorTriggerParameterName);
             timeToNextAttack = attackCooldown + Time.time;
             StartCoroutine(enableCollider(0));
-            checkCombo();
+            //checkCombo();
         }
 
         public void heavyAttack()
@@ -56,7 +55,7 @@ namespace Player.Behaviour
             animator.SetTrigger(attackAnimatorTriggerParameterName);
             timeToNextAttack = (attackCooldown * 8f) + Time.time;
             StartCoroutine(enableBigCollider(2.45f));
-            checkCombo();
+            //checkCombo();
         }
 
         public void airAttack()
@@ -99,33 +98,7 @@ namespace Player.Behaviour
 
         public void checkCombo()
         {
-            switch (currentWeapon)
-            {
-                case 0:
-                    if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash1"))
-                    {
-                        attackTurn = 1;
-                        attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH2, false, 1f);
-                    }
-                    else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash2"))
-                    {
-                        attackTurn = 2;
-                        attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH5, false, 1f);
-                    }
-                    else if (animator.GetCurrentAnimatorStateInfo(1).IsName("Slash3"))
-                    {
-                        attackTurn = 3;
-                        attackTurnCooldown = attackTurnTime + Time.time;
-                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH5, false, 1f);
-                    }
-                    else
-                    {
-                        SoundManager.instance.PlaySound(SoundID.SWORD_SLASH1, false, 1f);
-                    }
-                    break;
-            }
+            StartCoroutine(comboTrigger());
         }
 
         IEnumerator enableCollider(float time)
@@ -148,14 +121,14 @@ namespace Player.Behaviour
             switch (currentWeapon)
             {
                 case 0:
-                    animator.runtimeAnimatorController = bigSword;
+                    //animator.runtimeAnimatorController = bigSword;
                     dualsword1.SetActive(false);
                     dualsword2.SetActive(false);
                     sword.SetActive(true);
                     currentWeapon = 1;
                     break;
                 case 1:
-                    animator.runtimeAnimatorController = dualWield;
+                    //animator.runtimeAnimatorController = dualWield;
                     dualsword1.SetActive(true);
                     dualsword2.SetActive(true);
                     sword.SetActive(false);
@@ -163,6 +136,14 @@ namespace Player.Behaviour
                     break;
             }   
                 
+        }
+
+        public IEnumerator comboTrigger()
+        {
+            animator.SetTrigger("combo");
+            yield return new WaitForSeconds(0.75f);
+            
+            animator.ResetTrigger("combo");
         }
 
     }

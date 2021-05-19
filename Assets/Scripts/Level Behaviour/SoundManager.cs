@@ -152,7 +152,13 @@ public enum SoundID
     CHANGE_SWORD,
     EXPLOSION1,
     SELECT,
-    GUHHUH
+    GUHHUH,
+    STEP_1,
+    STEP_2,
+    STEP_3,
+    CHARGELASER,
+    RELEASE_FIRE,
+    BURN
 }
 
 public enum MusicID

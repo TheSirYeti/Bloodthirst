@@ -86,6 +86,7 @@
     <Compile Include="Assets\Prefabs\Enemies\EnemyMovement.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Kamikaze\Kamikaze.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Kamikaze\MathParabola.cs" />
+    <Compile Include="Assets\Prefabs\Enemies\Kamikaze\sound.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Skeleton\FireAttacks.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Skeleton\parentDeath.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Skeleton\Skeleton.cs" />

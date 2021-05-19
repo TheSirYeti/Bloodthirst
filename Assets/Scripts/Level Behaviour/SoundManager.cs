@@ -158,7 +158,11 @@ public enum SoundID
     STEP_3,
     CHARGELASER,
     RELEASE_FIRE,
-    BURN
+    BURN,
+    GROAN1,
+    GROAN2,
+    GROAN3,
+    ATTACK
 }
 
 public enum MusicID

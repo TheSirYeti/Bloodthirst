@@ -43,4 +43,9 @@ public class playSounds : MonoBehaviour
     {
         SoundManager.instance.PlaySound(SoundID.SWORD_SLASH5);
     }
+
+    public void SFX_ATTACK()
+    {
+        SoundManager.instance.PlaySound(SoundID.ATTACK);
+    }
 }

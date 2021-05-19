@@ -43,18 +43,18 @@ public class MathParabola : MonoBehaviour
         if (attack && !attacking)
         {
             finalTarget = Target.position;
-            StartCoroutine(SimulateProjectile());
+            StartCoroutine(ParabolicMovement());
             attacking = true;
         }
 
         if (ended)
         {
-            //SoundManager.instance.PlaySound(SoundID.EXPLOSION1);
+            
             StartCoroutine(Explode());
         }
     }
 
-    IEnumerator SimulateProjectile()
+    IEnumerator ParabolicMovement()
     {
         // Short delay added before Projectile is thrown
         yield return new WaitForSeconds(1.5f);
@@ -88,13 +88,12 @@ public class MathParabola : MonoBehaviour
 
             yield return null;
         }
-
+        SoundManager.instance.PlaySound(SoundID.EXPLOSION1);
         ended = true;
     }
 
     IEnumerator Explode()
     {
-        
         explosion.Play();
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);

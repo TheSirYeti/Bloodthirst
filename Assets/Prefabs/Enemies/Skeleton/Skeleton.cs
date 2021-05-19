@@ -77,6 +77,8 @@ public class Skeleton : Enemy
     {
         GameObject effect = Instantiate(deathExplosion);
         effect.SetActive(true);
+        effect.transform.parent = transform;
+        effect.transform.localPosition = Vector3.zero;
         yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
     }

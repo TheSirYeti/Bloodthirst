@@ -9,7 +9,7 @@ public class Kamikaze : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
-        StartCoroutine(CannonballMovement());
+        StartCoroutine(ParabolicMovement());
     }
 
     private void Update()
@@ -17,7 +17,7 @@ public class Kamikaze : MonoBehaviour
         
     }
 
-    IEnumerator CannonballMovement()
+    IEnumerator ParabolicMovement()
     {
         // Short delay added before Projectile is thrown
         yield return new WaitForSeconds(0f);

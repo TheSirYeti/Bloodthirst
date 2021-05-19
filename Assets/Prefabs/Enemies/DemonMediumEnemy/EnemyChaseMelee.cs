@@ -85,6 +85,27 @@ public class EnemyChaseMelee : EnemyBase
     }
     void PrefabsAttackDesactive()
     {
-        CapsuleDamage.GetComponent<CapsuleCollider>().enabled = false;
+        CapsuleDamage.GetComponent<CapsuleCollider>().enabled = true;
+    }
+
+    public void playRandomGroan()
+    {
+        int chance = Random.Range(0, 2);
+        if(chance == 1 && distanceFromPlayer < 15f)
+        {
+            int rand = Random.Range(1, 4);
+            switch (rand)
+            {
+                case 1:
+                    SoundManager.instance.PlaySound(SoundID.GROAN1);
+                    break;
+                case 2:
+                    SoundManager.instance.PlaySound(SoundID.GROAN2);
+                    break;
+                case 3:
+                    SoundManager.instance.PlaySound(SoundID.GROAN3);
+                    break;
+            }
+        }
     }
 }

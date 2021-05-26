@@ -29,6 +29,7 @@ namespace Player.Behaviour
         private     float                       floatingTime = 0.75f;
         private     float                       cooldown;
         public      bool                        isAttacking;
+        
 
         private void Start()
         {

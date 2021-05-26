@@ -55,7 +55,7 @@ public class FireAttacks : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             SoundManager.instance.StopSound(SoundID.BURN);
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
             
     }

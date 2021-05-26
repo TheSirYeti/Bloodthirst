@@ -48,4 +48,14 @@ public class playSounds : MonoBehaviour
     {
         SoundManager.instance.PlaySound(SoundID.ATTACK);
     }
+
+    public void SFX_SPIN()
+    {
+        SoundManager.instance.PlaySound(SoundID.SPIN);
+    }
+
+    public void SFX_EXPLOSION()
+    {
+        SoundManager.instance.PlaySound(SoundID.EXPLOSION1);
+    }
 }

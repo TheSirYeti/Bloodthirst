@@ -14302,7 +14302,7 @@ GameObject:
   - component: {fileID: 1534254714988807584}
   m_Layer: 0
   m_Name: FireAttack
-  m_TagString: Untagged
+  m_TagString: enemyFireAttack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14340,8 +14340,8 @@ MonoBehaviour:
   chase: 0
   target: {fileID: 0}
   parent: {fileID: 0}
-  speed: 5
-  chaseTime: 5
+  speed: 6.5
+  chaseTime: 3
 --- !u!135 &1534254714988807584
 SphereCollider:
   m_ObjectHideFlags: 0

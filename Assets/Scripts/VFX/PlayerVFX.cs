@@ -74,9 +74,11 @@ namespace VFX.Player
             dualGroundAttackVFX[index].Stop();
         }
 
-        public void enableHeavyGroundVFX(float time)
+        public void enableHeavyGroundVFX(int index)
         {
-            StartCoroutine(toggleHeavyVFX(time));
+            heavyGroundAttackVFX[index].Play();
+            cooldown = disableTimer + Time.time;
+            //StartCoroutine(toggleHeavyVFX(time));
         }
 
         IEnumerator toggleHeavyVFX(float time)
@@ -107,6 +109,16 @@ namespace VFX.Player
             GameObject bullet = Instantiate(bullets[index], transform);
             bullet.SetActive(true);
             bullet.GetComponent<BulletBehaviour>().fire = true;
+        }
+
+        public void enableSparks()
+        {
+            dualGroundAttackVFX[5].Play();
+        }
+
+        public void disableSparks()
+        {
+            dualGroundAttackVFX[5].Stop();
         }
     }
 }

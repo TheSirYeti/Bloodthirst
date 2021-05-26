@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\Player\groundAnimatorCheck.cs" />
     <Compile Include="Assets\Scripts\Player\Movement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerLife.cs" />
     <Compile Include="Assets\Scripts\Player\swordEffects.cs" />
     <Compile Include="Assets\Scripts\Sounds\playSounds.cs" />
     <Compile Include="Assets\Scripts\UI\Crosshair.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Scripts\UI\Menu\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\SetVolume.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu\enablePause.cs" />
+    <Compile Include="Assets\Scripts\UI\startScreens\autoSkip.cs" />
     <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\FadeSlash.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Distortion.shader" />
@@ -140,6 +142,7 @@
     <None Include="Assets\External Assets\New Text Document.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Scene files\Readme.txt" />
     <None Include="Assets\External Assets\RainMaker\Prefab\RainShader.shader" />
+    <None Include="Assets\VFXPlayer\Slash\Shader\Slash_Shader.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Readme.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash2.shader" />
     <None Include="Assets\External Assets\RainMaker\Readme.txt" />

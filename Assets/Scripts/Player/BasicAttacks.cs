@@ -16,8 +16,8 @@ namespace Player.Behaviour
         public      int             maxCombo                            = 3;
         public      Animator        animator;
         public      RuntimeAnimatorController       dualWield;
-        public GameObject dualsword1, dualsword2;
-        public GameObject sword;
+        public      GameObject dualsword1, dualsword2;
+        public      GameObject sword;
         public      RuntimeAnimatorController       bigSword;
         public int currentWeapon;
         public      string          attackButtonParameterName           = "Fire1";
@@ -35,27 +35,20 @@ namespace Player.Behaviour
         private     bool            colliderBool;
         [SerializeField]private     float           attackTurnCooldown;
         private     float           attackTurnTime                      = 0.3f;
-
-        private void Start()
-        {
-
-        }
+        public bool isInvunerable;
 
         public void attack()
         {
-            //attackTurn++;
             animator.SetTrigger(attackAnimatorTriggerParameterName);
             timeToNextAttack = attackCooldown + Time.time;
             StartCoroutine(enableCollider(0));
-            //checkCombo();
         }
 
         public void heavyAttack()
         {
             animator.SetTrigger(attackAnimatorTriggerParameterName);
-            timeToNextAttack = (attackCooldown * 8f) + Time.time;
-            StartCoroutine(enableBigCollider(2.45f));
-            //checkCombo();
+            timeToNextAttack = attackCooldown * 3f + Time.time;
+            //StartCoroutine(enableBigCollider(2.45f));
         }
 
         public void airAttack()
@@ -78,7 +71,7 @@ namespace Player.Behaviour
         {
             if (timeToNextAttack < Time.time)
             {
-                return true;   
+                return true;
             }
             else return false;
         }
@@ -104,8 +97,10 @@ namespace Player.Behaviour
         IEnumerator enableCollider(float time)
         {
             yield return new WaitForSeconds(time);
+            isInvunerable = true;
             attackCollider.enabled = true;
             yield return new WaitForSeconds(0.5f);
+            isInvunerable = false;
             attackCollider.enabled = false;
         }
 
@@ -113,7 +108,9 @@ namespace Player.Behaviour
         {
             yield return new WaitForSeconds(time);
             bigAttackCollider.enabled = true;
+            isInvunerable = true;
             yield return new WaitForSeconds(0.5f);
+            isInvunerable = false;
             bigAttackCollider.enabled = false;
         }
 
@@ -121,14 +118,14 @@ namespace Player.Behaviour
             switch (currentWeapon)
             {
                 case 0:
-                    //animator.runtimeAnimatorController = bigSword;
+                    animator.runtimeAnimatorController = bigSword;
                     dualsword1.SetActive(false);
                     dualsword2.SetActive(false);
                     sword.SetActive(true);
                     currentWeapon = 1;
                     break;
                 case 1:
-                    //animator.runtimeAnimatorController = dualWield;
+                    animator.runtimeAnimatorController = dualWield;
                     dualsword1.SetActive(true);
                     dualsword2.SetActive(true);
                     sword.SetActive(false);
@@ -141,10 +138,37 @@ namespace Player.Behaviour
         public IEnumerator comboTrigger()
         {
             animator.SetTrigger("combo");
-            yield return new WaitForSeconds(0.75f);
-            
+            yield return new WaitForSeconds(3f);
             animator.ResetTrigger("combo");
         }
 
+
+        public void specialAttack()
+        {
+            animator.SetTrigger("specialAttack");
+            switch (currentWeapon)
+            {
+                case 0:
+                    StartCoroutine(spinning());
+                    break;
+            }
+        }
+
+
+        IEnumerator spinning()
+        {
+            animator.SetBool("specialAttackOver", false);
+            isInvunerable = true;
+            yield return new WaitForSeconds(5f);
+            isInvunerable = false;
+            animator.SetBool("specialAttackOver", true);
+        }
+
+        public IEnumerator charging()
+        {
+            isInvunerable = true;
+            yield return new WaitForSeconds(1f);
+            isInvunerable = false;
+        }
     }
 } 

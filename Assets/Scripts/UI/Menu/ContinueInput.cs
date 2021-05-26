@@ -21,4 +21,9 @@ public class ContinueInput : MonoBehaviour
         SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
         animator.SetTrigger("fade");
     }
+
+    public void fade()
+    {
+        animator.SetTrigger("fade");
+    }
 }

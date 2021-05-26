@@ -11,6 +11,10 @@ TagManager:
   - Manager
   - SpinnyThing
   - bigAttackFX
+  - enemyAttack
+  - enemyFireAttack
+  - SpecialAttackBar
+  - spikeTrap
   layers:
   - Default
   - TransparentFX

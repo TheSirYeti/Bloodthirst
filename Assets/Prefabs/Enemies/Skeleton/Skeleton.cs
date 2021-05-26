@@ -49,10 +49,13 @@ public class Skeleton : Enemy
                         animator.SetTrigger("attack");
                     }
                     yield return new WaitForSeconds(_attackCooldown);
+                    transform.LookAt(player.transform.position);
                     break;
                 case false:
-                    animator.SetTrigger("attack");
-                    transform.LookAt(null);
+                    if (Vector3.Distance(transform.position, player.transform.position) <= maximumAttackDistance)
+                    {
+                        animator.SetTrigger("attack");
+                    }
                     yield return new WaitForSeconds(_attackCooldown / 2);
                     transform.LookAt(player.transform.position);
                     break;

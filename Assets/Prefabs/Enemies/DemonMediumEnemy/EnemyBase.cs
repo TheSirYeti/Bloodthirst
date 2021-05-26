@@ -44,10 +44,13 @@ public abstract class EnemyBase : MonoBehaviour
         currentHitLife = life;
     }
 
+
+
     public virtual void ReceiveDamage(int amount)
     {
-        if (amount > 0 && currentHitLife > 0)
+        if (amount > 0)
         {
+            Debug.Log("PORQUE NO MUERE?");
             currentHitLife -= amount;
 
             if (currentHitLife <= 0)
@@ -56,9 +59,12 @@ public abstract class EnemyBase : MonoBehaviour
 
                 this.gameObject.GetComponent<EnemyBase>().enabled = false;
 
+                
                 animator.SetTrigger("DieEnemy");
-                this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
-                this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                if(gameObject.GetComponent<Enemy>() != null)
+                    gameObject.GetComponent<Enemy>().hp = 0;
+                //this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+                //this.gameObject.GetComponent<Rigidbody>().useGravity = false;
 
                 Destroy(this.gameObject, TimeDestroy);
 
@@ -85,5 +91,8 @@ public abstract class EnemyBase : MonoBehaviour
         accion();
     }
 
-
+    public float getlife()
+    {
+        return life;
+    }
 }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Movement movement;
     public BasicAttacks basicAttacks;
     public swordEffects swordEffects;
+    public PlayerLife hpManager;
     public PlayerVFX playerVFX;
     public Cinemachine.CinemachineFreeLook vcamera;
     public CameraLock lockSystem;
@@ -36,25 +37,21 @@ public class PlayerController : MonoBehaviour
             {
                 basicAttacks.airAttack();
                 movement.toggleFloat();
-                //playerVFX.enableAirVFX(0);
-                //movement.StartCoroutine(movement.stopRotation());
             }
         }
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) {
-                bar.addValue(0.05f);
+                //bar.addValue(0.05f);
                 switch (basicAttacks.currentWeapon)
                 {
                     case 0:
                         basicAttacks.attack();
-                        //playerVFX.enableDualGroundVFX(basicAttacks.getCurrentAttackTurn());
                         movement.restrictMovement(0.55f);
                         break;
                     case 1:
                         basicAttacks.heavyAttack();
-                        //playerVFX.enableHeavyGroundVFX(basicAttacks.getCurrentAttackTurn(), 1.7f);
-                        movement.restrictMovement(4.7f);
+                        movement.restrictMovement(1f);
                         break;
                 }
             }
@@ -65,14 +62,38 @@ public class PlayerController : MonoBehaviour
             basicAttacks.checkCombo();
         }
 
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            bar.addValue(1);
+        }
 
         if (Input.GetButtonDown("HeavyAttack") && bar.getValue() == 1f && !movement.isAttacking)
         {
-            movement.animator.SetTrigger("specialAttack");
+            basicAttacks.specialAttack();
             bar.resetValue();
+        }
+
+        if (bar.getValue() == 1f)
+        {
+            playerVFX.enableSparks();
+        } else playerVFX.disableSparks();
+
+
+        if (Input.GetButtonDown("SwitchWeapon") && !movement.isAttacking)
+        {
+            basicAttacks.changeWeapons();
         }
         basicAttacks.resetAttackTurn();
         lockingSystem();
+
+        if (hpManager.amIHurt)
+        {
+            if(!movement.isAttacking && !basicAttacks.isInvunerable)
+            {
+                hpManager.amIHurt = false;
+                takeDamage();
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -142,4 +163,11 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    void takeDamage()
+    {
+
+    }
+
+
 }

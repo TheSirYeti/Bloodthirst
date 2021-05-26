@@ -85,7 +85,7 @@ public class EnemyChaseMelee : EnemyBase
     }
     void PrefabsAttackDesactive()
     {
-        CapsuleDamage.GetComponent<CapsuleCollider>().enabled = true;
+        CapsuleDamage.GetComponent<CapsuleCollider>().enabled = false;
     }
 
     public void playRandomGroan()

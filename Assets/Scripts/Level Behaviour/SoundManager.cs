@@ -162,7 +162,9 @@ public enum SoundID
     GROAN1,
     GROAN2,
     GROAN3,
-    ATTACK
+    ATTACK,
+    ENEMY_DAMAGE,
+    SPIN
 }
 
 public enum MusicID

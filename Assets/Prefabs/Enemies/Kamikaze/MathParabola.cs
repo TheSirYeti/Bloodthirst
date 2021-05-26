@@ -18,6 +18,8 @@ public class MathParabola : MonoBehaviour
     [SerializeField]Vector3 finalTarget;
     public ParticleSystem explosion;
 
+    public Collider collider;
+
     void Awake()
     {
         explosion.Stop();
@@ -95,6 +97,7 @@ public class MathParabola : MonoBehaviour
     IEnumerator Explode()
     {
         explosion.Play();
+        collider.enabled = true;
         yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }

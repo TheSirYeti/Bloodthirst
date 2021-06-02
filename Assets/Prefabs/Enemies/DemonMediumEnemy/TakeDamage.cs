@@ -5,12 +5,12 @@ using UnityEngine;
 public class TakeDamage : MonoBehaviour
 {
     public GameObject enemy;
-    Material originalMat;
+    public Material originalMat;
     public SpecialAttackBar bar;
 
     private void Start()
     {
-        originalMat = enemy.GetComponentInChildren<Renderer>().material;
+        //originalMat = enemy.GetComponentInChildren<Renderer>().material;
         bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
     }
 

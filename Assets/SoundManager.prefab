@@ -67,9 +67,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d7735b227b349134787c45544678fc77, type: 3}
   - {fileID: 8300000, guid: bdb12860d4bfb364fab46ee061bd9e43, type: 3}
   - {fileID: 8300000, guid: 303288127b345b34eb9a525eb12cb4bb, type: 3}
+  - {fileID: 8300000, guid: fb4d3e127ef56f34d823b89261aed320, type: 3}
+  - {fileID: 8300000, guid: 41d04e828b996634ab1ab4045b93c7cc, type: 3}
   music:
   - {fileID: 8300000, guid: 648eba5d8ae37b94f8202275ed2bacae, type: 3}
   - {fileID: 8300000, guid: 9e860498821b62d49a6230db1abe020d, type: 3}
+  - {fileID: 8300000, guid: aca648cf1a4902040ba1b8eb0d95a442, type: 3}
+  - {fileID: 8300000, guid: ce895e2dfe8084a4ba3dc301e67c8191, type: 3}
   sfxChannel: []
   musicChannel: []
   volumeSFX: 0.5

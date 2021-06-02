@@ -10,8 +10,11 @@ public class loadScene : MonoBehaviour
     public void load()
     {
         Time.timeScale = 1f;
-        SoundManager.instance.StopAllMusic();
-        SoundManager.instance.StopAllSounds();
+        if(SoundManager.instance != null)
+        {
+            SoundManager.instance.StopAllMusic();
+            SoundManager.instance.StopAllSounds();
+        }
         Application.LoadLevel(level);
     }
 }

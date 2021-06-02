@@ -13,6 +13,7 @@ public class PlayerLife : MonoBehaviour
     public Slider hpBar;
     public PlayerController controller;
     Material originalMaterial;
+    
 
     private void Start()
     {
@@ -30,8 +31,13 @@ public class PlayerLife : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.L))
         {
-            hp = 10;
+            hp = 20;
         }
+    }
+
+    private void FixedUpdate()
+    {
+        hp += 0.001f;
     }
 
     private void OnTriggerStay(Collider other)
@@ -102,7 +108,7 @@ public class PlayerLife : MonoBehaviour
         if (body != null)
         {
             material.GetComponent<Renderer>().material.color = new Color(1, 0, 0, 1);
-            SoundManager.instance.PlaySound(SoundID.ENEMY_DAMAGE);
+            SoundManager.instance.PlaySound(SoundID.PLAYER_DAMAGE);
             yield return new WaitForSeconds(0.5f);
             material.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 1);
             body.velocity = Vector3.zero;

@@ -4,6 +4,7 @@ using UnityEngine;
 using Player.Behaviour;
 using Player.Animations;
 using VFX.Player;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public string switchWeaponName = "SwitchWeapon";
 
     public SpecialAttackBar bar;
+    public GameObject deathPanel, deathButton;
     private void Update()
     {
         if (Input.GetButtonDown(jumpButtonName))
@@ -167,6 +169,16 @@ public class PlayerController : MonoBehaviour
     void takeDamage()
     {
 
+    }
+
+
+    public void showDeathPanel()
+    {
+        deathPanel.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(deathButton);
+        SoundManager.instance.StopAllSounds();
+        Time.timeScale = 0f;
     }
 
 

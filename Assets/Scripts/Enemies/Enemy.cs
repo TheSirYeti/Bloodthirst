@@ -7,11 +7,13 @@ public abstract class Enemy : MonoBehaviour
     public float hp;
     public float speed;
     public Transform lookAtPoint;
-    public SpecialAttackBar bar;
+
+    public Material originalMat;
 
     private void Start()
     {
-        bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
+        originalMat = GetComponentInChildren<Renderer>().material;
+        
     }
 
     private void Update()
@@ -49,15 +51,15 @@ public abstract class Enemy : MonoBehaviour
 
     IEnumerator Knockback(Rigidbody body)
     {
-        Color c;
+      
         Material mat = GetComponentInChildren<Renderer>().material;
+        
         if (body != null)
         {
-            c = mat.color;
             mat.color = new Color(1, 0, 0, 1);
             SoundManager.instance.PlaySound(SoundID.ENEMY_DAMAGE);
             yield return new WaitForSeconds(0.5f);
-            mat.color = c;
+            mat.color = originalMat.color;
             body.velocity = Vector3.zero;
         }
     }

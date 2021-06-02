@@ -63,6 +63,22 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public void PauseAllSounds()
+    {
+        for (int i = 0; i < sfxChannel.Length; i++)
+        {
+            sfxChannel[i].Pause();
+        }
+    }
+
+    public void ResumeAllSounds()
+    {
+        for (int i = 0; i < sfxChannel.Length; i++)
+        {
+            sfxChannel[i].UnPause();
+        }
+    }
+
     public void StopSound(SoundID id)
     {
         sfxChannel[(int)id].Stop();
@@ -107,6 +123,22 @@ public class SoundManager : MonoBehaviour
         for (int i = 0; i < musicChannel.Length; i++)
         {
             musicChannel[i].Stop();
+        }
+    }
+
+    public void PauseAllMusic()
+    {
+        for (int i = 0; i < musicChannel.Length; i++)
+        {
+            musicChannel[i].Pause();
+        }
+    }
+
+    public void ResumeAllMusic()
+    {
+        for (int i = 0; i < musicChannel.Length; i++)
+        {
+            musicChannel[i].UnPause();
         }
     }
 
@@ -164,11 +196,15 @@ public enum SoundID
     GROAN3,
     ATTACK,
     ENEMY_DAMAGE,
-    SPIN
+    SPIN,
+    ENEMY_DEATH,
+    PLAYER_DAMAGE
 }
 
 public enum MusicID
 {
     MAIN_MENU,
-    INTRO
+    INTRO,
+    SOCCER,
+    NEW_MENU
 }

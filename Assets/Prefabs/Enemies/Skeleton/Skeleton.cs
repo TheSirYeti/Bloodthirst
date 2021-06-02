@@ -11,10 +11,13 @@ public class Skeleton : Enemy
     public float maximumAttackDistance;
     float _attackCooldown = 2f;
     public GameObject deathExplosion;
+    public GameObject shield;
+    public SpecialAttackBar bar;
 
     private void Start()
     {
         StartCoroutine(makeAttack());
+        bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
         transform.LookAt(player.transform.position);
     }
     private void Update()
@@ -73,17 +76,31 @@ public class Skeleton : Enemy
 
     public override void takeDamage()
     {
-        hp--;
+        if (!shield.activeSelf)
+        {
+            bar.addValue(0.05f);
+            hp--;
+            StartCoroutine(enableShield());
+        } 
     }
 
     public IEnumerator Die()
     {
-        GameObject effect = Instantiate(deathExplosion);
-        effect.SetActive(true);
-        effect.transform.parent = transform;
-        effect.transform.localPosition = Vector3.zero;
-        yield return new WaitForSeconds(0.75f);
+        //GameObject effect = Instantiate(deathExplosion);
+        //effect.SetActive(true);
+        animator.SetTrigger("died");
+        SoundManager.instance.StopSound(SoundID.BURN);
+        //effect.transform.parent = transform;
+        //effect.transform.localPosition = Vector3.zero;
+        yield return new WaitForSeconds(3f);
         Destroy(gameObject);
+    }
+
+    IEnumerator enableShield()
+    {
+        shield.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        shield.SetActive(false);
     }
 
     public void chargeSound()
@@ -94,5 +111,10 @@ public class Skeleton : Enemy
     public void releaseSound()
     {
         SoundManager.instance.PlaySound(SoundID.RELEASE_FIRE);
+    }
+
+    public void deathSound()
+    {
+        SoundManager.instance.PlaySound(SoundID.ENEMY_DEATH);
     }
 }

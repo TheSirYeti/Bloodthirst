@@ -14340,8 +14340,8 @@ MonoBehaviour:
   chase: 0
   target: {fileID: 0}
   parent: {fileID: 0}
-  speed: 6.5
-  chaseTime: 3
+  speed: 4.5
+  chaseTime: 4
 --- !u!135 &1534254714988807584
 SphereCollider:
   m_ObjectHideFlags: 0

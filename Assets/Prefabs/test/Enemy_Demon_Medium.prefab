@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 664279482981243398}
+  originalMat: {fileID: 2100000, guid: 36cd8d54b0906e444b6f61ba9689566a, type: 2}
   bar: {fileID: 0}
 --- !u!136 &5774127244088781785
 CapsuleCollider:
@@ -1405,6 +1406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 664279482981243398}
+  originalMat: {fileID: 0}
   bar: {fileID: 0}
 --- !u!1 &8290971153433743469
 GameObject:

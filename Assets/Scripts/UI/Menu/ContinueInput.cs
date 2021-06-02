@@ -18,8 +18,8 @@ public class ContinueInput : MonoBehaviour
 
     public void fadeProgram()
     {
-        SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
         animator.SetTrigger("fade");
+        SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
     }
 
     public void fade()

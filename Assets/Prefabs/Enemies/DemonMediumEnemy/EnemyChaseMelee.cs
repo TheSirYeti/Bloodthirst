@@ -91,7 +91,7 @@ public class EnemyChaseMelee : EnemyBase
     public void playRandomGroan()
     {
         int chance = Random.Range(0, 2);
-        if(chance == 1 && distanceFromPlayer < 15f)
+        if(chance == 1 && distanceFromPlayer < 25f)
         {
             int rand = Random.Range(1, 4);
             switch (rand)
@@ -107,5 +107,10 @@ public class EnemyChaseMelee : EnemyBase
                     break;
             }
         }
+    }
+
+    public void deathSound()
+    {
+        SoundManager.instance.PlaySound(SoundID.ENEMY_DEATH);
     }
 }

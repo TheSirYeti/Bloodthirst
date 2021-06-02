@@ -20,6 +20,7 @@ public class spawnPlayer : MonoBehaviour
 
     public void tpPlayer()
     {
+        Time.timeScale = 1f;
         player.transform.position = tp.transform.position;
         panel.SetActive(false);
         Cursor.lockState = CursorLockMode.None;

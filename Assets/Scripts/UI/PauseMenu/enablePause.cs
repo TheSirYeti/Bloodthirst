@@ -5,7 +5,6 @@ using UnityEngine;
 public class enablePause : MonoBehaviour
 {
     public GameObject panel;
-    [SerializeField]float _timeCooldown;
 
     private void Update()
     {
@@ -24,6 +23,7 @@ public class enablePause : MonoBehaviour
 
     public void openPanel()
     {
+        SoundManager.instance.PauseAllSounds();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         panel.SetActive(true);
@@ -32,6 +32,7 @@ public class enablePause : MonoBehaviour
 
     public void closePanel()
     {
+        SoundManager.instance.ResumeAllSounds();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         panel.SetActive(false);

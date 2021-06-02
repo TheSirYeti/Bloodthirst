@@ -16,8 +16,17 @@ EditorBuildSettings:
     guid: e2fcfde2a1a12814ca3d23c6d29cfdc0
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: a58d84a8ad576894cac4ca992c51b346
+    guid: df58d39c7a0ae3d4f95c280d5990e277
   - enabled: 1
     path: Assets/Scenes/DebugLevel.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/NewMode.unity
+    guid: 87faf3967a7e0c746b4f72f3271c0abe
+  - enabled: 1
+    path: Assets/Scenes/IntroVideo.unity
+    guid: d53607436c2a70c4e92bc96a0ff46092
+  - enabled: 0
+    path: Assets/Scenes/OldMenu.unity
+    guid: a58d84a8ad576894cac4ca992c51b346
   m_configObjects: {}

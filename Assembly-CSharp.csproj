@@ -123,6 +123,7 @@
     <Compile Include="Assets\Scripts\UI\Crosshair.cs" />
     <Compile Include="Assets\Scripts\UI\introSounds.cs" />
     <Compile Include="Assets\Scripts\UI\loadLevel.cs" />
+    <Compile Include="Assets\Scripts\UI\loadLevel1.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\ContinueInput.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\ContinueText.cs" />
     <Compile Include="Assets\Scripts\UI\Menu\enablePanel.cs" />
@@ -131,6 +132,13 @@
     <Compile Include="Assets\Scripts\UI\PauseMenu\enablePause.cs" />
     <Compile Include="Assets\Scripts\UI\startScreens\autoSkip.cs" />
     <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
+    <Compile Include="Assets\soccer.cs" />
+    <Compile Include="Assets\UI\NewMenu\MainMenuController.cs" />
+    <Compile Include="Assets\UI\NewMenu\OptionsManager.cs" />
+    <Compile Include="Assets\UI\NewMenu\playMusic.cs" />
+    <Compile Include="Assets\UI\NewMenu\ShowControls.cs" />
+    <Compile Include="Assets\UI\PauseMenu\PauseMenuManager.cs" />
+    <Compile Include="Assets\Videos\skipIntro.cs" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\FadeSlash.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Distortion.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Prefabs\Readme.txt" />

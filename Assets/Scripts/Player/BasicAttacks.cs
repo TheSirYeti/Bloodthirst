@@ -29,6 +29,7 @@ namespace Player.Behaviour
         public      GameObject      player;
         public      ForceMode       attackForceMode                     = ForceMode.Impulse;
         public      Collider        attackCollider;
+        public Collider specialAttackCollider;
         public      Collider        bigAttackCollider;
         private     float           colliderCooldown;
         private     float           colliderTime                        = 0.25f;
@@ -47,7 +48,7 @@ namespace Player.Behaviour
         public void heavyAttack()
         {
             animator.SetTrigger(attackAnimatorTriggerParameterName);
-            timeToNextAttack = attackCooldown * 3f + Time.time;
+            timeToNextAttack = attackCooldown * 1.5f + Time.time;
             //StartCoroutine(enableBigCollider(2.45f));
         }
 
@@ -97,20 +98,30 @@ namespace Player.Behaviour
         IEnumerator enableCollider(float time)
         {
             yield return new WaitForSeconds(time);
-            isInvunerable = true;
+            //isInvunerable = true;
             attackCollider.enabled = true;
             yield return new WaitForSeconds(0.5f);
-            isInvunerable = false;
+            //isInvunerable = false;
             attackCollider.enabled = false;
+        }
+
+        IEnumerator enableSpecialCollider(float time)
+        {
+            yield return new WaitForSeconds(time);
+            //isInvunerable = true;
+            specialAttackCollider.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            //isInvunerable = false;
+            specialAttackCollider.enabled = false;
         }
 
         public IEnumerator enableBigCollider(float time)
         {
             yield return new WaitForSeconds(time);
             bigAttackCollider.enabled = true;
-            isInvunerable = true;
+            //isInvunerable = true;
             yield return new WaitForSeconds(0.5f);
-            isInvunerable = false;
+            //isInvunerable = false;
             bigAttackCollider.enabled = false;
         }
 
@@ -158,9 +169,9 @@ namespace Player.Behaviour
         IEnumerator spinning()
         {
             animator.SetBool("specialAttackOver", false);
-            isInvunerable = true;
+            //isInvunerable = true;
             yield return new WaitForSeconds(5f);
-            isInvunerable = false;
+            //isInvunerable = false;
             animator.SetBool("specialAttackOver", true);
         }
 
@@ -168,6 +179,16 @@ namespace Player.Behaviour
         {
             isInvunerable = true;
             yield return new WaitForSeconds(1f);
+            isInvunerable = false;
+        }
+
+        public void MakeInvunerable()
+        {
+            isInvunerable = true;
+        }
+
+        public void MakeVunerable()
+        {
             isInvunerable = false;
         }
     }

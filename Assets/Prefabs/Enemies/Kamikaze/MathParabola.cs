@@ -50,17 +50,17 @@ public class MathParabola : MonoBehaviour
         }
 
         if (ended)
-        {
-            
+        {   
             StartCoroutine(Explode());
         }
     }
 
     IEnumerator ParabolicMovement()
     {
+        
         // Short delay added before Projectile is thrown
         yield return new WaitForSeconds(1.5f);
-
+        SoundManager.instance.PlaySound(SoundID.KAMIKAZE);
         // Move projectile to the position of throwing object + add some offset if needed.
         Projectile.position = myTransform.position + new Vector3(0, 0.0f, 0);
 
@@ -90,6 +90,7 @@ public class MathParabola : MonoBehaviour
 
             yield return null;
         }
+        SoundManager.instance.StopSound(SoundID.KAMIKAZE);
         SoundManager.instance.PlaySound(SoundID.EXPLOSION1);
         ended = true;
     }
@@ -98,7 +99,9 @@ public class MathParabola : MonoBehaviour
     {
         explosion.Play();
         collider.enabled = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        collider.enabled = false;
+        yield return new WaitForSeconds(0.5f);
         Destroy(gameObject);
     }
 }

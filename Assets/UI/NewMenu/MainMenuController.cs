@@ -8,6 +8,31 @@ public class MainMenuController : MonoBehaviour
     public GameObject buttonGroup, optionsPanel, creditsPanel, quitPanel;
     public ContinueInput fader;
     public GameObject mainMenuButton, creditsButton, optionsButton, controlsButton, soundButton, quitButton;
+    public GameObject backButtonMainMenu, backButtonOptions, backButtonCredits;
+
+    private void Update()
+    {
+        if(Input.GetButtonDown("SwitchWeapon"))
+        {
+            if (buttonGroup.activeSelf)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(backButtonMainMenu);
+            }
+
+            if (optionsPanel.activeSelf)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(backButtonOptions);
+            }
+
+            if (creditsPanel.activeSelf)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(backButtonCredits);
+            }
+        }
+    }
 
     public void viewOptions()
     {
@@ -63,5 +88,10 @@ public class MainMenuController : MonoBehaviour
         SoundManager.instance.StopAllMusic();
         SoundManager.instance.StopAllSounds();
         fader.fade();
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }

@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\dontRotate.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csAnimationSpin.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csMouseOrbit.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript2D.cs" />
+    <Compile Include="Assets\levelFinished.cs" />
     <Compile Include="Assets\Prefabs\Enemies\DemonMediumEnemy\EnemyBase.cs" />
     <Compile Include="Assets\Prefabs\Enemies\DemonMediumEnemy\EnemyChaseMelee.cs" />
     <Compile Include="Assets\Prefabs\Enemies\DemonMediumEnemy\PlayerDamageTest.cs" />

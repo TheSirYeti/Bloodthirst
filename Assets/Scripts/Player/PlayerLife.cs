@@ -25,8 +25,9 @@ public class PlayerLife : MonoBehaviour
         hpBar.value = hp;
         if(hp <= 0)
         {
-            controller.movement.movementSpeed = 0f;
             controller.movement.animator.SetTrigger("dead");
+            controller.movement.enabled = false;
+            controller.enabled = false;
         }
 
         if (Input.GetKeyDown(KeyCode.L))
@@ -72,13 +73,22 @@ public class PlayerLife : MonoBehaviour
         if (other.gameObject.tag == "enemyAttack" && !controller.movement.isAttacking && !controller.basicAttacks.isInvunerable)
         {
             Vector3 difference = transform.position - other.transform.position;
-            difference = difference.normalized * 200;
+            difference = difference.normalized * 100;
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
             StartCoroutine(Knockback(rigidbody));
         }
 
-        if(other.gameObject.tag == "enemyFireAttack" && !controller.movement.isAttacking && !controller.basicAttacks.isInvunerable)
+        if (other.gameObject.tag == "kamikazeAttack" && !controller.basicAttacks.isInvunerable)
+        {
+            Vector3 difference = transform.position - other.transform.position;
+            difference = difference.normalized * 100;
+            rigidbody.AddForce(difference, ForceMode.Impulse);
+            hp -= 5;
+            StartCoroutine(Knockback(rigidbody));
+        }
+
+        if (other.gameObject.tag == "enemyFireAttack" && !controller.movement.isAttacking && !controller.basicAttacks.isInvunerable)
         {
             Destroy(other.gameObject);
             hp--;

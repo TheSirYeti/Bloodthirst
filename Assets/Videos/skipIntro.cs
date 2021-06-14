@@ -7,6 +7,7 @@ public class skipIntro : MonoBehaviour
 {
     public Animator fader;
     public VideoPlayer player;
+    public float timeToWait;
 
     private void Start()
     {
@@ -24,7 +25,7 @@ public class skipIntro : MonoBehaviour
 
     IEnumerator videoLenght()
     {
-        yield return new WaitForSeconds(206);
+        yield return new WaitForSeconds(timeToWait);
         fader.SetTrigger("fade");
     }
 

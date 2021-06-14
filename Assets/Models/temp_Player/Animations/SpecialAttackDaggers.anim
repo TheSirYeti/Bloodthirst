@@ -14603,7 +14603,7 @@ AnimationClip:
     intParameter: 4
     messageOptions: 0
   - time: 0
-    functionName: enableCollider
+    functionName: enableSpecialCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -14611,6 +14611,20 @@ AnimationClip:
     messageOptions: 0
   - time: 0
     functionName: SFX_SPIN
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: MakeInvunerable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.78333336
+    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

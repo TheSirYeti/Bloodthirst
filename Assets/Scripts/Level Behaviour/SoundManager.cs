@@ -198,7 +198,8 @@ public enum SoundID
     ENEMY_DAMAGE,
     SPIN,
     ENEMY_DEATH,
-    PLAYER_DAMAGE
+    PLAYER_DAMAGE,
+    KAMIKAZE
 }
 
 public enum MusicID

@@ -9,13 +9,14 @@ public class Skeleton : Enemy
     public Animator animator;
     public Transform attackSpawnPoint;
     public float maximumAttackDistance;
-    float _attackCooldown = 2f;
+    float _attackCooldown = 9f;
     public GameObject deathExplosion;
     public GameObject shield;
     public SpecialAttackBar bar;
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
         StartCoroutine(makeAttack());
         bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
         transform.LookAt(player.transform.position);
@@ -59,7 +60,7 @@ public class Skeleton : Enemy
                     {
                         animator.SetTrigger("attack");
                     }
-                    yield return new WaitForSeconds(_attackCooldown / 2);
+                    yield return new WaitForSeconds(_attackCooldown);
                     transform.LookAt(player.transform.position);
                     break;
             }
@@ -80,7 +81,8 @@ public class Skeleton : Enemy
         {
             bar.addValue(0.05f);
             hp--;
-            StartCoroutine(enableShield());
+            if(hp > 0)
+                StartCoroutine(enableShield());
         } 
     }
 
@@ -99,7 +101,9 @@ public class Skeleton : Enemy
     IEnumerator enableShield()
     {
         shield.SetActive(true);
+        vunerable = false;
         yield return new WaitForSeconds(2f);
+        vunerable = true;
         shield.SetActive(false);
     }
 

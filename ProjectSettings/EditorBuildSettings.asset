@@ -18,15 +18,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: df58d39c7a0ae3d4f95c280d5990e277
   - enabled: 1
-    path: Assets/Scenes/DebugLevel.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
     path: Assets/Scenes/NewMode.unity
     guid: 87faf3967a7e0c746b4f72f3271c0abe
   - enabled: 1
     path: Assets/Scenes/IntroVideo.unity
     guid: d53607436c2a70c4e92bc96a0ff46092
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level1.unity
+    guid: 241b400e3ab679f468bb8c8ae003837f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2.unity
+    guid: 9e64647a361d9254eabcaa33339a2504
   - enabled: 0
     path: Assets/Scenes/OldMenu.unity
     guid: a58d84a8ad576894cac4ca992c51b346
+  - enabled: 0
+    path: Assets/Scenes/DebugLevel.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}

@@ -18,9 +18,8 @@ public class TakeDamage : MonoBehaviour
     {
         if (other.gameObject.tag == "attackFX")
         {
-            
             enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
-            bar.addValue(0.05f);
+            bar.addValue(0.025f);
             Rigidbody body = enemy.GetComponent<Rigidbody>();
             if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
             {
@@ -39,6 +38,19 @@ public class TakeDamage : MonoBehaviour
             {
                 Vector3 difference = enemy.transform.position - other.transform.position;
                 difference = difference.normalized * 20;
+                body.AddForce(difference, ForceMode.Impulse);
+                StartCoroutine(Knockback(body));
+            }
+        }
+
+        if(other.gameObject.tag == "specialAttackFX")
+        {
+            enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
+            Rigidbody body = enemy.GetComponent<Rigidbody>();
+            if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
+            {
+                Vector3 difference = enemy.transform.position - other.transform.position;
+                difference = difference.normalized * 8;
                 body.AddForce(difference, ForceMode.Impulse);
                 StartCoroutine(Knockback(body));
             }

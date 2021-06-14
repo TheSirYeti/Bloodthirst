@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour
     public float hp;
     public float speed;
     public Transform lookAtPoint;
+    public bool vunerable = true;
 
     public Material originalMat;
 
@@ -29,7 +30,7 @@ public abstract class Enemy : MonoBehaviour
             other.gameObject.GetComponent<CameraLock>().addEnemy(gameObject);
         }
 
-        if (other.gameObject.tag == "attackFX")
+        if ((other.gameObject.tag == "attackFX" || other.gameObject.tag == "specialAttackFX") && vunerable)
         {
             Rigidbody body = GetComponent<Rigidbody>();
             if (body != null && hp > 0)

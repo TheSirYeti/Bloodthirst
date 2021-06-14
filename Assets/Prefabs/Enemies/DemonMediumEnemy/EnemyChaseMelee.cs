@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class EnemyChaseMelee : EnemyBase
 {
+
+    private void Start()
+    {
+        player = GameObject.FindWithTag("Player").transform;
+    }
     void Update()
     {
         MovementGeneric();
+        
     }
 
     public override void MovementGeneric()

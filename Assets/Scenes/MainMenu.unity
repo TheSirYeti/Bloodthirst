@@ -4559,6 +4559,9 @@ MonoBehaviour:
   controlsButton: {fileID: 92899041}
   soundButton: {fileID: 1663622584}
   quitButton: {fileID: 1371075346}
+  backButtonMainMenu: {fileID: 70034380}
+  backButtonOptions: {fileID: 21823938}
+  backButtonCredits: {fileID: 752104556}
 --- !u!1 &1297747903
 GameObject:
   m_ObjectHideFlags: 0
@@ -5359,7 +5362,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1289409735}
-        m_MethodName: viewCredits
+        m_MethodName: quitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7253,7 +7256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5dd81bb3d718a48be5d781b90401d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 6
+  level: 5
 --- !u!222 &2117722238894136104
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 0f;
+        
         EventSystem.current.SetSelectedGameObject(startButton);
     }
 

@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
 
     public SpecialAttackBar bar;
     public GameObject deathPanel, deathButton;
+
+    private void Start()
+    {
+        movement.enabled = true;
+    }
     private void Update()
     {
         if (Input.GetButtonDown(jumpButtonName))
@@ -75,7 +80,7 @@ public class PlayerController : MonoBehaviour
             bar.resetValue();
         }
 
-        if (bar.getValue() == 1f)
+        if (bar.getValue() == 1f && hpManager.hp > 0)
         {
             playerVFX.enableSparks();
         } else playerVFX.disableSparks();
@@ -86,7 +91,7 @@ public class PlayerController : MonoBehaviour
             basicAttacks.changeWeapons();
         }
         basicAttacks.resetAttackTurn();
-        lockingSystem();
+        //lockingSystem();
 
         if (hpManager.amIHurt)
         {
@@ -95,6 +100,11 @@ public class PlayerController : MonoBehaviour
                 hpManager.amIHurt = false;
                 takeDamage();
             }
+        }
+
+        if (Input.GetButtonDown("Roll"))
+        {
+            movement.roll();
         }
     }
 
@@ -108,69 +118,10 @@ public class PlayerController : MonoBehaviour
         return Vector3.Distance(value1, value2);
     }
 
-    void lockingSystem()
-    {
-        float toggle = Input.GetAxis("Camera X");
-
-        if (Input.GetButtonDown(lockButtonName))
-        {
-            if (lockSystem.isLocked == false)
-            {
-                lockSystem.isLocked = true;
-                lockSystem.index = 0;
-                if (lockSystem.checkEnemiesAround() && checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 2f && lockSystem.currentEnemy() != null)
-                {
-                    Vector3 centerPosition = (lockSystem.currentEnemy().GetComponent<Enemy>().lookAtPoint.transform.position + transform.position) / 2;
-                    crosshair.setCrosshairPosition(lockSystem.currentEnemy().GetComponent<Enemy>().lookAtPoint.transform);
-                    crosshair.enableImage();
-                    center.position = centerPosition;
-                    vcamera.m_LookAt = center;
-                    vcamera.m_XAxis.m_InputAxisName = "No Movement";
-                }
-                else lockSystem.isLocked = false;
-            }
-            else
-            {
-                vcamera.m_XAxis.m_InputAxisName = "Camera X";
-                vcamera.m_LookAt = transform;
-                lockSystem.isLocked = false;
-                crosshair.disableImage();
-            }
-        }
-        if (lockSystem.isLocked == true)
-        {
-            lockSystem.toggleEnemy(toggle);
-            if(lockSystem.currentEnemy() != null)
-                crosshair.setCrosshairPosition(lockSystem.currentEnemy().GetComponent<Enemy>().lookAtPoint.transform);
-        }
-        if(lockSystem.currentEnemy() != null)
-        {
-            if (lockSystem.isLocked == true && checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 2f)
-            {
-                Vector3 centerPosition = (lockSystem.currentEnemy().transform.position + transform.position) / 2;
-                center.position = centerPosition;
-                vcamera.m_LookAt = center;
-            }
-        }
-
-        if(lockSystem.currentEnemy() != null)
-        {
-            if (lockSystem.isLocked == true && (checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) <= 2f ||
-                                                checkMagnitude(transform.position, lockSystem.currentEnemy().transform.position) >= 25f))
-            {
-                vcamera.m_LookAt = transform;
-                lockSystem.isLocked = false;
-                vcamera.m_XAxis.m_InputAxisName = "Camera X";
-                crosshair.disableImage();
-            }
-        }
-    }
-
     void takeDamage()
     {
 
     }
-
 
     public void showDeathPanel()
     {

@@ -28,6 +28,7 @@ namespace Player.Behaviour
 
         private     float                       floatingTime = 0.75f;
         private     float                       cooldown;
+        private     float                       rollCooldown;
         public      bool                        isAttacking;
         
 
@@ -75,17 +76,12 @@ namespace Player.Behaviour
             }
             transform.position += inputVector * (movementSpeed * Time.deltaTime);
 
-
-            //rigidBody.MovePosition(transform.position + inputVector * (movementSpeed * Time.deltaTime));
-
             if ((xValue == 0 && Input.GetAxis(horizontalAxis) == 0) || !animator.GetBool("isOnGround") || movementSpeed == 0f)
             {
-                //SoundManager.instance.StopSound(SoundID.RUN);
                 runningSFXPlaying = false;
             } else if (!runningSFXPlaying && animator.GetBool("isOnGround"))
             {
                 runningSFXPlaying = true;
-                //SoundManager.instance.PlaySound(SoundID.RUN, true, 1);
             }
 
             animator.SetFloat(runningSpeedParameterName, inputVector.magnitude);
@@ -148,6 +144,26 @@ namespace Player.Behaviour
             movementSpeed = 0.4f;
             yield return new WaitForSeconds(0.45f);
             movementSpeed = 2f;
+        }
+
+        public void roll()
+        {
+            float horizontalInput = Input.GetAxis(horizontalAxis);
+            float verticalInput = Input.GetAxis(verticalAxis);
+            if (rollCooldown <= Time.time && checkInput(horizontalInput, verticalInput))
+            {
+                Vector3 rollDirection = new Vector3(horizontalInput, 0f, verticalInput);
+                animator.SetTrigger("roll");
+                rigidBody.AddForce(rollDirection * 100, ForceMode.Impulse);
+                rollCooldown = Time.time + 1f;
+            }
+        }
+
+        bool checkInput(float hInput, float vInput)
+        {
+            if (hInput >= 0.5f || hInput <= -0.5f || vInput >= 0.5f || vInput <= -0.5f)
+                return true;
+            else return false;
         }
     }
 }

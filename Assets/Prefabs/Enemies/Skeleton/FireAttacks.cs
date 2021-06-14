@@ -18,13 +18,14 @@ public class FireAttacks : MonoBehaviour
         SoundManager.instance.PlaySound(SoundID.BURN);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (chase)
         {
             transform.parent = null;
             Vector3 targetYAdjust = new Vector3(target.transform.position.x, target.transform.position.y + 1f, target.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, targetYAdjust, speed * Time.deltaTime);
+            transform.localScale -= new Vector3(0.0035f, 0.0035f, 0.0035f);
             StartCoroutine(selfDestruct());
         }
         else
@@ -55,8 +56,11 @@ public class FireAttacks : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             SoundManager.instance.StopSound(SoundID.BURN);
-            //Destroy(gameObject);
         }
-            
+
+        if(other.gameObject.tag == "Floor")
+        {
+            Destroy(gameObject);
+        }
     }
 }

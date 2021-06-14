@@ -52686,7 +52686,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.783334
+    m_StopTime: 4.8
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -104458,6 +104458,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: MakeInvunerable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.9166666
     functionName: enableHeavyGroundVFX
     data: 
@@ -104474,6 +104481,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2.2
     functionName: enableBigCollider
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.8
+    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

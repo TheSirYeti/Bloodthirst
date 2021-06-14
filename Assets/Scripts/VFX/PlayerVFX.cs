@@ -55,6 +55,7 @@ namespace VFX.Player
                 foreach (ParticleSystem particleSystem in heavyGroundAttackVFX)
                 {
                     particleSystem.Stop();
+                    //particleSystem.gameObject.transform.parent = transform;
                 }
                 foreach (ParticleSystem particleSystem in heavyGroundExplosionVFX)
                 {
@@ -77,19 +78,7 @@ namespace VFX.Player
         public void enableHeavyGroundVFX(int index)
         {
             heavyGroundAttackVFX[index].Play();
-            cooldown = disableTimer + Time.time;
-            //StartCoroutine(toggleHeavyVFX(time));
-        }
-
-        IEnumerator toggleHeavyVFX(float time)
-        {
-            yield return new WaitForSeconds(time);
-            //heavyGroundAttackVFX[index].Play();
-            yield return new WaitForSeconds(0.5f);
-            heavyGroundExplosionVFX[0].Play();
-            heavyGroundExplosionVFX[1].Play();
-            heavyGroundExplosionVFX[2].Play();
-            SoundManager.instance.PlaySound(SoundID.EXPLOSION1, false, 1);
+            //heavyGroundAttackVFX[index].gameObject.transform.parent = null;
             cooldown = disableTimer + Time.time;
         }
 

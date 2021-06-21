@@ -82,29 +82,22 @@ public class Skeleton : Enemy
             bar.addValue(0.05f);
             hp--;
             if(hp > 0)
-                StartCoroutine(enableShield());
+                enableShield();
         } 
     }
 
     public IEnumerator Die()
     {
-        //GameObject effect = Instantiate(deathExplosion);
-        //effect.SetActive(true);
         animator.SetTrigger("died");
         SoundManager.instance.StopSound(SoundID.BURN);
-        //effect.transform.parent = transform;
-        //effect.transform.localPosition = Vector3.zero;
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
 
-    IEnumerator enableShield()
+    void enableShield()
     {
         shield.SetActive(true);
-        vunerable = false;
-        yield return new WaitForSeconds(2f);
-        vunerable = true;
-        shield.SetActive(false);
+        shield.GetComponent<SkeletonShield>().resetValues();
     }
 
     public void chargeSound()

@@ -70,11 +70,18 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fb4d3e127ef56f34d823b89261aed320, type: 3}
   - {fileID: 8300000, guid: 41d04e828b996634ab1ab4045b93c7cc, type: 3}
   - {fileID: 8300000, guid: d1ae137abcde4b34891e375972b6369e, type: 3}
+  - {fileID: 8300000, guid: 2af1d8bfd790a4249ac925c24b93a86d, type: 3}
+  - {fileID: 8300000, guid: 51201260bda1ecb47b85e64307e70adc, type: 3}
+  - {fileID: 8300000, guid: 276df483c6695f64b9eaa869a194c461, type: 3}
+  - {fileID: 8300000, guid: 9a5c694e374a7ec48ac0296d2431c721, type: 3}
+  - {fileID: 8300000, guid: 67a92f714358dde44b9101ff351b2db3, type: 3}
+  - {fileID: 8300000, guid: 6da02e63110195b4797180e16af16e92, type: 3}
   music:
   - {fileID: 8300000, guid: 648eba5d8ae37b94f8202275ed2bacae, type: 3}
   - {fileID: 8300000, guid: 9e860498821b62d49a6230db1abe020d, type: 3}
   - {fileID: 8300000, guid: aca648cf1a4902040ba1b8eb0d95a442, type: 3}
   - {fileID: 8300000, guid: ce895e2dfe8084a4ba3dc301e67c8191, type: 3}
+  - {fileID: 8300000, guid: 66e52000bc250d84298cef75fe6259fd, type: 3}
   sfxChannel: []
   musicChannel: []
   volumeSFX: 0.5

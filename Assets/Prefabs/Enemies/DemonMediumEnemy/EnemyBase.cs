@@ -50,7 +50,6 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (amount > 0)
         {
-            Debug.Log("PORQUE NO MUERE?");
             currentHitLife -= amount;
 
             if (currentHitLife <= 0)

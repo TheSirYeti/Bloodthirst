@@ -103,6 +103,15 @@ public class PlayerLife : MonoBehaviour
             hp--;
             StartCoroutine(Knockback(rigidbody));
         }
+
+        if (other.gameObject.tag == "lightBossAttack" && !controller.basicAttacks.isInvunerable)
+        {
+            Vector3 difference = transform.position - other.transform.position;
+            difference = difference.normalized * 200;
+            rigidbody.AddForce(difference, ForceMode.Impulse);
+            hp--;
+            StartCoroutine(Knockback(rigidbody));
+        }
     }
 
     IEnumerator hurtingWindow()

@@ -54019,7 +54019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a55de4809002d547a52f1a54b219881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  hp: 10
   amIHurt: 0
   hurtAllowed: 0
   rigidbody: {fileID: 5143062912278028058}
@@ -78655,9 +78655,9 @@ MonoBehaviour:
   - {fileID: 4090694700693725693}
   - {fileID: 3277256449464737690}
   heavyGroundAttackVFX:
-  - {fileID: 0}
   - {fileID: 2499612415332236493}
   - {fileID: 2499612416125156428}
+  - {fileID: 3277256451317019509}
   heavyGroundExplosionVFX:
   - {fileID: 0}
   airAttackVFX:

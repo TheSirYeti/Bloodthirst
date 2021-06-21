@@ -199,7 +199,13 @@ public enum SoundID
     SPIN,
     ENEMY_DEATH,
     PLAYER_DAMAGE,
-    KAMIKAZE
+    KAMIKAZE,
+    SHIELD_HURT,
+    SHIELD_BREAK,
+    BOSS_VOICE1,
+    BOSS_VOICE2,
+    BOSS_VOICE3,
+    KAMIKAZE_BUILDUP
 }
 
 public enum MusicID
@@ -207,5 +213,6 @@ public enum MusicID
     MAIN_MENU,
     INTRO,
     SOCCER,
-    NEW_MENU
+    NEW_MENU,
+    BOAT
 }

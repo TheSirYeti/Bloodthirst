@@ -14,13 +14,6 @@ public abstract class Enemy : MonoBehaviour
     private void Start()
     {
         originalMat = GetComponentInChildren<Renderer>().material;
-        
-    }
-
-    private void Update()
-    {
-        
-        //bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,7 +39,7 @@ public abstract class Enemy : MonoBehaviour
 
         if (other.gameObject.tag == "bigAttackFX")
         {
-            hp -= 3;
+            hp -= 5;
         }
     }
 

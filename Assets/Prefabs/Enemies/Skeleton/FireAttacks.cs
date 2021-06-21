@@ -60,6 +60,7 @@ public class FireAttacks : MonoBehaviour
 
         if(other.gameObject.tag == "Floor")
         {
+            SoundManager.instance.StopSound(SoundID.BURN);
             Destroy(gameObject);
         }
     }

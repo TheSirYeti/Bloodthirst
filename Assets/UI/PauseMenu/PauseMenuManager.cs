@@ -19,9 +19,11 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
+            Debug.Log("1 HOLA?!?!??!");
             if (!pauseMenu.activeSelf)
             {
                 openPanel();
+                Time.timeScale = 0f;
             }
             else
             {
@@ -40,6 +42,7 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseButton);
+        Debug.Log("HOLA?!?!??!");
         Time.timeScale = 0f;
     }
 

@@ -17,6 +17,8 @@ TagManager:
   - spikeTrap
   - specialAttackFX
   - kamikazeAttack
+  - lightBossAttack
+  - boat
   layers:
   - Default
   - TransparentFX

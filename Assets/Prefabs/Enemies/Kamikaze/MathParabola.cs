@@ -57,8 +57,9 @@ public class MathParabola : MonoBehaviour
 
     IEnumerator ParabolicMovement()
     {
-        
+
         // Short delay added before Projectile is thrown
+        SoundManager.instance.PlaySound(SoundID.KAMIKAZE_BUILDUP);
         yield return new WaitForSeconds(1.5f);
         SoundManager.instance.PlaySound(SoundID.KAMIKAZE);
         // Move projectile to the position of throwing object + add some offset if needed.

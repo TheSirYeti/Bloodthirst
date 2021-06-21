@@ -5,9 +5,9 @@ using UnityEngine.EventSystems;
 
 public class MainMenuController : MonoBehaviour
 {
-    public GameObject buttonGroup, optionsPanel, creditsPanel, quitPanel;
+    public GameObject buttonGroup, optionsPanel, creditsPanel, quitPanel, levelPanel;
     public ContinueInput fader;
-    public GameObject mainMenuButton, creditsButton, optionsButton, controlsButton, soundButton, quitButton;
+    public GameObject mainMenuButton, creditsButton, optionsButton, controlsButton, soundButton, quitButton, levelButton;
     public GameObject backButtonMainMenu, backButtonOptions, backButtonCredits;
 
     private void Update()
@@ -32,6 +32,15 @@ public class MainMenuController : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(backButtonCredits);
             }
         }
+    }
+
+    public void viewLevel()
+    {
+        buttonGroup.SetActive(false);
+        levelPanel.SetActive(true);
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(levelButton);
     }
 
     public void viewOptions()

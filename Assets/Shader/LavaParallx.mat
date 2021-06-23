@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LavaParallx
+  m_Shader: {fileID: 4800000, guid: 32c5540e69816f94d9646b968344128e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 1ab10952639ac3f45bb3d786b94d9f4a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AmbientOcclusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Diffuse:
+        m_Texture: {fileID: 2800000, guid: c0b0db8d91ee13e43a57181e25205ef5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistorsionMap:
+        m_Texture: {fileID: 2800000, guid: ef4bcd0e1f0aedd4d80a248a5c2879e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Emissive:
+        m_Texture: {fileID: 2800000, guid: c0b0db8d91ee13e43a57181e25205ef5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap:
+        m_Texture: {fileID: 2800000, guid: 5b39914406c74104ead53eaa03f468ae, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 5b39914406c74104ead53eaa03f468ae, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 5b5062a1f7721224c87d657254c2cd70, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Burn: 1.6
+    - _DistortionAmount: 0.24
+    - _Float0: 0.4
+    - _Float1: 1
+    - _Heatwave: 0.57
+    - _Metallic: 0
+    - _Saturation: 2
+    - _ScrollSpeed: 0.62
+    - _Smoothness: 0.6
+    - _Speed: 0.5
+    - _Strengh: 0.4
+    - _Temp: 0.5
+    - _Temporary: 1
+    - _Tilling: 90
+    - __dirty: 0
+    m_Colors:
+    - _EmissiveColor: {r: 0.4339623, g: 0.040368583, b: 0, a: 0}
+    - _Hot: {r: 1, g: 0.27796596, b: 0, a: 0}
+    - _Warn: {r: 0.85882354, g: 0, b: 0.21232535, a: 0}

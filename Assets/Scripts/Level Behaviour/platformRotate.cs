@@ -6,8 +6,10 @@ public class platformRotate : MonoBehaviour
 { 
     void FixedUpdate()
     {
-        Vector3 position = GetComponent<Renderer>().bounds.center;
-
-        transform.RotateAround(position, new Vector3(0f,3f,0f), 15f * Time.deltaTime);
+        Vector3 position = new Vector3();
+        if (GetComponent<Renderer>() != null)
+            position = GetComponent<Renderer>().bounds.center;
+        if(position != null)
+            transform.RotateAround(position, new Vector3(0f,6f,0f), 15f * Time.deltaTime);
     }
 }

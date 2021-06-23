@@ -9,6 +9,8 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject startButton;
     public GameObject pauseButton, controlsButton, soundButton;
 
+    public PlayerController player;
+
     private void Start()
     {
         
@@ -19,14 +21,15 @@ public class PauseMenuManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Pause"))
         {
-            Debug.Log("1 HOLA?!?!??!");
             if (!pauseMenu.activeSelf)
             {
                 openPanel();
                 Time.timeScale = 0f;
+                player.enabled = false;
             }
             else
             {
+                player.enabled = true;
                 closePanel();
             }
         }
@@ -42,7 +45,6 @@ public class PauseMenuManager : MonoBehaviour
         pauseMenu.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(pauseButton);
-        Debug.Log("HOLA?!?!??!");
         Time.timeScale = 0f;
     }
 
@@ -55,6 +57,7 @@ public class PauseMenuManager : MonoBehaviour
         controlsPanel.SetActive(false);
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        player.enabled = true;
     }
 
     public void viewSound()

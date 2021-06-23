@@ -4,9 +4,22 @@ using UnityEngine;
 
 public class CheckpointBehaviour : MonoBehaviour
 {
-    List<Transform> checkpoints = new List<Transform>();
+    public List<Transform> checkpoints = new List<Transform>();
+    public int currentCheckpoint;
+    public static CheckpointBehaviour instance;
 
-    int currentCheckpoint;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void SetCurrentCheckpoint(int index)
     {
@@ -19,5 +32,23 @@ public class CheckpointBehaviour : MonoBehaviour
         return currentCheckpoint;
     }
 
+    public Transform GetCurrentSpawnpoint()
+    {
+        return checkpoints[currentCheckpoint];
+    }
 
+    public void changeCheckpoints(List<Transform> newCheckpoints)
+    {
+        checkpoints = newCheckpoints;
+    }
+
+    public void resetCurrentCheckpoint()
+    {
+        currentCheckpoint = 0;
+    }
+
+    public void DestroyInstance()
+    {
+        Destroy(gameObject);
+    }
 }

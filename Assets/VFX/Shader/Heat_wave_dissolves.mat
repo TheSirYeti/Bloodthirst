@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Heat_wave_dissolves
+  m_Shader: {fileID: 4800000, guid: f54db97fc71a0654eb9cee7629ad0717, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 60d224affeaecf84ead5a8b24c6c9995, type: 3}
+        m_Scale: {x: 1.72, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AmbientOcclusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DistorsionMap:
+        m_Texture: {fileID: 2800000, guid: ef4bcd0e1f0aedd4d80a248a5c2879e7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask:
+        m_Texture: {fileID: 2800000, guid: 5d66be8e14e4d904383185a5f5b9d88b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Burn: 0.27
+    - _DistortionAmount: 0.849
+    - _Heatwave: 0.153
+    - _Saturation: 2
+    - _ScrollSpeed: 0.386
+    - __dirty: 0
+    m_Colors:
+    - _Hot: {r: 1, g: 0.8696957, b: 0, a: 0}
+    - _Warn: {r: 0.8588235, g: 0.39588076, b: 0, a: 0}

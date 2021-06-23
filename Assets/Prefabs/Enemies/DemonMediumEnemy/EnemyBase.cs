@@ -64,6 +64,8 @@ public abstract class EnemyBase : MonoBehaviour
                     gameObject.GetComponent<Enemy>().hp = 0;
                 //this.gameObject.GetComponent<CapsuleCollider>().enabled = false;
                 //this.gameObject.GetComponent<Rigidbody>().useGravity = false;
+                
+                  
 
                 Destroy(this.gameObject, TimeDestroy);
 

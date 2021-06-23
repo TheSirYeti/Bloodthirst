@@ -7,10 +7,10 @@ public class ContinueInput : MonoBehaviour
 {
 
     public Animator animator;
-
+    public bool allowed;
     void Update()
     {
-        if (Input.GetButtonDown("Start"))
+        if (Input.GetButtonDown("Start") && allowed)
         {
             fadeProgram(); 
         }

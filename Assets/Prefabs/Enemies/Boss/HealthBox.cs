@@ -7,6 +7,14 @@ public class HealthBox : MonoBehaviour
     public Collider collider;
     public Boss boss;
 
+    private void Update()
+    {
+        if (boss.hp <= 0)
+        {
+            boss.amDying();
+        }
+    }
+
     public void enableCollider()
     {
         collider.enabled = true;

@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 4910758743520955814}
   - component: {fileID: 8325289403085406723}
   - component: {fileID: 6083705398457153225}
+  - component: {fileID: 8224101116991324707}
+  - component: {fileID: 6897474394755781164}
+  - component: {fileID: 1153155971560180014}
+  - component: {fileID: 5885283317761508924}
   m_Layer: 0
   m_Name: Puerta Japonesa 3
   m_TagString: Untagged
@@ -54,8 +58,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,4 +82,57 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &8224101116991324707
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723324862433695516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0021507216
+  m_Height: 0.05272476
+  m_Direction: 1
+  m_Center: {x: -0.016105866, y: -0.00027520655, z: 0}
+--- !u!136 &6897474394755781164
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723324862433695516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0021629834
+  m_Height: 0.053979576
+  m_Direction: 1
+  m_Center: {x: 0.016113069, y: -0.00016072273, z: 0}
+--- !u!65 &1153155971560180014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723324862433695516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.059627447, y: 0.005704956, z: 0.0069877044}
+  m_Center: {x: 0, y: 0.023465475, z: 0}
+--- !u!65 &5885283317761508924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723324862433695516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.049519137, y: 0.0034837937, z: 0.0069877044}
+  m_Center: {x: 0.00014440536, y: 0.013546654, z: 0}

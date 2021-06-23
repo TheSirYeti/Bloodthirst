@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 7090132551203803006}
   - component: {fileID: 2251293224073229640}
   - component: {fileID: 5477144782745307569}
+  - component: {fileID: 6906742709899570112}
+  - component: {fileID: 6622428296375993443}
   m_Layer: 0
   m_Name: Barril2
   m_TagString: Untagged
@@ -158,6 +160,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &6906742709899570112
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070408256385793389}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0092951255
+  m_Height: 0.021517392
+  m_Direction: 1
+  m_Center: {x: -0.0007048742, y: -0.00047942778, z: 8.3618944e-19}
+--- !u!65 &6622428296375993443
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070408256385793389}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.015280898, y: 0.0012754789, z: 0.014481538}
+  m_Center: {x: 0.00015061138, y: 0.009362263, z: -0.000050168055}
 --- !u!1 &6518864778998399079
 GameObject:
   m_ObjectHideFlags: 0

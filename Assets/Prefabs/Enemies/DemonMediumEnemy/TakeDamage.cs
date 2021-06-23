@@ -10,7 +10,6 @@ public class TakeDamage : MonoBehaviour
 
     private void Start()
     {
-        //originalMat = enemy.GetComponentInChildren<Renderer>().material;
         bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
     }
 
@@ -32,7 +31,7 @@ public class TakeDamage : MonoBehaviour
 
         if (other.gameObject.tag == "bigAttackFX")
         {
-            enemy.GetComponent<EnemyBase>().ReceiveDamage(5);
+            enemy.GetComponent<EnemyBase>().ReceiveDamage(10);
             Rigidbody body = enemy.GetComponent<Rigidbody>();
             if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
             {

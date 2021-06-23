@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public CameraLock lockSystem;
     public Crosshair crosshair;
     public Transform center;
+    public AutoAimAI aimAI;
 
     public string horizontalAxis = "Horizontal";
     public string verticalAxis = "Vertical";
@@ -28,6 +29,12 @@ public class PlayerController : MonoBehaviour
 
     public SpecialAttackBar bar;
     public GameObject deathPanel, deathButton;
+
+    private void Awake()
+    {
+        if(CheckpointBehaviour.instance != null)
+            transform.position = CheckpointBehaviour.instance.GetCurrentSpawnpoint().position;
+    }
 
     private void Start()
     {
@@ -49,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) {
-                //bar.addValue(0.05f);
+                aimAI.lookAtEnemy();
                 switch (basicAttacks.currentWeapon)
                 {
                     case 0:
@@ -90,8 +97,6 @@ public class PlayerController : MonoBehaviour
         {
             basicAttacks.changeWeapons();
         }
-        basicAttacks.resetAttackTurn();
-        //lockingSystem();
 
         if (hpManager.amIHurt)
         {

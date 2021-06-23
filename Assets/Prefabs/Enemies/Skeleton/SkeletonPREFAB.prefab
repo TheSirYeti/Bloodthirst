@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961edb2939fd8f044ab7f230d4baaa45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 4
+  hp: 1
   speed: 0
   lookAtPoint: {fileID: 374011507284362023}
   vunerable: 1
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a181404376f4cd841a521cd469ab8132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldHP: 3
+  shieldHP: 6
   maxHP: 3
   originalMat: {fileID: 2100000, guid: 0c4d1569adc2ea84585c6bd8eadbcc2c, type: 2}
   hurtMat: {fileID: 2100000, guid: d932cca6205aa434088ae9af155e32b5, type: 2}

@@ -81,6 +81,7 @@ public class EnemyChaseMelee : EnemyBase
             speed = 0;
             aboutPlayer = 0;
             lineOfSite = 0;
+            PrefabsAttackDesactive();
         }
 
     }

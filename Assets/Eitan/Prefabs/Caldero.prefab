@@ -11,6 +11,10 @@ GameObject:
   - component: {fileID: 2246001239379566414}
   - component: {fileID: 2919667019643179243}
   - component: {fileID: 1107967862625117217}
+  - component: {fileID: 7485535733145281469}
+  - component: {fileID: 8048400790272981769}
+  - component: {fileID: 2606275768094786315}
+  - component: {fileID: 1975986394139408238}
   m_Layer: 0
   m_Name: Caldero
   m_TagString: Untagged
@@ -54,8 +58,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,4 +82,55 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7485535733145281469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468374236786460148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.000987699, y: 0.021469789, z: 0.0105942935}
+  m_Center: {x: -0.010661176, y: -0.0010023713, z: -0.000032948254}
+--- !u!65 &8048400790272981769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468374236786460148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0018844461, y: 0.0205822, z: 0.010528402}
+  m_Center: {x: 0.01091027, y: -0.0012928009, z: 0}
+--- !u!65 &2606275768094786315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468374236786460148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.028487574, y: 0.0025155018, z: 0.0048429486}
+  m_Center: {x: 0, y: 0.008933792, z: 0.0001184465}
+--- !u!135 &1975986394139408238
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468374236786460148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003225615
+  m_Center: {x: -0.00012666226, y: -0.002748029, z: 0}

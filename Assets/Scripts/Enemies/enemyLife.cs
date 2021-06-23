@@ -18,7 +18,6 @@ public class enemyLife : MonoBehaviour
     {
         if (hp <= 0)
         {
-            Debug.Log("Entra");
             Destroy(gameObject);
         }
     }

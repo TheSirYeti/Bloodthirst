@@ -14,6 +14,11 @@ public class Skeleton : Enemy
     public GameObject shield;
     public SpecialAttackBar bar;
 
+    private void Awake()
+    {
+        enableShield();
+    }
+
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
@@ -39,6 +44,8 @@ public class Skeleton : Enemy
         {
             StartCoroutine(Die());
         }
+
+        checkShield();
     }
 
     IEnumerator makeAttack()
@@ -96,8 +103,17 @@ public class Skeleton : Enemy
 
     void enableShield()
     {
+        vunerable = false;
         shield.SetActive(true);
         shield.GetComponent<SkeletonShield>().resetValues();
+    }
+
+    void checkShield()
+    {
+        if (!shield.activeSelf)
+        {
+            vunerable = true;
+        }
     }
 
     public void chargeSound()

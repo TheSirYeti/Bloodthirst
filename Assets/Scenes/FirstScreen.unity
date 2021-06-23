@@ -834,6 +834,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade
       objectReference: {fileID: 0}
+    - target: {fileID: 5986046528069120930, guid: fa55c5e6f227ef64da00810cf87532eb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5986046528069120931, guid: fa55c5e6f227ef64da00810cf87532eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -971,6 +976,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 6687334037341899472}
+    - target: {fileID: 481403284088519699, guid: d4f18f038a3ecbf469475f756cb62017,
+        type: 3}
+      propertyPath: allowed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 945311465049383197, guid: d4f18f038a3ecbf469475f756cb62017,
         type: 3}
       propertyPath: m_LocalPosition.x

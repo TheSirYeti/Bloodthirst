@@ -18,10 +18,6 @@ public abstract class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "EnemyLock" && hp > 0)
-        {
-            other.gameObject.GetComponent<CameraLock>().addEnemy(gameObject);
-        }
 
         if ((other.gameObject.tag == "attackFX" || other.gameObject.tag == "specialAttackFX") && vunerable)
         {

@@ -15,6 +15,11 @@ public class loadScene : MonoBehaviour
             SoundManager.instance.StopAllMusic();
             SoundManager.instance.StopAllSounds();
         }
-        Application.LoadLevel(level);
+
+        if(CheckpointBehaviour.instance != null && SceneManager.GetActiveScene().buildIndex == level)
+        {
+            Destroy(CheckpointBehaviour.instance);
+        }
+        SceneManager.LoadScene(level);
     }
 }

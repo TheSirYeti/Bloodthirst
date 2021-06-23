@@ -5,11 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class loadLevel : MonoBehaviour
 {
-    public void loadScene(int id)
+    public int level;
+
+    public void load()
     {
         Time.timeScale = 1f;
-        SoundManager.instance.StopAllMusic();
-        SoundManager.instance.StopAllSounds();
-        SceneManager.LoadScene(id);
-    }    
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.StopAllMusic();
+            SoundManager.instance.StopAllSounds();
+        }
+
+        if (CheckpointBehaviour.instance != null && SceneManager.GetActiveScene().buildIndex != level)
+        {
+            Debug.Log("HOLA LEVEL BORRATE");
+            CheckpointBehaviour.instance.DestroyInstance();
+            //Destroy(CheckpointBehaviour.instance);
+        }
+        SceneManager.LoadScene(level);
+    }
 }

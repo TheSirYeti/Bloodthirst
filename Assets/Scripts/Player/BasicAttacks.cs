@@ -6,7 +6,7 @@ namespace Player.Behaviour
 {
     public class BasicAttacks : MonoBehaviour
     {
-        public      float           attackCooldown                      = 0.3f;
+        public      float           attackCooldown                      = 2f;
         public      float           airAttackCooldown                   = 5f;
         public      float           timeToNextAttack                    = -1f;
         public      float           timeToNextAirAttack                 = -1f;
@@ -19,7 +19,7 @@ namespace Player.Behaviour
         public      GameObject dualsword1, dualsword2;
         public      GameObject sword;
         public      RuntimeAnimatorController       bigSword;
-        public int currentWeapon;
+        public      int currentWeapon;
         public      string          attackButtonParameterName           = "Fire1";
         public      string          attackAnimatorBoolParameterName     = "isAttacking";
         public      string          attackAnimatorTriggerParameterName  = "attack";
@@ -38,18 +38,68 @@ namespace Player.Behaviour
         private     float           attackTurnTime                      = 0.3f;
         public bool isInvunerable;
 
+        private void Update()
+        {
+            resetAttackTurn();
+        }
+
         public void attack()
         {
-            animator.SetTrigger(attackAnimatorTriggerParameterName);
+            //animator.SetTrigger(attackAnimatorTriggerParameterName);
+            setUpBasicAttack();
             timeToNextAttack = attackCooldown + Time.time;
             StartCoroutine(enableCollider(0));
         }
 
         public void heavyAttack()
         {
-            animator.SetTrigger(attackAnimatorTriggerParameterName);
+            setUpHeavyAttack();
             timeToNextAttack = attackCooldown * 1.5f + Time.time;
             //StartCoroutine(enableBigCollider(2.45f));
+        }
+
+        public void setUpBasicAttack()
+        {
+            switch (attackTurn)
+            {
+                case 0:
+                    animator.Play("Slash1");
+                    attackTurn++;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+                case 1:
+                    animator.Play("Slash2");
+                    attackTurn++;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+                case 2:
+                    animator.Play("Slash3");
+                    attackTurn = 0;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+            }
+        }
+
+        public void setUpHeavyAttack()
+        {
+            switch (attackTurn)
+            {
+                case 0:
+                    animator.Play("Attack1");
+                    attackTurn++;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+                case 1:
+                    animator.Play("Attack3");
+                    attackTurn++;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+                case 2:
+                    animator.Play("Attack1");
+                    attackTurn = 0;
+                    attackTurnCooldown = attackCooldown * 2 + Time.time;
+                    break;
+            }
         }
 
         public void airAttack()
@@ -79,7 +129,7 @@ namespace Player.Behaviour
 
         public void resetAttackTurn()
         {
-            if((attackTurnCooldown < Time.time && attackTurn != 0) || attackTurn >= 3)
+            if(attackTurnCooldown < Time.time)
             {
                 attackTurn = 0;
             }
@@ -92,7 +142,13 @@ namespace Player.Behaviour
 
         public void checkCombo()
         {
-            StartCoroutine(comboTrigger());
+            if(attackTurn == 2)
+            {
+                if (currentWeapon == 0)
+                    animator.Play("ComboKick");
+                else animator.Play("Attack2");
+            }
+            //StartCoroutine(comboTrigger());
         }
 
         IEnumerator enableCollider(float time)
@@ -170,7 +226,7 @@ namespace Player.Behaviour
         {
             animator.SetBool("specialAttackOver", false);
             //isInvunerable = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(3.5f);
             //isInvunerable = false;
             animator.SetBool("specialAttackOver", true);
         }

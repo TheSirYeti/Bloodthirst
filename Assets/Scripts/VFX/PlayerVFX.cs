@@ -13,6 +13,7 @@ namespace VFX.Player
 
         public List<GameObject> bullets = new List<GameObject>();
 
+        public GameObject specialMeter;
 
         private float disableTimer = 0.5f;
         private float cooldown;
@@ -102,12 +103,12 @@ namespace VFX.Player
 
         public void enableSparks()
         {
-            dualGroundAttackVFX[5].Play();
+            specialMeter.SetActive(true);
         }
 
         public void disableSparks()
         {
-            dualGroundAttackVFX[5].Stop();
+            specialMeter.SetActive(false);
         }
     }
 }

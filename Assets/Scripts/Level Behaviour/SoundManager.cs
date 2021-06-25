@@ -205,7 +205,8 @@ public enum SoundID
     BOSS_VOICE1,
     BOSS_VOICE2,
     BOSS_VOICE3,
-    KAMIKAZE_BUILDUP
+    KAMIKAZE_BUILDUP,
+    GONG
 }
 
 public enum MusicID

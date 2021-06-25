@@ -207,9 +207,11 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyLife.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SpawnBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\CheckpointBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\killEnemies.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\loadScene.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\platformRotate.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="Assets\Scripts\UI\PauseMenu\enablePause.cs" />
     <Compile Include="Assets\Scripts\UI\startScreens\autoSkip.cs" />
     <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
+    <Compile Include="Assets\Scripts\WallScript.cs" />
     <Compile Include="Assets\soccer.cs" />
     <Compile Include="Assets\UI\NewMenu\MainMenuController.cs" />
     <Compile Include="Assets\UI\NewMenu\OptionsManager.cs" />

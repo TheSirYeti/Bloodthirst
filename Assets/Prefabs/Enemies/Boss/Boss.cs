@@ -24,6 +24,8 @@ public class Boss : MonoBehaviour
     bool amDead = false;
 
     bool _point = false;
+
+    public float force;
     private void Awake()
     {
         StartCoroutine(rest());
@@ -138,10 +140,10 @@ public class Boss : MonoBehaviour
             float ballDirectionY = transform.position.y + Mathf.Cos((angle * Mathf.PI) / 180) * radius;
 
             Vector3 projectileVector = new Vector3(ballDirectionX, ballDirectionY, 0f);
-            Vector3 projectileMoveDirection = (projectileVector - transform.position).normalized * 20f;
+            Vector3 projectileMoveDirection = (projectileVector - transform.position).normalized * force;
 
             GameObject ball = Instantiate(ringPrefab, spawnPosition.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, 0, projectileMoveDirection.y);
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, 0.25f, projectileMoveDirection.y);
 
             angle += angleStep;
         }

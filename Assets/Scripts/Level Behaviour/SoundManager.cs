@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-
     public AudioClip[] sounds;
     public AudioClip[] music;
     public AudioSource[] sfxChannel;
@@ -206,7 +205,11 @@ public enum SoundID
     BOSS_VOICE2,
     BOSS_VOICE3,
     KAMIKAZE_BUILDUP,
-    GONG
+    GONG,
+    KAZAN_LAUGH,
+    CHECKPOINT,
+    BLOOD_1,
+    BLOOD_2
 }
 
 public enum MusicID
@@ -215,5 +218,6 @@ public enum MusicID
     INTRO,
     SOCCER,
     NEW_MENU,
-    BOAT
+    BOAT,
+    MAIN_SONG
 }

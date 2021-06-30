@@ -145,7 +145,10 @@ namespace Player.Behaviour
             if(attackTurn == 2)
             {
                 if (currentWeapon == 0)
+                {
                     animator.Play("ComboKick");
+                    
+                }
                 else animator.Play("Attack2");
             }
             //StartCoroutine(comboTrigger());

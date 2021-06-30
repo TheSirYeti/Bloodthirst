@@ -51,7 +51,7 @@ public abstract class EnemyBase : MonoBehaviour
         if (amount > 0)
         {
             currentHitLife -= amount;
-
+            EventManager.Trigger("AddSpecial", 0.005f);
             if (currentHitLife <= 0)
             {
                 activeDie = true;

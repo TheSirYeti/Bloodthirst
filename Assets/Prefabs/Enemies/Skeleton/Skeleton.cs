@@ -12,18 +12,11 @@ public class Skeleton : Enemy
     float _attackCooldown = 9f;
     public GameObject deathExplosion;
     public GameObject shield;
-    public SpecialAttackBar bar;
-
-    private void Awake()
-    {
-        enableShield();
-    }
 
     private void Start()
     {
         player = GameObject.FindWithTag("Player");
         StartCoroutine(makeAttack());
-        bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
         transform.LookAt(player.transform.position);
     }
     private void Update()
@@ -44,8 +37,6 @@ public class Skeleton : Enemy
         {
             StartCoroutine(Die());
         }
-
-        checkShield();
     }
 
     IEnumerator makeAttack()
@@ -84,19 +75,21 @@ public class Skeleton : Enemy
 
     public override void takeDamage()
     {
-        if (!shield.activeSelf)
-        {
-            bar.addValue(0.05f);
-            hp--;
-            if(hp > 0)
-                enableShield();
-        } 
+        EventManager.Trigger("AddSpecial", 0.005f);
+        Debug.Log("EN UNA VILLA NACIO FUE DESEO DE DIOS CRECER Y SOBREVIVIR");
+        SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+        blood.Stop();
+        blood.Play();
+        hp--;
     }
 
     public IEnumerator Die()
     {
+        blood.Stop();
+        blood.Play();
         animator.SetTrigger("died");
         SoundManager.instance.StopSound(SoundID.BURN);
+        blood.gameObject.SetActive(false);
         yield return new WaitForSeconds(3f);
         Destroy(gameObject);
     }
@@ -104,7 +97,6 @@ public class Skeleton : Enemy
     void enableShield()
     {
         vunerable = false;
-        shield.SetActive(true);
         shield.GetComponent<SkeletonShield>().resetValues();
     }
 

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 7532056678842792979}
   - component: {fileID: 7658616627836253173}
   - component: {fileID: 7659280712778809197}
-  - component: {fileID: 7532288360490356547}
   - component: {fileID: 2643264474488625126}
+  - component: {fileID: 3258589547862863606}
+  - component: {fileID: 4097962719811808143}
   m_Layer: 0
   m_Name: SlashCombo1
   m_TagString: attackFX
@@ -4822,7 +4823,33 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &7532288360490356547
+--- !u!65 &2643264474488625126
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533912675038135793}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1.874054, z: 0.25774065}
+  m_Center: {x: 3.775037e-16, y: 0.92000306, z: 0.062029153}
+--- !u!114 &3258589547862863606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7533912675038135793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5d42700f8719943a71ae2c5e6f087c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDie: 5
+--- !u!114 &4097962719811808143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4837,16 +4864,3 @@ MonoBehaviour:
   bulletTime: 6
   fire: 0
   speed: 8
---- !u!65 &2643264474488625126
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7533912675038135793}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1.874054, z: 0.25774065}
-  m_Center: {x: 3.775037e-16, y: 0.92000306, z: 0.062029153}

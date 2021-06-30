@@ -20,6 +20,7 @@ namespace VFX.Player
 
         private void Awake()
         {
+
             foreach (ParticleSystem particleSystem in dualGroundAttackVFX)
             {
                 particleSystem.Stop();
@@ -39,6 +40,12 @@ namespace VFX.Player
             {
                 g.SetActive(false);
             }
+        }
+
+        private void Start()
+        {
+            EventManager.Subscribe("EnableSpecialParticles", enableSparks);
+            EventManager.Subscribe("DisableSpecialParticles", disableSparks);
         }
 
         private void FixedUpdate()
@@ -79,7 +86,12 @@ namespace VFX.Player
         public void enableHeavyGroundVFX(int index)
         {
             heavyGroundAttackVFX[index].Play();
-            //heavyGroundAttackVFX[index].gameObject.transform.parent = null;
+            cooldown = disableTimer + Time.time;
+        }
+
+        public void enableHeavyGroundExplosionVFX()
+        {
+            heavyGroundExplosionVFX[0].Play();
             cooldown = disableTimer + Time.time;
         }
 
@@ -101,13 +113,15 @@ namespace VFX.Player
             bullet.GetComponent<BulletBehaviour>().fire = true;
         }
 
-        public void enableSparks()
+        public void enableSparks(object[] parameters)
         {
             specialMeter.SetActive(true);
+            specialMeter.GetComponent<ParticleSystem>().Play();
         }
 
-        public void disableSparks()
+        public void disableSparks(object[] parameters)
         {
+            specialMeter.GetComponent<ParticleSystem>().Stop();
             specialMeter.SetActive(false);
         }
     }

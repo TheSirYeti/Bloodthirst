@@ -18,27 +18,20 @@ public class PlayerLife : MonoBehaviour
     private void Start()
     {
         originalMaterial = material.GetComponent<Renderer>().material;
+        EventManager.Subscribe("AddHP", setHP);
     }
 
     private void Update()
     {
         hpBar.value = hp;
+        EventManager.Trigger("SetHP", hp / 10);
         if(hp <= 0)
         {
+            EventManager.Trigger("KillPlayer");
             controller.movement.animator.SetTrigger("dead");
             controller.movement.enabled = false;
             controller.enabled = false;
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            hp = 20;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        hp += 0.001f;
     }
 
     private void OnTriggerStay(Collider other)
@@ -56,10 +49,13 @@ public class PlayerLife : MonoBehaviour
         return hp;
     }
 
-    public void setHP(float value)
+    public void setHP(object[] parameters)
     {
-        hp = value;
-    } 
+        Debug.Log((float)parameters[0]);
+        hp = (float)parameters[0];
+        Debug.Log("BOCA");
+        EventManager.Trigger("SetHP", hp / 10);
+    }
 
     public void modifyHP(float value, bool sign)
     {
@@ -76,6 +72,7 @@ public class PlayerLife : MonoBehaviour
             difference = difference.normalized * 100;
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
+            EventManager.Trigger("SetHP", hp / 10);
             StartCoroutine(Knockback(rigidbody));
         }
 
@@ -84,7 +81,8 @@ public class PlayerLife : MonoBehaviour
             Vector3 difference = transform.position - other.transform.position;
             difference = difference.normalized * 100;
             rigidbody.AddForce(difference, ForceMode.Impulse);
-            hp -= 5;
+            hp -= 3.5f;
+            EventManager.Trigger("SetHP", hp / 10);
             StartCoroutine(Knockback(rigidbody));
         }
 
@@ -92,6 +90,7 @@ public class PlayerLife : MonoBehaviour
         {
             Destroy(other.gameObject);
             hp--;
+            EventManager.Trigger("SetHP", hp / 10);
             StartCoroutine(Knockback(rigidbody));
         }
 
@@ -101,6 +100,7 @@ public class PlayerLife : MonoBehaviour
             difference = difference.normalized * 100;
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
+            EventManager.Trigger("SetHP", hp / 10);
             StartCoroutine(Knockback(rigidbody));
         }
 
@@ -110,6 +110,17 @@ public class PlayerLife : MonoBehaviour
             difference = difference.normalized * 200;
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
+            EventManager.Trigger("SetHP", hp / 10);
+            StartCoroutine(Knockback(rigidbody));
+        }
+
+        if (other.gameObject.tag == "skeletonMelee" && !controller.basicAttacks.isInvunerable)
+        {
+            Vector3 difference = transform.position - other.transform.position;
+            difference = difference.normalized * 100;
+            rigidbody.AddForce(difference, ForceMode.Impulse);
+            hp -= 0.3f;
+            EventManager.Trigger("SetHP", hp / 10);
             StartCoroutine(Knockback(rigidbody));
         }
     }

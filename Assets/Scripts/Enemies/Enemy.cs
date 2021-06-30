@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
     public float speed;
     public Transform lookAtPoint;
     public bool vunerable = true;
+    public ParticleSystem blood;
 
     public Material originalMat;
 
@@ -24,7 +25,10 @@ public abstract class Enemy : MonoBehaviour
             Rigidbody body = GetComponent<Rigidbody>();
             if (body != null && hp > 0)
             {
-                //bar.addValue(0.05f);
+                blood.Stop();
+                blood.Play();
+                SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+                EventManager.Trigger("AddSpecial", 0.005f);
                 Vector3 difference = transform.position - other.transform.position;
                 difference = difference.normalized * 20;
                 body.AddForce(difference, ForceMode.Impulse);
@@ -35,6 +39,8 @@ public abstract class Enemy : MonoBehaviour
 
         if (other.gameObject.tag == "bigAttackFX")
         {
+            blood.Stop();
+            blood.Play();
             hp -= 5;
         }
     }

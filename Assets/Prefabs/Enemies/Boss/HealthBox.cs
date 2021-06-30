@@ -30,12 +30,15 @@ public class HealthBox : MonoBehaviour
         if (other.gameObject.tag == "attackFX")
         {
             boss.hp--;
+            EventManager.Trigger("AddSpecial", 0.005f);
+            EventManager.Trigger("HurtBoss");
             SoundManager.instance.PlaySound(SoundID.ENEMY_DAMAGE);
         }
 
         if(other.gameObject.tag == "specialAttackFX")
         {
             boss.hp-=5;
+            EventManager.Trigger("HurtBoss");
             SoundManager.instance.PlaySound(SoundID.ENEMY_DAMAGE);
         }
     }

@@ -77,12 +77,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67a92f714358dde44b9101ff351b2db3, type: 3}
   - {fileID: 8300000, guid: 6da02e63110195b4797180e16af16e92, type: 3}
   - {fileID: 8300000, guid: e67bbd65d6021e747be7ff7867e50b2d, type: 3}
+  - {fileID: 8300000, guid: 80665f7adf56bf945bb53213bc65040e, type: 3}
+  - {fileID: 8300000, guid: 1a7bd60ef4446084084df1218e18ef72, type: 3}
+  - {fileID: 8300000, guid: 5a5297123b0abc240b3c3d2acecfe4d1, type: 3}
+  - {fileID: 8300000, guid: 0c45608582977ee46a75d46c8c7391d2, type: 3}
   music:
   - {fileID: 8300000, guid: 648eba5d8ae37b94f8202275ed2bacae, type: 3}
   - {fileID: 8300000, guid: 9e860498821b62d49a6230db1abe020d, type: 3}
   - {fileID: 8300000, guid: aca648cf1a4902040ba1b8eb0d95a442, type: 3}
   - {fileID: 8300000, guid: ce895e2dfe8084a4ba3dc301e67c8191, type: 3}
   - {fileID: 8300000, guid: 66e52000bc250d84298cef75fe6259fd, type: 3}
+  - {fileID: 8300000, guid: fe5db8fe43d91c249aa594c449c8b0a9, type: 3}
   sfxChannel: []
   musicChannel: []
   volumeSFX: 0.5

@@ -19,7 +19,7 @@ public class PauseMenuManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Pause"))
+        if (Input.GetButtonDown("Pause") && !player.deathPanel.activeSelf)
         {
             if (!pauseMenu.activeSelf)
             {

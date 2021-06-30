@@ -20,6 +20,7 @@ public class loadScene : MonoBehaviour
         {
             Destroy(CheckpointBehaviour.instance);
         }
+        EventManager.resetEventDictionary();
         SceneManager.LoadScene(level);
     }
 }

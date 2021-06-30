@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Player.Behaviour;
 using Player.Animations;
 using VFX.Player;
@@ -13,11 +14,9 @@ public class PlayerController : MonoBehaviour
     public swordEffects swordEffects;
     public PlayerLife hpManager;
     public PlayerVFX playerVFX;
-    public Cinemachine.CinemachineFreeLook vcamera;
-    public CameraLock lockSystem;
-    public Crosshair crosshair;
     public Transform center;
     public AutoAimAI aimAI;
+    public SpecialBar specialSlider;
 
     public string horizontalAxis = "Horizontal";
     public string verticalAxis = "Vertical";
@@ -32,6 +31,8 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        EventManager.resetEventDictionary();
+
         if(CheckpointBehaviour.instance != null)
             transform.position = CheckpointBehaviour.instance.GetCurrentSpawnpoint().position;
     }
@@ -44,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown(jumpButtonName))
         {
-            if(movement.groundCheck.getStatus() > 0)
+            if (movement.groundCheck.getStatus() > 0)
             {
                 movement.Jump();
             } else if(basicAttacks.checkAttackCooldown())
@@ -56,16 +57,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
             if (movement.groundCheck.getStatus() > 0) {
-                aimAI.lookAtEnemy();
+                EventManager.Trigger("AutoAim");
                 switch (basicAttacks.currentWeapon)
                 {
                     case 0:
                         basicAttacks.attack();
-                        movement.restrictMovement(0.55f);
                         break;
                     case 1:
                         basicAttacks.heavyAttack();
-                        movement.restrictMovement(1f);
                         break;
                 }
             }
@@ -76,21 +75,18 @@ public class PlayerController : MonoBehaviour
             basicAttacks.checkCombo();
         }
 
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            bar.addValue(1);
-        }
-
-        if (Input.GetButtonDown("HeavyAttack") && bar.getValue() == 1f && !movement.isAttacking)
+        if (Input.GetButtonDown("HeavyAttack") && specialSlider.GetSpecialValue() == 1f && !movement.isAttacking)
         {
             basicAttacks.specialAttack();
-            bar.resetValue();
+            specialSlider.ResetSpecialValue(null);
         }
 
-        if (bar.getValue() == 1f && hpManager.hp > 0)
+
+        if (specialSlider.GetSpecialValue() >= 1f)
         {
-            playerVFX.enableSparks();
-        } else playerVFX.disableSparks();
+            Debug.Log("Ready");
+            EventManager.Trigger("EnableSpecialParticles");
+        } else EventManager.Trigger("DisableSpecialParticles");
 
 
         if (Input.GetButtonDown("SwitchWeapon") && !movement.isAttacking)
@@ -125,7 +121,7 @@ public class PlayerController : MonoBehaviour
 
     void takeDamage()
     {
-
+        
     }
 
     public void showDeathPanel()
@@ -134,8 +130,18 @@ public class PlayerController : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(deathButton);
         SoundManager.instance.StopAllSounds();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
     }
 
+    public void SlowAttackingSpeed()
+    {
+        movement.slowMovement();
+    }
 
+    public void NormalAttackingSpeed()
+    {
+        movement.resetMovement();
+    }
 }

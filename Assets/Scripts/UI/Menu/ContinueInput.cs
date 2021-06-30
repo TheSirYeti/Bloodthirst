@@ -8,22 +8,30 @@ public class ContinueInput : MonoBehaviour
 
     public Animator animator;
     public bool allowed;
+
+    private void Start()
+    {
+        EventManager.Subscribe("EndFade", fadeProgram);
+    }
     void Update()
     {
         if (Input.GetButtonDown("Start") && allowed)
         {
-            fadeProgram(); 
+            fadeProgram(null); 
         }
     }
 
-    public void fadeProgram()
+    public void fadeProgram(object[] parameters)
     {
         animator.SetTrigger("fade");
-        SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
+        if(allowed)
+            SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
     }
 
     public void fade()
     {
         animator.SetTrigger("fade");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

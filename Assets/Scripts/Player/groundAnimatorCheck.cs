@@ -14,6 +14,8 @@ namespace Player.Animations
         private float landingAnimationCooldown = 0.2f;
         private float resetLandingAnimation;
 
+
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == "Floor" || other.gameObject.tag == "SpinnyThing")

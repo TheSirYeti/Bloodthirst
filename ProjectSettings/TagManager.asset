@@ -19,6 +19,7 @@ TagManager:
   - kamikazeAttack
   - lightBossAttack
   - boat
+  - skeletonMelee
   layers:
   - Default
   - TransparentFX

@@ -6,20 +6,18 @@ public class TakeDamage : MonoBehaviour
 {
     public GameObject enemy;
     public Material originalMat;
-    public SpecialAttackBar bar;
-
-    private void Start()
-    {
-        bar = GameObject.FindWithTag("SpecialAttackBar").GetComponent<SpecialAttackBar>();
-    }
+    public ParticleSystem blood;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "attackFX")
         {
             enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
-            bar.addValue(0.025f);
+            EventManager.Trigger("AddSpecial", 0.005f);
             Rigidbody body = enemy.GetComponent<Rigidbody>();
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
             {
                 Vector3 difference = enemy.transform.position - other.transform.position;
@@ -33,6 +31,9 @@ public class TakeDamage : MonoBehaviour
         {
             enemy.GetComponent<EnemyBase>().ReceiveDamage(10);
             Rigidbody body = enemy.GetComponent<Rigidbody>();
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
             {
                 Vector3 difference = enemy.transform.position - other.transform.position;
@@ -46,6 +47,9 @@ public class TakeDamage : MonoBehaviour
         {
             enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
             Rigidbody body = enemy.GetComponent<Rigidbody>();
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
             {
                 Vector3 difference = enemy.transform.position - other.transform.position;

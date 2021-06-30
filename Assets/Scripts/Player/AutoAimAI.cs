@@ -7,16 +7,16 @@ public class AutoAimAI : MonoBehaviour
     public GameObject player;
     public List<GameObject> enemies;
 
-    private void Update()
+    private void Start()
     {
-        //lookAtEnemy();
+        EventManager.Subscribe("AutoAim", lookAtEnemy);
     }
 
-    public void lookAtEnemy()
+    public void lookAtEnemy(object[] parameters)
     {
         checkForNull();
         GameObject closestEnemy = null;
-        float closestDistance = 9999999;
+        float closestDistance = Mathf.Infinity;
         foreach (GameObject g in enemies)
         {
             float enemyDistance = Vector3.Distance(player.transform.position, g.transform.position);
@@ -26,8 +26,11 @@ public class AutoAimAI : MonoBehaviour
                 closestDistance = enemyDistance;
             }
         }
+
         if(closestEnemy != null)
+        {
             player.transform.LookAt(new Vector3(closestEnemy.transform.position.x, player.transform.position.y, closestEnemy.transform.position.z));
+        }
     }
 
     public void checkForNull()

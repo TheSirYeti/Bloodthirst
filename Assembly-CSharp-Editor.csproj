@@ -64,13 +64,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\GerstnerDisplaceEditor.cs" />
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\PlanarReflectionEditor.cs" />
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
-    <Compile Include="Assets\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Editor\RainMakerEditor.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\GerstnerDisplaceEditor.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\PlanarReflectionEditor.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\SpecularLightingEditor.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\WaterBaseEditor.cs" />
+    <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\Editor\Water\Water4\WaterEditorUtility.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>T:/Users/JP/Documents/GitHub/Bloodthirst/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>

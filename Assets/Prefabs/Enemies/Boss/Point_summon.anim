@@ -49002,7 +49002,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.3333334
+  - time: 0.26666668
     functionName: summonKamikaze
     data: 
     objectReferenceParameter: {fileID: 0}

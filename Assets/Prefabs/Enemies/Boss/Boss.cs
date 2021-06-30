@@ -26,9 +26,11 @@ public class Boss : MonoBehaviour
     bool _point = false;
 
     public float force;
+
+    public ContinueInput fade;
     private void Awake()
     {
-        StartCoroutine(rest());
+        //StartCoroutine(rest());
         animator.SetBool("notAttacking", false);
         _point = false;
         healthCollider.enableCollider();
@@ -41,73 +43,39 @@ public class Boss : MonoBehaviour
 
     void attack()
     {
-        if (!animator.GetBool("resting") && !amDead)
+        if (!amDead)
         {
-            if(animator.GetBool("notAttacking"))
-                move();
 
             if(_attackCooldown <= Time.time)
             {
-                if (animator.GetBool("inRange"))
+                attacking = true;
+                int rand;
+                rand = Random.Range(0, 3);
+                playRandomVoiceAttack();
+                switch (rand)
                 {
-                    int rand;
-                    rand = Random.Range(0, 3);
-                    switch (rand)
-                    {
-                        case 0:
-                            animator.Play("Point_summon");
-                            _attackCooldown = cooldown + Time.time;
-                            break;
-                        case 1:
-                            animator.Play("LegSweep");
-                            _attackCooldown = cooldown + Time.time;
-                            break;
-                        case 2:
-                            animator.Play("BasicAttack");
-                            _attackCooldown = cooldown + Time.time;
-                            break;
+                    case 0:
+                        animator.Play("Point_summon");
+                        _attackCooldown = cooldown + Time.time;
+                        break;
+                    case 1:
+                        animator.Play("LegSweep");
+                        _attackCooldown = cooldown + Time.time;
+                        break;
+                    case 2:
+                        animator.Play("BasicAttack");
+                        _attackCooldown = cooldown + Time.time;
+                        break;
 
-                    }
-                    attackCounter++;
                 }
-                else
-                {
-                    int rand;
-                    rand = Random.Range(0, 2);
-                    switch (rand)
-                    {
-                        case 0:
-                            animator.Play("Point_summon");
-                            _attackCooldown = cooldown + Time.time;
-                            break;
-                        case 1:
-                            animator.Play("LegSweep");
-                            _attackCooldown = cooldown + Time.time;
-                            break;
-                    }
-                }
+                attackCounter++;
             }
-
-            if (attackCounter >= 4)
-            {
-                attackCounter = 0;
-                StartCoroutine(rest());
-            }
+            else move();
         }
     }
 
-    IEnumerator rest()
-    {
-        animator.Play("Kneel");
-        animator.SetBool("resting", true);
-        //healthCollider.enableCollider();
-        yield return new WaitForSeconds(10f);
-        //healthCollider.disableCollider();
-        animator.SetBool("resting", false);
-    }
-
     void move() {
-        if (Time.timeScale != 0f && !checkAttackDistance())
+        if (Time.timeScale != 0f && !checkAttackDistance() && !attacking)
         {
             transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
             Vector3 playerPos = new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z);
@@ -129,7 +97,7 @@ public class Boss : MonoBehaviour
 
     public void summonRing()
     {
-        float angleStep = 360f / 15f;
+        float angleStep = 360f / 30f;
         float angle = 0f;
 
         const float radius = 1f;
@@ -143,7 +111,7 @@ public class Boss : MonoBehaviour
             Vector3 projectileMoveDirection = (projectileVector - transform.position).normalized * force;
 
             GameObject ball = Instantiate(ringPrefab, spawnPosition.position, Quaternion.identity);
-            ball.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, 0.25f, projectileMoveDirection.y);
+            ball.GetComponent<Rigidbody>().velocity = new Vector3(projectileMoveDirection.x, 0f, projectileMoveDirection.y);
 
             angle += angleStep;
         }
@@ -230,6 +198,8 @@ public class Boss : MonoBehaviour
 
     public void Die()
     {
+        EventManager.Trigger("EndFade");
+        //fade.fadeProgram(null);
         Destroy(gameObject);
     }
 }

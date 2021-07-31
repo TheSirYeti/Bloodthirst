@@ -73,7 +73,8 @@ public class PlayerLife : MonoBehaviour
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
 
         if (other.gameObject.tag == "kamikazeAttack" && !controller.basicAttacks.isInvunerable)
@@ -83,7 +84,8 @@ public class PlayerLife : MonoBehaviour
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp -= 3.5f;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
 
         if (other.gameObject.tag == "enemyFireAttack" && !controller.movement.isAttacking && !controller.basicAttacks.isInvunerable)
@@ -91,7 +93,8 @@ public class PlayerLife : MonoBehaviour
             Destroy(other.gameObject);
             hp--;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
 
         if (other.gameObject.tag == "spikeTrap" && !controller.basicAttacks.isInvunerable)
@@ -101,7 +104,8 @@ public class PlayerLife : MonoBehaviour
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
 
         if (other.gameObject.tag == "lightBossAttack" && !controller.basicAttacks.isInvunerable)
@@ -111,7 +115,8 @@ public class PlayerLife : MonoBehaviour
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp--;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
 
         if (other.gameObject.tag == "skeletonMelee" && !controller.basicAttacks.isInvunerable)
@@ -121,7 +126,8 @@ public class PlayerLife : MonoBehaviour
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp -= 0.3f;
             EventManager.Trigger("SetHP", hp / 10);
-            StartCoroutine(Knockback(rigidbody));
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
         }
     }
 

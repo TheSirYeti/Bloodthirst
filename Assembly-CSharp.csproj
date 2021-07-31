@@ -64,10 +64,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\boatMusic.cs" />
-    <Compile Include="Assets\CursorXD.cs" />
-    <Compile Include="Assets\dontRotate.cs" />
-    <Compile Include="Assets\EnemyModel\Script\EnemyMeleeSkeleton.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csAnimationSpin.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csDestroyEffect.cs" />
     <Compile Include="Assets\External Assets\52SpecialEffectPack\Animation&amp;Script\csMouseOrbit.cs" />
@@ -83,16 +79,7 @@
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript2D.cs" />
-    <Compile Include="Assets\flycam.cs" />
-    <Compile Include="Assets\levelFinished.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\IShakeParameters.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakeInstance.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakeParameters.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakePreset.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\Shaker.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakeResult.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakeState.cs" />
-    <Compile Include="Assets\MilkShake\Scripts\ShakeType.cs" />
+    <Compile Include="Assets\Models\EnemyModel\Script\EnemyMeleeSkeleton.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Boss\ataques_especiales\ringAttack.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Boss\Boss.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Boss\BossBehaviour.cs" />
@@ -126,15 +113,22 @@
     <Compile Include="Assets\Scripts\Enemies\ShowDamage.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpawnBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\boatMusic.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\CheckpointBehaviour.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\CursorXD.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\dontRotate.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\flycam.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\killEnemies.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\levelFinished.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\loadScene.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\platformRotate.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\resetLevel.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Scenes\SceneEnums.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\showDamagePlayer.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\soccer.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\spawnEnemies.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\spawnPlayer.cs" />
@@ -170,7 +164,6 @@
     <Compile Include="Assets\Scripts\UI\startScreens\autoSkip.cs" />
     <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
     <Compile Include="Assets\Scripts\WallScript.cs" />
-    <Compile Include="Assets\soccer.cs" />
     <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\2D\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\2D\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\2D\Scripts\Platformer2DUserControl.cs" />
@@ -272,8 +265,6 @@
     <Compile Include="Assets\UI\NewMenu\ShowControls.cs" />
     <Compile Include="Assets\UI\PauseMenu\PauseMenuManager.cs" />
     <Compile Include="Assets\Videos\skipIntro.cs" />
-    <None Include="Assets\MilkShake\Documentation\Simple Setup.txt" />
-    <None Include="Assets\MilkShake\Documentation\Readme.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\FadeSlash.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Distortion.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Prefabs\Readme.txt" />
@@ -286,7 +277,7 @@
     <None Include="Assets\External Assets\New Text Document.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Scene files\Readme.txt" />
     <None Include="Assets\External Assets\RainMaker\Prefab\RainShader.shader" />
-    <None Include="Assets\VFXPlayer\Slash\Shader\Slash_Shader.shader" />
+    <None Include="Assets\VFX\VFXPlayer\Slash\Shader\Slash_Shader.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Readme.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash2.shader" />
     <None Include="Assets\External Assets\RainMaker\Readme.txt" />

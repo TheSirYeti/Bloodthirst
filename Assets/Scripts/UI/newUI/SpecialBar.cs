@@ -13,6 +13,14 @@ public class SpecialBar : MonoBehaviour
         EventManager.Subscribe("ResetSpecial", ResetSpecialValue);
     }
 
+    private void Update()
+    {
+        if(GetSpecialValue() == 1)
+        {
+            EventManager.Trigger("EnableSpecialParticles");
+        }   else EventManager.Trigger("DisableSpecialParticles");
+    }
+
     public void SetSpecialValue(object[] parameters)
     {
         SpecialSlider.fillAmount += (float)parameters[0];

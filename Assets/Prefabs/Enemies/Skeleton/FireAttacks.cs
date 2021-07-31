@@ -63,5 +63,11 @@ public class FireAttacks : MonoBehaviour
             SoundManager.instance.StopSound(SoundID.BURN);
             Destroy(gameObject);
         }
+
+        if (other.gameObject.tag == "attackFX")
+        {
+            SoundManager.instance.StopSound(SoundID.BURN);
+            Destroy(gameObject);
+        }
     }
 }

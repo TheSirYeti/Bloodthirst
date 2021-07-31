@@ -44,8 +44,12 @@ namespace VFX.Player
 
         private void Start()
         {
+            EventManager.UnSubscribe("EnableSpecialParticles", enableSparks);
+            EventManager.UnSubscribe("DisableSpecialParticles", disableSparks);
+            EventManager.UnSubscribe("DashVFX", dashVanish);
             EventManager.Subscribe("EnableSpecialParticles", enableSparks);
             EventManager.Subscribe("DisableSpecialParticles", disableSparks);
+            EventManager.Subscribe("DashVFX", dashVanish);
         }
 
         private void FixedUpdate()
@@ -115,14 +119,22 @@ namespace VFX.Player
 
         public void enableSparks(object[] parameters)
         {
-            specialMeter.SetActive(true);
-            specialMeter.GetComponent<ParticleSystem>().Play();
+            //specialMeter.SetActive(true);
+            if(!specialMeter.GetComponent<ParticleSystem>().isPlaying)
+                specialMeter.GetComponent<ParticleSystem>().Play();
+            Debug.Log("terraplanero");
         }
 
         public void disableSparks(object[] parameters)
         {
             specialMeter.GetComponent<ParticleSystem>().Stop();
-            specialMeter.SetActive(false);
+            //specialMeter.SetActive(false);
+        }
+
+        public void dashVanish(object[] parameters)
+        {
+            enableDualGroundVFX(7);
+            EventManager.Trigger("Dash");
         }
     }
 }

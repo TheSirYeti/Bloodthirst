@@ -134,12 +134,16 @@ namespace Player.Behaviour
 
         public void roll()
         {
+            Debug.Log(Input.GetAxis(verticalAxis));
             inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
+            inputVector.y = 0;
             if (rollCooldown <= Time.time && checkInput(inputVector.magnitude))
             {
-                Vector3 rollDirection = inputVector;
-                animator.SetTrigger("roll");
-                //rigidBody.AddForce(rollDirection * 250, ForceMode.Impulse);
+                Vector3 rollDirection = inputVector.normalized;
+                //animator.SetTrigger("roll");
+                EventManager.Trigger("DashVFX");
+                SoundManager.instance.PlaySound(SoundID.WOOSH);
+                rigidBody.AddForce(rollDirection * 200, ForceMode.Impulse);
                 rollCooldown = Time.time + 1f;
             }
         }

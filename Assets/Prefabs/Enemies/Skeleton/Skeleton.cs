@@ -9,7 +9,7 @@ public class Skeleton : Enemy
     public Animator animator;
     public Transform attackSpawnPoint;
     public float maximumAttackDistance;
-    float _attackCooldown = 9f;
+    float _attackCooldown = 5f;
     public GameObject deathExplosion;
     public GameObject shield;
 

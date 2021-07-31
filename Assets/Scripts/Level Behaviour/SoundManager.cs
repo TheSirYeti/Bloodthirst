@@ -209,7 +209,8 @@ public enum SoundID
     KAZAN_LAUGH,
     CHECKPOINT,
     BLOOD_1,
-    BLOOD_2
+    BLOOD_2,
+    WOOSH
 }
 
 public enum MusicID

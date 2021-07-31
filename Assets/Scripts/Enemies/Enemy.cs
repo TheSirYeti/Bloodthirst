@@ -9,7 +9,6 @@ public abstract class Enemy : MonoBehaviour
     public Transform lookAtPoint;
     public bool vunerable = true;
     public ParticleSystem blood;
-
     public Material originalMat;
 
     private void Start()

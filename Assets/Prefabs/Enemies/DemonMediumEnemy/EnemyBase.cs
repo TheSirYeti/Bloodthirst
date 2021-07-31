@@ -50,6 +50,7 @@ public abstract class EnemyBase : MonoBehaviour
     {
         if (amount > 0)
         {
+            lineOfSite = 9999f;
             currentHitLife -= amount;
             EventManager.Trigger("AddSpecial", 0.005f);
             if (currentHitLife <= 0)

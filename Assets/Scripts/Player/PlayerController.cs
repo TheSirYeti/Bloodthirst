@@ -84,7 +84,6 @@ public class PlayerController : MonoBehaviour
 
         if (specialSlider.GetSpecialValue() >= 1f)
         {
-            Debug.Log("Ready");
             EventManager.Trigger("EnableSpecialParticles");
         } else EventManager.Trigger("DisableSpecialParticles");
 

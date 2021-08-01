@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class loadScene : MonoBehaviour
 {
     public int level;
+    public GameObject loadingPng;
 
     public void load()
     {
@@ -21,6 +22,7 @@ public class loadScene : MonoBehaviour
             Destroy(CheckpointBehaviour.instance);
         }
         EventManager.resetEventDictionary();
-        SceneManager.LoadScene(level);
+        loadingPng.SetActive(true);
+        SceneManager.LoadSceneAsync(level);
     }
 }

@@ -119,22 +119,24 @@ namespace VFX.Player
 
         public void enableSparks(object[] parameters)
         {
-            //specialMeter.SetActive(true);
             if(!specialMeter.GetComponent<ParticleSystem>().isPlaying)
                 specialMeter.GetComponent<ParticleSystem>().Play();
-            Debug.Log("terraplanero");
         }
 
         public void disableSparks(object[] parameters)
         {
             specialMeter.GetComponent<ParticleSystem>().Stop();
-            //specialMeter.SetActive(false);
         }
 
         public void dashVanish(object[] parameters)
         {
             enableDualGroundVFX(7);
             EventManager.Trigger("Dash");
+        }
+
+        public void StopHeavyVFXMovement()
+        {
+            EventManager.Trigger("StopHeavyVFXMoving");
         }
     }
 }

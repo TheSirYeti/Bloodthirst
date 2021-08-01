@@ -41,7 +41,6 @@ public class BulletBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().takeDamage();
             _enemyCount--;
         }
     }

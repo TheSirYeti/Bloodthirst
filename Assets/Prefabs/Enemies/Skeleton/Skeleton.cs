@@ -76,7 +76,7 @@ public class Skeleton : Enemy
     public override void takeDamage()
     {
         EventManager.Trigger("AddSpecial", 0.005f);
-        Debug.Log("EN UNA VILLA NACIO FUE DESEO DE DIOS CRECER Y SOBREVIVIR");
+        maximumAttackDistance = 9999f;
         SoundManager.instance.PlaySound(SoundID.BLOOD_1);
         blood.Stop();
         blood.Play();

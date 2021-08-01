@@ -62,6 +62,7 @@ public class EnemyMeleeSkeleton : MonoBehaviour
         {
             EventManager.Trigger("AddSpecial", 0.005f);
             ReceiveDamage(1);
+            lineOfSite = 9999;
             SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             blood.Stop();
             blood.Play();
@@ -71,6 +72,7 @@ public class EnemyMeleeSkeleton : MonoBehaviour
         {
             EventManager.Trigger("AddSpecial", 0.005f);
             ReceiveDamage(10);
+            lineOfSite = 9999;
             SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             blood.Stop();
             blood.Play();
@@ -80,6 +82,7 @@ public class EnemyMeleeSkeleton : MonoBehaviour
         {
             EventManager.Trigger("AddSpecial", 0.005f);
             ReceiveDamage(1);
+            lineOfSite = 9999;
             SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             blood.Stop();
             blood.Play();
@@ -146,7 +149,7 @@ public class EnemyMeleeSkeleton : MonoBehaviour
         {
             yield return new WaitForSeconds(TimeAttack);
             aboutPlayer = 1.5F;
-            lineOfSite = 15;
+            lineOfSite = 9999;
             changeEst = MovementGeneric;
         }
     }
@@ -158,7 +161,6 @@ public class EnemyMeleeSkeleton : MonoBehaviour
     private void EnemyAttackDesactive()
     {
         DamageCollider.enabled = false;
-
     }
 
     private void OnDrawGizmosSelected()
@@ -166,7 +168,6 @@ public class EnemyMeleeSkeleton : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, lineOfSite);
         Gizmos.DrawWireSphere(transform.position, aboutPlayer);
-
     }
 
     public void Die()

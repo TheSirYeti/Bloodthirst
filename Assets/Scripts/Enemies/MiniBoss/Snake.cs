@@ -55,7 +55,11 @@ public class Snake : MonoBehaviour
 
     void GenerateAttack()
     {
-        
+        int rand;
+        if (Vector3.Distance(player.transform.position, transform.position) <= 4)
+        {
+
+        }
     }
 
     public void LaserChargeUpAttack()

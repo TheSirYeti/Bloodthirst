@@ -79,8 +79,6 @@
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainCollision.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript.cs" />
     <Compile Include="Assets\External Assets\RainMaker\Prefab\RainScript2D.cs" />
-    <Compile Include="Assets\KY_effects\Script\ConGUI.cs" />
-    <Compile Include="Assets\KY_effects\Script\Lighting.cs" />
     <Compile Include="Assets\Models\EnemyModel\Script\EnemyMeleeSkeleton.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Boss\ataques_especiales\ringAttack.cs" />
     <Compile Include="Assets\Prefabs\Enemies\Boss\Boss.cs" />
@@ -112,6 +110,7 @@
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyLife.cs" />
+    <Compile Include="Assets\Scripts\Enemies\MiniBoss\Snake.cs" />
     <Compile Include="Assets\Scripts\Enemies\ShowDamage.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpawnBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />
@@ -286,7 +285,6 @@
     <None Include="Assets\External Assets\New Text Document.txt" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Scene files\Readme.txt" />
     <None Include="Assets\External Assets\RainMaker\Prefab\RainShader.shader" />
-    <None Include="Assets\KY_effects\MagicEffectsPackFree\ReadMe.txt" />
     <None Include="Assets\VFX\VFXPlayer\Slash\Shader\Slash_Shader.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\LineStrip-TextureAdditive.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Readme.txt" />

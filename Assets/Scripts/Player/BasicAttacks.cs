@@ -51,6 +51,16 @@ namespace Player.Behaviour
             StartCoroutine(enableCollider(0));
         }
 
+        public void HurricaneAttack()
+        {
+            timeToNextAttack = airAttackCooldown + Time.time;
+            animator.Play("Hurricane");
+            rigidBody.velocity = Vector3.zero;
+            rigidBody.angularVelocity = Vector3.zero;
+            rigidBody.AddForce((player.transform.forward + player.transform.up) * attackForce, attackForceMode);
+            //StartCoroutine(enableCollider(0));
+        }
+
         public void heavyAttack()
         {
             setUpHeavyAttack();
@@ -249,6 +259,16 @@ namespace Player.Behaviour
         public void MakeVunerable()
         {
             isInvunerable = false;
+        }
+
+        public void KillGravity()
+        {
+            rigidBody.useGravity = false;
+        }
+
+        public void ResetGravity()
+        {
+            rigidBody.useGravity = true;
         }
     }
 } 

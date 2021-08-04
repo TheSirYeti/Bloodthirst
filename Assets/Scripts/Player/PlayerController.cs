@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public SpecialAttackBar bar;
     public GameObject deathPanel, deathButton;
 
+    float secondJumpTimer = 0;
+
     private void Awake()
     {
         EventManager.resetEventDictionary();
@@ -48,15 +50,17 @@ public class PlayerController : MonoBehaviour
             if (movement.groundCheck.getStatus() > 0 && !movement.isAttacking)
             {
                 movement.Jump();
-            } else if(basicAttacks.checkAttackCooldown())
+            } else if(secondJumpTimer <= Time.time)
             {
+                secondJumpTimer = Time.time + 2f;
                 basicAttacks.airAttack();
                 movement.toggleFloat();
             }
         }
         if (Input.GetButtonDown(attackButtonName) && basicAttacks.checkAttackCooldown())
         {
-            if (movement.groundCheck.getStatus() > 0) {
+            if (movement.groundCheck.getStatus() > 0)
+            {
                 EventManager.Trigger("AutoAim");
                 switch (basicAttacks.currentWeapon)
                 {
@@ -68,7 +72,8 @@ public class PlayerController : MonoBehaviour
                         break;
                 }
             }
-        }
+            else { basicAttacks.HurricaneAttack(); movement.toggleFloat(); }
+            }
 
         if (Input.GetButtonDown("Fire4"))
         {

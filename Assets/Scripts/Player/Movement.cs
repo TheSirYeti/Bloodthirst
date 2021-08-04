@@ -144,7 +144,7 @@ namespace Player.Behaviour
                 EventManager.Trigger("DashVFX");
                 SoundManager.instance.PlaySound(SoundID.WOOSH);
                 rigidBody.AddForce(rollDirection * 200, ForceMode.Impulse);
-                rollCooldown = Time.time + 1f;
+                rollCooldown = Time.time + 2.5f;
             }
         }
 

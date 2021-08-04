@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown(jumpButtonName))
         {
-            if (movement.groundCheck.getStatus() > 0)
+            if (movement.groundCheck.getStatus() > 0 && !movement.isAttacking)
             {
                 movement.Jump();
             } else if(basicAttacks.checkAttackCooldown())
@@ -137,10 +137,12 @@ public class PlayerController : MonoBehaviour
     public void SlowAttackingSpeed()
     {
         movement.slowMovement();
+        movement.isAttacking = true;
     }
 
     public void NormalAttackingSpeed()
     {
         movement.resetMovement();
+        movement.isAttacking = false;
     }
 }

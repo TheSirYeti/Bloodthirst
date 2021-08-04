@@ -20,6 +20,7 @@ TagManager:
   - lightBossAttack
   - boat
   - skeletonMelee
+  - snakeEnemyAttack
   layers:
   - Default
   - TransparentFX

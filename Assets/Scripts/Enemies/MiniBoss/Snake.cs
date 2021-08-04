@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Snake : MonoBehaviour
 {
     public float hp;
+    public float shield;
 
     public List<Transform> spawnPositions;
     public Animator animator;
@@ -20,20 +22,29 @@ public class Snake : MonoBehaviour
     public Transform attackSpawnPoint;
     public Transform airAttackSpawnPoint;
 
+    public ParticleSystem blood;
+    public Image shieldBar;
+    public Image hpBar;
+
+
     bool _reset = false;
+    bool _broke = false;
     bool _died = false;
 
     private void Start()
     {
         ChooseSpawnPoint();
-
         StartCoroutine(MoveSnakePosition());
     }
 
     private void Update()
     {
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        if(hp <= 0)
+        if(hp <= 0 && !_died)
+        {
+            _died = true;
+            animator.Play("Die");
+        }
     }
 
     public void ChooseSpawnPoint()
@@ -50,8 +61,7 @@ public class Snake : MonoBehaviour
 
     public void ResetAttackPattern()
     {
-        Debug.Log("RESET");
-        if (!_reset)
+        if (!_reset && !_died)
         {
             _reset = true;
             StartCoroutine(AttackDelay());
@@ -95,7 +105,7 @@ public class Snake : MonoBehaviour
         int rand;
         if (Vector3.Distance(player.transform.position, transform.position) <= 4)
         {
-            rand = Random.Range(0, 3);
+            rand = Random.Range(0, 4);
         }
         else rand = Random.Range(0, 2);
 
@@ -111,7 +121,11 @@ public class Snake : MonoBehaviour
                 break;
             case 2:
                 Debug.Log(3.3);
-                CloseMeleeAttack();
+                CloseMeleeAttack(1);
+                break;
+            case 3:
+                Debug.Log(3.3);
+                CloseMeleeAttack(2);
                 break;
         }
 
@@ -137,16 +151,14 @@ public class Snake : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
     }
 
-    public void CloseMeleeAttack()
+    public void CloseMeleeAttack(int number)
     {
-        int rand = Random.Range(0, 2);
-
-        switch (rand)
+        switch (number)
         {
-            case 0:
+            case 1:
                 animator.Play("Attack1");
                 break;
-            case 1:
+            case 2:
                 animator.Play("Attack2");
                 break;
         }
@@ -190,18 +202,31 @@ public class Snake : MonoBehaviour
     {
         if(other.gameObject.tag == "attackFX")
         {
-
+            TakeDamage(1);
         }
 
         if (other.gameObject.tag == "bigAttackFX")
         {
-
+            TakeDamage(10f);
         }
 
         if (other.gameObject.tag == "specialAttackFX")
         {
-
+            TakeDamage(0.66f);
         }
     }
 
+    public void TakeDamage(float value)
+    {
+        blood.Stop();
+        blood.Play();
+        if (shield <= 0)
+            hp -= value;
+        else shield -= value;
+    }
+
+    public void Dead()
+    {
+        Destroy(gameObject);
+    }
 }

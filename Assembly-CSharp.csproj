@@ -113,6 +113,7 @@
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\AirSpit.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\FireSpit.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\Snake.cs" />
+    <Compile Include="Assets\Scripts\Enemies\MiniBoss\SpawnSnakeBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\ShowDamage.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpawnBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />

@@ -210,7 +210,9 @@ public enum SoundID
     CHECKPOINT,
     BLOOD_1,
     BLOOD_2,
-    WOOSH
+    WOOSH,
+    ACID_BURN,
+    ACID_GURGLE
 }
 
 public enum MusicID

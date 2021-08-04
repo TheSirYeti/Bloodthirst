@@ -119,6 +119,17 @@ public class PlayerLife : MonoBehaviour
             EventManager.Trigger("DamagePlayer");
         }
 
+        if (other.gameObject.tag == "snakeEnemyAttack" && !controller.basicAttacks.isInvunerable)
+        {
+            Vector3 difference = transform.position - other.transform.position;
+            difference = difference.normalized * 200;
+            //rigidbody.AddForce(difference, ForceMode.Impulse);
+            hp -= 0.25f;
+            EventManager.Trigger("SetHP", hp / 10);
+            //StartCoroutine(Knockback(rigidbody));
+            EventManager.Trigger("DamagePlayer");
+        }
+
         if (other.gameObject.tag == "skeletonMelee" && !controller.basicAttacks.isInvunerable)
         {
             Vector3 difference = transform.position - other.transform.position;

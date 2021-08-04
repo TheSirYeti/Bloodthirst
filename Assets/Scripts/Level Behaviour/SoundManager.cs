@@ -212,7 +212,15 @@ public enum SoundID
     BLOOD_2,
     WOOSH,
     ACID_BURN,
-    ACID_GURGLE
+    ACID_GURGLE,
+    SNAKE_ATTACK_1,
+    SNAKE_ATTACK_2,
+    SNAKE_HIDE,
+    SNAKE_APPEAR,
+    SNAKE_HISS,
+    SNAKE_SHIELDBREAK,
+    SNAKE_RAGE,
+    SNAKE_DEATH
 }
 
 public enum MusicID

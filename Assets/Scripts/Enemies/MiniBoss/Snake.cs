@@ -12,6 +12,7 @@ public class Snake : MonoBehaviour
     public Animator animator;
     public GameObject player;
     public SphereCollider radar;
+    public float attackTime;
     Transform _previousPosition;
     int _attackCount;
 
@@ -21,18 +22,23 @@ public class Snake : MonoBehaviour
     public GameObject airSpitDecoyPrefab;
     public Transform attackSpawnPoint;
     public Transform airAttackSpawnPoint;
+    public int airAttackAmount;
 
     public ParticleSystem blood;
     public Image shieldBar;
     public Image hpBar;
+    public GameObject wholeUI;
 
-
+    float _originalHP;
+    float _originalShield;
     bool _reset = false;
     bool _broke = false;
     bool _died = false;
 
     private void Start()
     {
+        _originalHP = hp;
+        _originalShield = shield;
         ChooseSpawnPoint();
         StartCoroutine(MoveSnakePosition());
     }
@@ -40,9 +46,19 @@ public class Snake : MonoBehaviour
     private void Update()
     {
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
+        if(shield <= 0 && !_broke)
+        {
+            _broke = true;
+            attackTime = attackTime / 3f;
+            airAttackAmount *= 2;
+            SoundManager.instance.PlaySound(SoundID.SNAKE_SHIELDBREAK);
+        }
+        
         if(hp <= 0 && !_died)
         {
             _died = true;
+            wholeUI.SetActive(false);
+            Debug.Log("mori");
             animator.Play("Die");
         }
     }
@@ -70,30 +86,30 @@ public class Snake : MonoBehaviour
 
     IEnumerator AttackDelay()
     {
-        yield return new WaitForSeconds(1f);
-        Debug.Log(2);
+        yield return new WaitForSeconds(attackTime);
         StartCoroutine(ChooseNextAction());
         
     }
 
     IEnumerator MoveSnakePosition()
     {
-        animator.Play("Hide");
-        yield return new WaitForSeconds(1.5f);
-        ChooseSpawnPoint();
-        animator.Play("Appear");
+        if (!_died)
+        {
+            animator.Play("Hide");
+            yield return new WaitForSeconds(1.5f);
+            ChooseSpawnPoint();
+            animator.Play("Appear");
+        }
     }
     
     IEnumerator ChooseNextAction()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(attackTime / 2);
         if (_attackCount <= 2)
         {
-            Debug.Log(2.1f);
             GenerateAttack();
         }
         else {
-            Debug.Log(2.2f);
             StartCoroutine(MoveSnakePosition());
             _attackCount = 0;
         }
@@ -102,34 +118,33 @@ public class Snake : MonoBehaviour
 
     void GenerateAttack()
     {
-        int rand;
-        if (Vector3.Distance(player.transform.position, transform.position) <= 4)
+        if (!_died)
         {
-            rand = Random.Range(0, 4);
-        }
-        else rand = Random.Range(0, 2);
+            int rand;
+            if (Vector3.Distance(player.transform.position, transform.position) <= 6.5f)
+            {
+                rand = Random.Range(0, 4);
+            }
+            else rand = Random.Range(0, 2);
 
-        switch (rand)
-        {
-            case 0:
-                Debug.Log(3.1);
-                LaserChargeUpAttack();
-                break;
-            case 1:
-                Debug.Log(3.2);
-                UpwardsAttack();
-                break;
-            case 2:
-                Debug.Log(3.3);
-                CloseMeleeAttack(1);
-                break;
-            case 3:
-                Debug.Log(3.3);
-                CloseMeleeAttack(2);
-                break;
-        }
+            switch (rand)
+            {
+                case 0:
+                    LaserChargeUpAttack();
+                    break;
+                case 1:
+                    UpwardsAttack();
+                    break;
+                case 2:
+                    CloseMeleeAttack(1);
+                    break;
+                case 3:
+                    CloseMeleeAttack(2);
+                    break;
+            }
 
-        _attackCount++;
+            _attackCount++;
+        }
     }
 
     public void LaserChargeUpAttack()
@@ -175,12 +190,12 @@ public class Snake : MonoBehaviour
     IEnumerator AirRaid()
     {
         yield return new WaitForSeconds(1f);
-        int raidAttacks = 18;
+        int raidAttacks = airAttackAmount;
         while(raidAttacks > 0)
         {
             raidAttacks--;
             CreateAirBullet();
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.15f);
         }
     }
 
@@ -203,6 +218,7 @@ public class Snake : MonoBehaviour
         if(other.gameObject.tag == "attackFX")
         {
             TakeDamage(1);
+            EventManager.Trigger("AddSpecial", 0.005f);
         }
 
         if (other.gameObject.tag == "bigAttackFX")
@@ -218,15 +234,41 @@ public class Snake : MonoBehaviour
 
     public void TakeDamage(float value)
     {
-        blood.Stop();
-        blood.Play();
+        if (_broke)
+        {
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+        }
         if (shield <= 0)
+        {
             hp -= value;
-        else shield -= value;
+            hpBar.fillAmount = hp / _originalHP;
+        }
+        else
+        {
+            shield -= value;
+            shieldBar.fillAmount = shield / _originalShield;
+        }
     }
 
     public void Dead()
     {
         Destroy(gameObject);
+    }
+
+    public void PlaySFX(SoundID sound)
+    {
+        SoundManager.instance.PlaySound(sound);
+    }
+
+    public void EnableAttackCollider()
+    {
+        EventManager.Trigger("EnableSnakeMeleeColliders");
+    }
+
+    public void DisableAttackCollider()
+    {
+        EventManager.Trigger("DisableSnakeMeleeColliders");
     }
 }

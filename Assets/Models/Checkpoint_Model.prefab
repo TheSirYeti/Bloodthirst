@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5279225004715252535}
   - component: {fileID: 3396456345829348763}
   - component: {fileID: 1875113985091747519}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CheckPoint_Model_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,9 +87,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1702360837393087781}
-  m_Layer: 0
+  - component: {fileID: 3992501517721283887}
+  - component: {fileID: 1284603674690201223}
+  m_Layer: 12
   m_Name: Checkpoint_Model
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,6 +112,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3992501517721283887
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448649715903827766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8087516, y: 2.8337631, z: 1.0784054}
+  m_Center: {x: 0.07694602, y: 1.238019, z: 0.007710457}
+--- !u!65 &1284603674690201223
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2448649715903827766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9538052, y: 0.69951487, z: 1}
+  m_Center: {x: 0.03213203, y: 0.15024257, z: 0}
 --- !u!1 &3919122664693404675
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +149,7 @@ GameObject:
   - component: {fileID: 7083083078956685412}
   - component: {fileID: 4634357568357911045}
   - component: {fileID: 401719871226009076}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: CheckPoint_Model_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946564061294449645}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7946564061604927288}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +290,7 @@ GameObject:
   - component: {fileID: 7946564061607697203}
   - component: {fileID: 7946564061607697201}
   - component: {fileID: 7946564061607697200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Stones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5024,7 +5052,7 @@ GameObject:
   - component: {fileID: 7946564061717464449}
   - component: {fileID: 7946564061717464463}
   - component: {fileID: 7946564061717464462}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: SmallFlares
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9777,7 +9805,7 @@ GameObject:
   - component: {fileID: 7946564061932140325}
   - component: {fileID: 7946564061932140323}
   - component: {fileID: 7946564061932140322}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14575,7 +14603,7 @@ GameObject:
   - component: {fileID: 7946564062177185213}
   - component: {fileID: 7946564062177185211}
   - component: {fileID: 7946564062177185210}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LightTwo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19386,7 +19414,7 @@ GameObject:
   - component: {fileID: 7946564062452460937}
   - component: {fileID: 7946564062452460936}
   - component: {fileID: 7946564062452460939}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particules_Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -111,6 +111,7 @@
     <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyLife.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\AirSpit.cs" />
+    <Compile Include="Assets\Scripts\Enemies\MiniBoss\AttackCollider.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\FireSpit.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\Snake.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\SpawnSnakeBoss.cs" />

@@ -8,7 +8,7 @@ public class killEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (CheckpointBehaviour.instance.currentCheckpoint == 16)
+        if (CheckpointBehaviour.instance.currentCheckpoint == 15)
             enemies.SetActive(false);
     }
 }

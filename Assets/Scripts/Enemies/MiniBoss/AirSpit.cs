@@ -9,6 +9,7 @@ public class AirSpit : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Die());
+        SoundManager.instance.PlaySound(SoundID.ACID_BURN);
     }
 
     void FixedUpdate()

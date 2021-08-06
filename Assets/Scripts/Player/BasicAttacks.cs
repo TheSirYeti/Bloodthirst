@@ -7,12 +7,14 @@ namespace Player.Behaviour
     public class BasicAttacks : MonoBehaviour
     {
         public      float           attackCooldown                      = 2f;
+        public float comboCooldown = 7f;
         public      float           airAttackCooldown                   = 5f;
         public      float           timeToNextAttack                    = -1f;
         public      float           timeToNextAirAttack                 = -1f;
         public      float           timeToCombo                         = 0.4f;
         public      float           comboTimeRemaining                  = -1f;
         public      int             attackTurn                          = 0;
+        public int comboTurn;
         public      int             maxCombo                            = 3;
         public      Animator        animator;
         public      RuntimeAnimatorController       dualWield;
@@ -31,12 +33,16 @@ namespace Player.Behaviour
         public      Collider        attackCollider;
         public Collider specialAttackCollider;
         public      Collider        bigAttackCollider;
+        public Collider heavyAttackCollider; 
         private     float           colliderCooldown;
         private     float           colliderTime                        = 0.25f;
         private     bool            colliderBool;
         [SerializeField]private     float           attackTurnCooldown;
+        [SerializeField] private float comboTurnCooldown = 0;
         private     float           attackTurnTime                      = 0.3f;
         public bool isInvunerable;
+        public bool comboing;
+
 
         private void Update()
         {
@@ -64,51 +70,57 @@ namespace Player.Behaviour
         public void heavyAttack()
         {
             setUpHeavyAttack();
-            timeToNextAttack = attackCooldown * 1.5f + Time.time;
+            timeToNextAttack = attackCooldown * 1.2f + Time.time;
             //StartCoroutine(enableBigCollider(2.45f));
         }
 
         public void setUpBasicAttack()
         {
-            switch (attackTurn)
+            if (!comboing)
             {
-                case 0:
-                    animator.Play("Slash1");
-                    attackTurn++;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
-                case 1:
-                    animator.Play("Slash2");
-                    attackTurn++;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
-                case 2:
-                    animator.Play("Slash3");
-                    attackTurn = 0;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
+                switch (attackTurn)
+                {
+                    case 0:
+                        animator.Play("Slash1");
+                        attackTurn++;
+                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        break;
+                    case 1:
+                        animator.Play("Slash2");
+                        attackTurn++;
+                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        break;
+                    case 2:
+                        animator.Play("Slash3");
+                        attackTurn = 0;
+                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        break;
+                }
             }
         }
 
         public void setUpHeavyAttack()
         {
-            switch (attackTurn)
+            if (!comboing)
             {
-                case 0:
-                    animator.Play("Attack1");
-                    attackTurn++;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
-                case 1:
-                    animator.Play("Attack3");
-                    attackTurn++;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
-                case 2:
-                    animator.Play("Attack1");
-                    attackTurn = 0;
-                    attackTurnCooldown = attackCooldown * 2 + Time.time;
-                    break;
+                switch (attackTurn)
+                {
+                    case 0:
+                        animator.Play("Attack1");
+                        attackTurn++;
+                        attackTurnCooldown = attackCooldown * 2f + Time.time;
+                        break;
+                    case 1:
+                        animator.Play("Attack3");
+                        attackTurn++;
+                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        break;
+                    case 2:
+                        animator.Play("Attack1");
+                        attackTurn = 0;
+                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        break;
+                }
             }
         }
 
@@ -143,6 +155,11 @@ namespace Player.Behaviour
             {
                 attackTurn = 0;
             }
+
+            if(comboTurnCooldown < Time.time)
+            {
+                comboTurn = 0;
+            }
         }
 
         public int getCurrentAttackTurn()
@@ -152,15 +169,34 @@ namespace Player.Behaviour
 
         public void checkCombo()
         {
-            if(attackTurn == 2)
+            if(attackTurn == 2 && !comboing)
             {
-                if (currentWeapon == 0)
+                comboing = true;
+                switch (comboTurn)
                 {
-                    animator.Play("ComboKick");
-                    
+                    case 0:
+                        if (currentWeapon == 0)
+                        {
+                            animator.Play("ComboKick");
+
+                        }
+                        else animator.Play("Attack2");
+                        comboTurn++;
+                        break;
+                    case 1:
+                        if (currentWeapon == 0)
+                        {
+                            animator.Play("DaggerStab");
+
+                        }
+                        else animator.Play("SwordAirStab");
+                        comboTurn = 0;
+                        break;
                 }
-                else animator.Play("Attack2");
+                comboTurnCooldown = Time.time + comboCooldown;
             }
+
+
             //StartCoroutine(comboTrigger());
         }
 
@@ -182,6 +218,16 @@ namespace Player.Behaviour
             yield return new WaitForSeconds(0.5f);
             //isInvunerable = false;
             specialAttackCollider.enabled = false;
+        }
+
+        public IEnumerator enableHeavyCollider(float time)
+        {
+            yield return new WaitForSeconds(time);
+            heavyAttackCollider.enabled = true;
+            //isInvunerable = true;
+            yield return new WaitForSeconds(0.5f);
+            //isInvunerable = false;
+            heavyAttackCollider.enabled = false;
         }
 
         public IEnumerator enableBigCollider(float time)
@@ -269,6 +315,11 @@ namespace Player.Behaviour
         public void ResetGravity()
         {
             rigidBody.useGravity = true;
+        }
+
+        public void StopComboTrigger()
+        {
+            comboing = false;
         }
     }
 } 

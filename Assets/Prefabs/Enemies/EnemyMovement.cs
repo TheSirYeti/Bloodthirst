@@ -97,7 +97,7 @@ public class EnemyMovement : Enemy
         Destroy(gameObject);
     }
 
-    public override void takeDamage()
+    public override void takeDamage(int amount)
     {
 
     }

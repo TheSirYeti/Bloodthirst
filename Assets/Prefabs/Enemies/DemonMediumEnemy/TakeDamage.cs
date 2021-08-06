@@ -25,7 +25,24 @@ public class TakeDamage : MonoBehaviour
                 body.AddForce(difference, ForceMode.Impulse);
                 StartCoroutine(Knockback(body));
             }
-        } 
+        }
+
+        if (other.gameObject.tag == "heavyAttackFX")
+        {
+            enemy.GetComponent<EnemyBase>().ReceiveDamage(2);
+            EventManager.Trigger("AddSpecial", 0.01f);
+            Rigidbody body = enemy.GetComponent<Rigidbody>();
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+            if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
+            {
+                Vector3 difference = enemy.transform.position - other.transform.position;
+                difference = difference.normalized * 8;
+                body.AddForce(difference, ForceMode.Impulse);
+                StartCoroutine(Knockback(body));
+            }
+        }
 
         if (other.gameObject.tag == "bigAttackFX")
         {

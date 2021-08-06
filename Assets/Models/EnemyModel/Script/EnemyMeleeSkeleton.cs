@@ -68,10 +68,20 @@ public class EnemyMeleeSkeleton : MonoBehaviour
             blood.Play();
         }
 
+        if (other.gameObject.tag == "heavyAttackFX")
+        {
+            EventManager.Trigger("AddSpecial", 0.01f);
+            ReceiveDamage(2);
+            lineOfSite = 9999;
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+            blood.Stop();
+            blood.Play();
+        }
+
         if (other.gameObject.tag == "bigAttackFX")
         {
             EventManager.Trigger("AddSpecial", 0.005f);
-            ReceiveDamage(10);
+            ReceiveDamage(11);
             lineOfSite = 9999;
             SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             blood.Stop();

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class staticEnemy : Enemy
 {
-    public override void takeDamage()
+    public override void takeDamage(int amount)
     {
         hp--;
         //throw new System.NotImplementedException();

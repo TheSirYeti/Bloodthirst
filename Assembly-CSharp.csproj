@@ -107,6 +107,7 @@
     <Compile Include="Assets\Scripts\Camera\CursorStatus.cs" />
     <Compile Include="Assets\Scripts\Camera\CutsceneCam.cs" />
     <Compile Include="Assets\Scripts\Camera\TeleportToPlayer.cs" />
+    <Compile Include="Assets\Scripts\Enemies\BossRework\BossRework.cs" />
     <Compile Include="Assets\Scripts\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyContact.cs" />
     <Compile Include="Assets\Scripts\Enemies\enemyLife.cs" />

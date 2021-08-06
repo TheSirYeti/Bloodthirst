@@ -33,14 +33,31 @@ public abstract class Enemy : MonoBehaviour
                 body.AddForce(difference, ForceMode.Impulse);
                 StartCoroutine(Knockback(body));
             }
-            takeDamage();
+            takeDamage(1);
+        }
+
+        if(other.gameObject.tag == "heavyAttackFX")
+        {
+            Rigidbody body = GetComponent<Rigidbody>();
+            if (body != null && hp > 0)
+            {
+                blood.Stop();
+                blood.Play();
+                SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+                EventManager.Trigger("AddSpecial", 0.01f);
+                Vector3 difference = transform.position - other.transform.position;
+                difference = difference.normalized * 20;
+                body.AddForce(difference, ForceMode.Impulse);
+                StartCoroutine(Knockback(body));
+            }
+            takeDamage(2);
         }
 
         if (other.gameObject.tag == "bigAttackFX")
         {
             blood.Stop();
             blood.Play();
-            hp -= 5;
+            takeDamage(5);
         }
     }
 
@@ -59,5 +76,5 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    public abstract void takeDamage();
+    public abstract void takeDamage(int amount);
 }

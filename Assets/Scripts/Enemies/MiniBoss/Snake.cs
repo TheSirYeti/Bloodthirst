@@ -226,6 +226,11 @@ public class Snake : MonoBehaviour
             TakeDamage(10f);
         }
 
+        if (other.gameObject.tag == "heavyAttackFX")
+        {
+            TakeDamage(2f);
+        }
+
         if (other.gameObject.tag == "specialAttackFX")
         {
             TakeDamage(0.66f);

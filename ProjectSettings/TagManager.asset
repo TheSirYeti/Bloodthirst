@@ -21,6 +21,7 @@ TagManager:
   - boat
   - skeletonMelee
   - snakeEnemyAttack
+  - heavyAttackFX
   layers:
   - Default
   - TransparentFX

@@ -73,14 +73,14 @@ public class Skeleton : Enemy
         bullet.GetComponent<FireAttacks>().chase = true;
     }
 
-    public override void takeDamage()
+    public override void takeDamage(int amount)
     {
         EventManager.Trigger("AddSpecial", 0.005f);
         maximumAttackDistance = 9999f;
         SoundManager.instance.PlaySound(SoundID.BLOOD_1);
         blood.Stop();
         blood.Play();
-        hp--;
+        hp -= amount;
     }
 
     public IEnumerator Die()

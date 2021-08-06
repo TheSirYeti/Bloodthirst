@@ -14,12 +14,19 @@ public class showDamagePlayer : MonoBehaviour
 
     void Take(object[] parameters)
     {
-        StartCoroutine(Damage());
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(Damage());
+        }
     }
 
     void Vanish(object[] parameters)
     {
-        StartCoroutine(Dash());
+        if (gameObject.activeSelf)
+        {
+            StopCoroutine(Damage());
+            StartCoroutine(Dash());
+        }
     }
 
     IEnumerator Damage()

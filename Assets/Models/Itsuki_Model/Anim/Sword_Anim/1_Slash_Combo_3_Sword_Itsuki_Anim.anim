@@ -24586,14 +24586,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: MakeInvunerable
+    functionName: SlowAttackingSpeed
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: SlowAttackingSpeed
+  - time: 0.23333333
+    functionName: MakeInvunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -24620,6 +24620,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
+  - time: 0.3
+    functionName: MakeVunerable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.4
     functionName: NormalAttackingSpeed
     data: 
@@ -24629,13 +24636,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.43333334
     functionName: StopComboTrigger
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.46666667
-    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

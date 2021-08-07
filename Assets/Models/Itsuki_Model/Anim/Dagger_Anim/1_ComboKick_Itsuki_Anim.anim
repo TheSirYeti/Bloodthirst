@@ -98330,6 +98330,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.7666667
+    functionName: MakeVunerable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.8666667
     functionName: NormalAttackingSpeed
     data: 
@@ -98339,13 +98346,6 @@ AnimationClip:
     messageOptions: 0
   - time: 2.5
     functionName: NormalAttackingSpeed
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 2.6333334
-    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

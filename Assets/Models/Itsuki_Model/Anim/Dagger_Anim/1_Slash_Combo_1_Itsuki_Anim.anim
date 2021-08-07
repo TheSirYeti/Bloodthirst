@@ -33682,7 +33682,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.33333334
+  - time: 0.36666667
     functionName: MakeInvunerable
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -33703,7 +33703,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6
+  - time: 0.46666667
     functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -37114,14 +37114,14 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: MakeInvunerable
+    functionName: SlowAttackingSpeed
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: SlowAttackingSpeed
+  - time: 0.33333334
+    functionName: MakeInvunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -37148,15 +37148,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.6666667
-    functionName: NormalAttackingSpeed
+  - time: 0.43333334
+    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.76666665
-    functionName: MakeVunerable
+  - time: 0.6666667
+    functionName: NormalAttackingSpeed
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

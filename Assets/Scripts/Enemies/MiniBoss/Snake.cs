@@ -229,6 +229,7 @@ public class Snake : MonoBehaviour
         if (other.gameObject.tag == "heavyAttackFX")
         {
             TakeDamage(2f);
+            EventManager.Trigger("AddSpecial", 0.01f);
         }
 
         if (other.gameObject.tag == "specialAttackFX")

@@ -22648,13 +22648,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.23333333
-    functionName: MakeInvunerable
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.26666668
     functionName: SFX_SLASH2
     data: 
@@ -22668,13 +22661,6 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
-    messageOptions: 0
-  - time: 0.3
-    functionName: MakeVunerable
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
     messageOptions: 0
   - time: 0.36666667
     functionName: NormalAttackingSpeed

@@ -17,10 +17,18 @@ public class BossRework : MonoBehaviour
     [Header("Hiding Objects / Colliders")]
     public GameObject sword;
     public Collider swordCollider;
+    public Collider attackCollider;
+
+
+    [Header("Skeleton Properties")]
+    public List<GameObject> skeletonSpawnpoints;
+    public GameObject skeletonPrefab;
 
     [Header("VFX")]
     public List<ParticleSystem> vfxSlashEffects;
     public ParticleSystem blood;
+    public GameObject laser;
+    public GameObject laserAttack;
 
     [Header("Player References")]
     public GameObject player;
@@ -28,6 +36,7 @@ public class BossRework : MonoBehaviour
     [Header("UI References")]
     public Image hpBar;
     public Image shieldBar;
+    public GameObject entireUI;
 
     bool moving = false;
     bool shieldBroke = false;
@@ -96,7 +105,7 @@ public class BossRework : MonoBehaviour
     {
         if (!died)
         {
-            int rand = Random.Range(0, 5);
+            int rand = Random.Range(0, 7);
             switch (rand)
             {
                 case 0:
@@ -113,6 +122,12 @@ public class BossRework : MonoBehaviour
                     break;
                 case 4:
                     animator.Play("BasicSlash1");
+                    break;
+                case 5:
+                    animator.Play("Summon1");
+                    break;
+                case 6:
+                    animator.Play("Kamehameha");
                     break;
             }
         }
@@ -135,6 +150,9 @@ public class BossRework : MonoBehaviour
         {
             died = true;
             animator.Play("Die");
+            entireUI.SetActive(false);
+            swordCollider.enabled = false;
+            attackCollider.enabled = false;
         }
     }
 
@@ -143,13 +161,13 @@ public class BossRework : MonoBehaviour
         if(other.gameObject.tag == "attackFX")
         {
             TakeDamage(1);
-            EventManager.Trigger("AddSpecial", 0.005f);
+            EventManager.Trigger("AddSpecial", 0.01f);
         }
 
         if (other.gameObject.tag == "heavyAttackFX")
         {
-            TakeDamage(2);
-            EventManager.Trigger("AddSpecial", 0.005f);
+            TakeDamage(1.5f);
+            EventManager.Trigger("AddSpecial", 0.01f);
         }
 
         if (other.gameObject.tag == "specialAttackFX")
@@ -167,6 +185,7 @@ public class BossRework : MonoBehaviour
     {
         if (!shieldBroke)
         {
+            SoundManager.instance.PlaySound(SoundID.BOSS_HIT);
             shield -= amount;
             shieldBar.fillAmount = shield / originalShield;
         }
@@ -174,24 +193,66 @@ public class BossRework : MonoBehaviour
         {
             blood.Stop();
             blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
             hp -= amount;
             hpBar.fillAmount = hp / originalHP;
         }
     }
 
+    public void SummonSkeleton()
+    {
+        SoundManager.instance.PlaySound(SoundID.BONES);
+        GameObject skeleton1 = Instantiate(skeletonPrefab);
+        skeleton1.transform.position = skeletonSpawnpoints[0].transform.position;
+        GameObject skeleton2 = Instantiate(skeletonPrefab);
+        skeleton2.transform.position = skeletonSpawnpoints[1].transform.position;
+        GameObject skeleton3 = Instantiate(skeletonPrefab);
+        skeleton3.transform.position = skeletonSpawnpoints[2].transform.position;
+        GameObject skeleton4 = Instantiate(skeletonPrefab);
+        skeleton4.transform.position = skeletonSpawnpoints[3].transform.position;
+    }
+
+    public void EnableLaser()
+    {
+        laser.SetActive(true);
+        SoundManager.instance.PlaySound(SoundID.LIGHTNING);
+    }
+
+    public void DisableLaser()
+    {
+        laser.SetActive(false);
+    }
+
+    public void EnableAttackLaser()
+    {
+        laserAttack.SetActive(true);
+    }
+
+    public void DisableAttackLaser()
+    {
+        laserAttack.SetActive(false);
+    }
+
     public void EnableSwordCollider()
     {
         swordCollider.enabled = true;
+        attackCollider.enabled = true;
     }
 
     public void DisableSwordCollider()
     {
         swordCollider.enabled = false;
+        attackCollider.enabled = false;
     }
 
     public void PlaySlashVFX(int index)
     {
         vfxSlashEffects[index].Stop();
         vfxSlashEffects[index].Play();
+    }
+
+    public void PlaySFX(SoundID sound)
+    {
+        SoundManager.instance.PlaySound(sound);
     }
 }

@@ -220,7 +220,13 @@ public enum SoundID
     SNAKE_HISS,
     SNAKE_SHIELDBREAK,
     SNAKE_RAGE,
-    SNAKE_DEATH
+    SNAKE_DEATH,
+    BONES,
+    LIGHTNING,
+    HEAVY_SLASH1,
+    HEAVY_SLASH2,
+    HEAVY_SLASH3,
+    BOSS_HIT
 }
 
 public enum MusicID

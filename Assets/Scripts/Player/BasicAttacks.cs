@@ -83,17 +83,17 @@ namespace Player.Behaviour
                     case 0:
                         animator.Play("Slash1");
                         attackTurn++;
-                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        attackTurnCooldown = attackCooldown * 2.2f + Time.time;
                         break;
                     case 1:
                         animator.Play("Slash2");
                         attackTurn++;
-                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        attackTurnCooldown = attackCooldown * 2.2f + Time.time;
                         break;
                     case 2:
                         animator.Play("Slash3");
                         attackTurn = 0;
-                        attackTurnCooldown = attackCooldown * 2 + Time.time;
+                        attackTurnCooldown = attackCooldown * 2.2f + Time.time;
                         break;
                 }
             }

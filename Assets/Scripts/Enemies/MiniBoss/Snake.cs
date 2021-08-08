@@ -60,6 +60,7 @@ public class Snake : MonoBehaviour
             wholeUI.SetActive(false);
             Debug.Log("mori");
             animator.Play("Die");
+            Destroy(gameObject, 2f);
         }
     }
 

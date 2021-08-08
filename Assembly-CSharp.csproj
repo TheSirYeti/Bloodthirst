@@ -271,6 +271,7 @@
     <Compile Include="Assets\UI\NewMenu\playMusic.cs" />
     <Compile Include="Assets\UI\NewMenu\ShowControls.cs" />
     <Compile Include="Assets\UI\PauseMenu\PauseMenuManager.cs" />
+    <Compile Include="Assets\VFX\LaserBeam\laserScript.cs" />
     <Compile Include="Assets\Videos\skipIntro.cs" />
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineBehavior.cs" />
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineStripBehavior.cs" />
@@ -282,6 +283,8 @@
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Blend_CenterGlow.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash.shader" />
     <None Include="Assets\VFX\Shader\Disolve_Object.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Emissive Diffuse.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump Cutout.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\SingleLine-LightSaber.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\SlashOld.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\LineStrip-LightSaber.shader" />
@@ -293,11 +296,13 @@
     <None Include="Assets\VFX\VFXPlayer\Slash\Shader\Slash_Shader.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\LineStrip-TextureAdditive.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Demo scene\Readme.txt" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Standard Diffuse Bump.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Shaders\Slash2.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\SingleLine-TextureAlphaBlended.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\LineStrip-TextureAlphaBlended.shader" />
     <None Include="Assets\External Assets\RainMaker\Readme.txt" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\SingleLine-TextureAdditive.shader" />
+    <None Include="Assets\Ciconia Studio\Shaders\Double Sided Shaders\Double Sided Transparent Diffuse Bump.shader" />
     <None Include="Assets\External Assets\ErbGameArt\Sword slash FX\Readme.txt" />
     <None Include="Assets\Shader\LavaParallx.shader" />
     <None Include="Assets\VolumetricLines\BuiltInRenderPipeline\Shaders\_SingleLineShader.cginc" />

@@ -29130,6 +29130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  particle: {fileID: 0}
 --- !u!1 &5523344962863990216
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,6 +48,7 @@ public class EnemyMeleeSkeleton : MonoBehaviour
     void Start()
     {
         changeEst = MovementGeneric;
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame

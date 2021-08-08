@@ -116230,6 +116230,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0.53333336
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 51
+    messageOptions: 0
   - time: 0.73333335
     functionName: PlaySlashVFX
     data: 
@@ -116251,7 +116258,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.7666667
+  - time: 1.7333333
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 50
+    messageOptions: 0
+  - time: 1.8
     functionName: PlaySlashVFX
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -116271,6 +116285,20 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
+    messageOptions: 0
+  - time: 2.6
+    functionName: PlaySFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 52
+    messageOptions: 0
+  - time: 2.7
+    functionName: PlaySlashVFX
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 6
     messageOptions: 0
   - time: 2.9
     functionName: DisableSwordCollider

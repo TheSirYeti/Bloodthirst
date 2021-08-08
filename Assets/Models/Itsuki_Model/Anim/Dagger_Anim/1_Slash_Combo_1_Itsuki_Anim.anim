@@ -33682,13 +33682,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.36666667
-    functionName: MakeInvunerable
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.43333334
     functionName: SFX_SLASH1
     data: 
@@ -33698,13 +33691,6 @@ AnimationClip:
     messageOptions: 0
   - time: 0.43333334
     functionName: enableDualGroundVFX
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.46666667
-    functionName: MakeVunerable
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

@@ -133,7 +133,7 @@ public class PlayerLife : MonoBehaviour
         if (other.gameObject.tag == "skeletonMelee" && !controller.basicAttacks.isInvunerable)
         {
             Vector3 difference = transform.position - other.transform.position;
-            difference = difference.normalized * 100;
+            difference = difference.normalized * 10;
             rigidbody.AddForce(difference, ForceMode.Impulse);
             hp -= 0.3f;
             EventManager.Trigger("SetHP", hp / 10);

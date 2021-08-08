@@ -64,9 +64,9 @@ Material:
     - _Metallic: 0
     - _Saturation: 2
     - _ScrollSpeed: 0.62
-    - _Smoothness: 0.6
+    - _Smoothness: 0.586
     - _Speed: 0.5
-    - _Strengh: 0.4
+    - _Strengh: 0.582
     - _Temp: 0.5
     - _Temporary: 1
     - _Tilling: 90

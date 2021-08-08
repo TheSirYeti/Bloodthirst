@@ -96,6 +96,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("SwitchWeapon") && !movement.isAttacking)
         {
             basicAttacks.changeWeapons();
+            SoundManager.instance.PlaySound(SoundID.CHANGE_SWORD);
         }
 
         if (hpManager.amIHurt)

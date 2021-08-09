@@ -60,7 +60,23 @@ public class TakeDamage : MonoBehaviour
             }
         }
 
-        if(other.gameObject.tag == "specialAttackFX")
+        if (other.gameObject.tag == "kamikazeAttack")
+        {
+            enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
+            Rigidbody body = enemy.GetComponent<Rigidbody>();
+            blood.Stop();
+            blood.Play();
+            SoundManager.instance.PlaySound(SoundID.BLOOD_1);
+            if (body != null && enemy.GetComponent<EnemyBase>().getlife() > 0)
+            {
+                Vector3 difference = enemy.transform.position - other.transform.position;
+                difference = difference.normalized * 30;
+                body.AddForce(difference, ForceMode.Impulse);
+                StartCoroutine(Knockback(body));
+            }
+        }
+
+        if (other.gameObject.tag == "specialAttackFX")
         {
             enemy.GetComponent<EnemyBase>().ReceiveDamage(1);
             Rigidbody body = enemy.GetComponent<Rigidbody>();

@@ -33,6 +33,7 @@ public class MathParabola : MonoBehaviour
 
     void Update()
     {
+
         if(Vector3.Distance(transform.position, Target.position) > minimumDistance)
         {
             Target = GameObject.FindWithTag("Player").transform;
@@ -53,6 +54,7 @@ public class MathParabola : MonoBehaviour
         {   
             StartCoroutine(Explode());
         }
+
     }
 
     IEnumerator ParabolicMovement()

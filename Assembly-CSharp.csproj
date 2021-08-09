@@ -116,14 +116,17 @@
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\FireSpit.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\Snake.cs" />
     <Compile Include="Assets\Scripts\Enemies\MiniBoss\SpawnSnakeBoss.cs" />
+    <Compile Include="Assets\Scripts\Enemies\Ranged 2.0\RangedRework.cs" />
     <Compile Include="Assets\Scripts\Enemies\ShowDamage.cs" />
     <Compile Include="Assets\Scripts\Enemies\SpawnBoss.cs" />
     <Compile Include="Assets\Scripts\Enemies\staticEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\SwingingAxe.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\boatMusic.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\Checkpoint.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Checkpoint\CheckpointBehaviour.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\CursorXD.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\dontRotate.cs" />
+    <Compile Include="Assets\Scripts\Level Behaviour\EnableSpecificObject.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\EventManager.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\flycam.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\killEnemies.cs" />

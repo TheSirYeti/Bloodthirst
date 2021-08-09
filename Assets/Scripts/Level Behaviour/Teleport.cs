@@ -7,6 +7,9 @@ public class Teleport : MonoBehaviour
 {
     public Transform destination;
     public int currentLevel;
+    public Cinemachine.CinemachineFreeLook camera;
+
+    public Transform deathPosition;
 
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class Teleport : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            deathPosition.position = other.transform.position;
             StartCoroutine(reloadScene());
             //other.transform.position = destination.position;
         }
@@ -24,7 +28,10 @@ public class Teleport : MonoBehaviour
 
     IEnumerator reloadScene()
     {
-        yield return new WaitForSeconds(1f);
+        camera.Follow = deathPosition;
+        yield return new WaitForSeconds(0.25f);
+        SoundManager.instance.PlaySound(SoundID.SNAKE_DEATH);
+        yield return new WaitForSeconds(0.75f);
         SoundManager.instance.StopAllSounds();
         SoundManager.instance.StopAllMusic();
         SceneManager.LoadScene(currentLevel);

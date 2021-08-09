@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if ((other.gameObject.tag == "attackFX" || other.gameObject.tag == "specialAttackFX") && vunerable)
+        if ((other.gameObject.tag == "attackFX" || other.gameObject.tag == "specialAttackFX" || other.gameObject.tag == "kamikazeAttack") && vunerable)
         {
             Rigidbody body = GetComponent<Rigidbody>();
             if (body != null && hp > 0)

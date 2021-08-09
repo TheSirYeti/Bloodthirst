@@ -18,10 +18,18 @@ public class loadLevel : MonoBehaviour
 
         if (CheckpointBehaviour.instance != null && SceneManager.GetActiveScene().buildIndex != level)
         {
-            Debug.Log("HOLA LEVEL BORRATE");
             CheckpointBehaviour.instance.DestroyInstance();
             //Destroy(CheckpointBehaviour.instance);
         }
-        SceneManager.LoadScene(level);
+        SceneManager.LoadSceneAsync(level);
+    }
+
+    public void LoadAndResetCheckpoint()
+    {
+        if(CheckpointBehaviour.instance.currentCheckpoint != null)
+        {
+            CheckpointBehaviour.instance.currentCheckpoint = 0;
+        }
+        SceneManager.LoadSceneAsync(level);
     }
 }

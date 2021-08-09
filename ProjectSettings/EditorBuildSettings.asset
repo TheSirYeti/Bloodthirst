@@ -24,8 +24,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/CINEMATICA.unity
     guid: 95b693d626ae0ea4093dfee7cc6fa394
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1-e.unity
-    guid: 71efc6deb37361549a7906a77c703a6d
+    path: Assets/Scenes/Levels/Level1-V2.unity
+    guid: e1dd7d2afec9bae49bd0a06958a34704
   - enabled: 1
     path: Assets/Scenes/Levels/EndScene.unity
     guid: 12d38860bfea12b4a801571c0ab72da5
@@ -36,11 +36,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/BossFight.unity
     guid: 9d419bea43d9e104c8251b28a07e2a15
   - enabled: 0
-    path: Assets/Scenes/OldMenu.unity
-    guid: a58d84a8ad576894cac4ca992c51b346
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/Scenes/DebugLevel.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/Scenes/Levels/Level1.unity
     guid: 241b400e3ab679f468bb8c8ae003837f
@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Levels/Level2.unity
     guid: 9e64647a361d9254eabcaa33339a2504
+  - enabled: 0
+    path: Assets/Scenes/Levels/Level1-e.unity
+    guid: 71efc6deb37361549a7906a77c703a6d
   m_configObjects: {}

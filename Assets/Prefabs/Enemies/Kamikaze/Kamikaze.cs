@@ -43,7 +43,6 @@ public class Kamikaze : MonoBehaviour
         while (elapse_time < flightDuration)
         {
             transform.Translate(0, (Vy - (2 * elapse_time)) * Time.deltaTime, Vx * Time.deltaTime);
-
             elapse_time += Time.deltaTime;
 
             yield return null;

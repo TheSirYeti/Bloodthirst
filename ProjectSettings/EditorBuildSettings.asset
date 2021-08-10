@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CopyrightWarning.unity
+    guid: 679f5be4dcbf8f8408701fe44dd8b2aa
+  - enabled: 1
     path: Assets/Scenes/ControllerWarningSreen.unity
     guid: 0e317f0c29752e449b273b685bbfa520
   - enabled: 1
@@ -18,15 +21,21 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: df58d39c7a0ae3d4f95c280d5990e277
   - enabled: 1
-    path: Assets/Scenes/NewMode.unity
-    guid: 87faf3967a7e0c746b4f72f3271c0abe
+    path: Assets/Scenes/TextCutscene1.unity
+    guid: 8b539d24f849f1e4d909e0e0fc975fc7
   - enabled: 1
-    path: Assets/Scenes/Levels/CINEMATICA.unity
-    guid: 95b693d626ae0ea4093dfee7cc6fa394
-  - enabled: 1
-    path: Assets/Scenes/Levels/Level1-V2.unity
+    path: Assets/Scenes/Level1-V2.unity
     guid: e1dd7d2afec9bae49bd0a06958a34704
   - enabled: 1
+    path: Assets/Scenes/TextCutscene3.unity
+    guid: 23f12dfa82cc7854aa26093d6ce53464
+  - enabled: 1
+    path: Assets/Scenes/Level2-V2.unity
+    guid: 5f4268c7c65166f45ad845e46fe93f26
+  - enabled: 1
+    path: Assets/Scenes/TextCutscene2.unity
+    guid: 951627744da801f4db1ed96879f8ddc4
+  - enabled: 0
     path: Assets/Scenes/Levels/EndScene.unity
     guid: 12d38860bfea12b4a801571c0ab72da5
   - enabled: 0
@@ -48,8 +57,14 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroVideo.unity
     guid: d53607436c2a70c4e92bc96a0ff46092
   - enabled: 0
+    path: Assets/Scenes/Levels/CINEMATICA.unity
+    guid: 95b693d626ae0ea4093dfee7cc6fa394
+  - enabled: 0
     path: Assets/Scenes/Levels/Level2.unity
     guid: 9e64647a361d9254eabcaa33339a2504
+  - enabled: 0
+    path: Assets/Scenes/Levels/NewMode.unity
+    guid: 87faf3967a7e0c746b4f72f3271c0abe
   - enabled: 0
     path: Assets/Scenes/Levels/Level1-e.unity
     guid: 71efc6deb37361549a7906a77c703a6d

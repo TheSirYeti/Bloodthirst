@@ -39,6 +39,11 @@ public class RangedRework : Enemy
         {
             isInRange = false;
         }
+
+        if(hp <= 0)
+        {
+            animator.Play("death");
+        }
     }
 
     public override void takeDamage(int amount)
@@ -101,5 +106,10 @@ public class RangedRework : Enemy
     {
         slashes[0].Play();
         slashes[1].Play();
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }

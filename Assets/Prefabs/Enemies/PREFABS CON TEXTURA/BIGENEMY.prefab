@@ -1491,7 +1491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 20
-  TimeDestroy: 10
+  TimeDestroy: 3
   speed: 3
   aboutPlayer: 1.2
   lineOfSite: 10

@@ -1081,6 +1081,11 @@ PrefabInstance:
       propertyPath: loadingPng
       value: 
       objectReference: {fileID: 784542945}
+    - target: {fileID: 5986046528069120940, guid: fa55c5e6f227ef64da00810cf87532eb,
+        type: 3}
+      propertyPath: level
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa55c5e6f227ef64da00810cf87532eb, type: 3}
 --- !u!95 &6687334037341899472 stripped

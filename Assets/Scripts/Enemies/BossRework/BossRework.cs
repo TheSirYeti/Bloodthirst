@@ -18,6 +18,7 @@ public class BossRework : MonoBehaviour
     public GameObject sword;
     public Collider swordCollider;
     public Collider attackCollider;
+    public Transform resetPoint;
 
 
     [Header("Skeleton Properties")]
@@ -153,6 +154,12 @@ public class BossRework : MonoBehaviour
             entireUI.SetActive(false);
             swordCollider.enabled = false;
             attackCollider.enabled = false;
+            EventManager.Trigger("EndFade");
+        }
+
+        if(transform.position.y <= -200)
+        {
+            transform.position = resetPoint.position;
         }
     }
 

@@ -142,6 +142,7 @@
     <Compile Include="Assets\Scripts\Level Behaviour\spawnEnemies.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\spawnPlayer.cs" />
     <Compile Include="Assets\Scripts\Level Behaviour\Teleport.cs" />
+    <Compile Include="Assets\Scripts\Other\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Other\NotAmogus.cs" />
     <Compile Include="Assets\Scripts\Other\playSong.cs" />
     <Compile Include="Assets\Scripts\Other\SwordLevitate.cs" />

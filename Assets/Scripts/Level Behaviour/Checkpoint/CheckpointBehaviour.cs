@@ -6,11 +6,12 @@ public class CheckpointBehaviour : MonoBehaviour
 {
     public List<Transform> checkpoints = new List<Transform>();
     public int currentCheckpoint;
+    public int currentLevel;
     public static CheckpointBehaviour instance;
 
     private void Awake()
     {
-        if (instance == null)
+        if (instance == null || instance.currentLevel != currentLevel)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);

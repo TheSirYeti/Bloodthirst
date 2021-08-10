@@ -33,6 +33,7 @@ public abstract class Enemy : MonoBehaviour
                 body.AddForce(difference, ForceMode.Impulse);
                 StartCoroutine(Knockback(body));
             }
+            Debug.Log("damn thats crazy");
             takeDamage(1);
         }
 

@@ -42,6 +42,17 @@ public class SoundManager : MonoBehaviour
             musicChannel[i].clip = music[i];
         }
 
+        if(PlayerPrefs.GetFloat("volumeMusic") <= 0)
+        {
+            PlayerPrefs.SetFloat("volumeMusic", volumeMusic);
+            PlayerPrefs.SetFloat("volumeSFX", volumeSFX);
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            volumeMusic = PlayerPrefs.GetFloat("volumeMusic");
+            volumeSFX = PlayerPrefs.GetFloat("volumeSFX");
+        }
     }
 
     
@@ -101,10 +112,12 @@ public class SoundManager : MonoBehaviour
     public void ChangeVolumeSound(float volume)
     {
         volumeSFX = volume;
+        PlayerPrefs.SetFloat("volumeSFX", volumeSFX);
         for (int i = 0; i < sfxChannel.Length; i++)
         {
             sfxChannel[i].volume = volumeSFX;
         }
+        PlayerPrefs.Save();
     }
 
 
@@ -164,10 +177,12 @@ public class SoundManager : MonoBehaviour
     public void ChangeVolumeMusic(float volume)
     {
         volumeMusic = volume;
+        PlayerPrefs.SetFloat("volumeMusic", volumeMusic);
         for (int i = 0; i < musicChannel.Length; i++)
         {
             musicChannel[i].volume = volumeMusic;
         }
+        PlayerPrefs.Save();
     }
 }
 
@@ -236,5 +251,6 @@ public enum MusicID
     SOCCER,
     NEW_MENU,
     BOAT,
-    MAIN_SONG
+    MAIN_SONG,
+    AMBIANCE
 }

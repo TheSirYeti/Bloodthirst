@@ -26,7 +26,8 @@ public class loadLevel : MonoBehaviour
 
     public void LoadAndResetCheckpoint()
     {
-        if(CheckpointBehaviour.instance.currentCheckpoint != null)
+        Time.timeScale = 1f;
+        if (CheckpointBehaviour.instance.currentCheckpoint != null)
         {
             CheckpointBehaviour.instance.currentCheckpoint = 0;
         }

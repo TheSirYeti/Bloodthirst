@@ -60,7 +60,7 @@ public class Snake : MonoBehaviour
             wholeUI.SetActive(false);
             Debug.Log("mori");
             animator.Play("Die");
-            EventManager.Trigger("EndFade");
+            EventManager.Trigger("EndLongFade");
             Destroy(gameObject, 2f);
         }
     }

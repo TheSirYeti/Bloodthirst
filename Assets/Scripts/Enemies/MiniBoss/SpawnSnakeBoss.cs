@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpawnSnakeBoss : MonoBehaviour
 {
+    public GameObject snake;
+    public GameObject snakeUI;
 
     private void Start()
     {
@@ -13,11 +15,14 @@ public class SpawnSnakeBoss : MonoBehaviour
             snakeUI.SetActive(true);
         }
     }
-    public GameObject snake;
-    public GameObject snakeUI;
+
     private void OnTriggerEnter(Collider other)
     {
-        snake.SetActive(true);
-        snakeUI.SetActive(true);
+        if(other.gameObject.tag == "Player")
+        {
+            Debug.Log("Sexo");
+            snake.SetActive(true);
+            snakeUI.SetActive(true);
+        }
     }
 }

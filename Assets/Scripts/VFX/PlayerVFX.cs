@@ -18,6 +18,8 @@ namespace VFX.Player
         private float disableTimer = 0.5f;
         private float cooldown;
 
+        public ParticleSystem healingEffect;
+
         private void Awake()
         {
 
@@ -47,9 +49,11 @@ namespace VFX.Player
             EventManager.UnSubscribe("EnableSpecialParticles", enableSparks);
             EventManager.UnSubscribe("DisableSpecialParticles", disableSparks);
             EventManager.UnSubscribe("DashVFX", dashVanish);
+            EventManager.UnSubscribe("HealingEffect", ShowHealing);
             EventManager.Subscribe("EnableSpecialParticles", enableSparks);
             EventManager.Subscribe("DisableSpecialParticles", disableSparks);
             EventManager.Subscribe("DashVFX", dashVanish);
+            EventManager.Subscribe("HealingEffect", ShowHealing);
         }
 
         private void FixedUpdate()
@@ -137,6 +141,19 @@ namespace VFX.Player
         public void StopHeavyVFXMovement()
         {
             EventManager.Trigger("StopHeavyVFXMoving");
+        }
+
+        public void ShowHealing(object[] parameters)
+        {
+            StartCoroutine(HealingEffect());
+        }
+
+        IEnumerator HealingEffect()
+        {
+            healingEffect.Stop();
+            healingEffect.Play();
+            yield return new WaitForSeconds(1f);
+            healingEffect.Stop();
         }
     }
 }

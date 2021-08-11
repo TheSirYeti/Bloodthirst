@@ -13,7 +13,15 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        SoundManager.instance.StopAllMusic();
+        SoundManager.instance.StopAllSounds();
+        SoundManager.instance.PlayMusic(MusicID.AMBIANCE);
         StartCoroutine(fadeText());
+        if(CheckpointBehaviour.instance != null)
+        {
+            Debug.Log("HOLA");
+            CheckpointBehaviour.instance = null;
+        }
     }
 
     public IEnumerator fadeText()
@@ -38,7 +46,7 @@ public class DialogueManager : MonoBehaviour
         float currentFade = 0;
         while (!fadeComplete)
         {
-            currentFade += 0.01f;
+            currentFade += 0.025f;
             texts[index].color = new Color(texts[index].color.r, texts[index].color.g, texts[index].color.b, currentFade);
 
             if(currentFade >= 1)

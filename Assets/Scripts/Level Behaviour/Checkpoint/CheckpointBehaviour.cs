@@ -22,6 +22,14 @@ public class CheckpointBehaviour : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(instance == null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void SetCurrentCheckpoint(int index)
     {
         if (checkpoints[index] != null)

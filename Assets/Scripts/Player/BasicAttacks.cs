@@ -47,6 +47,7 @@ namespace Player.Behaviour
         private void Update()
         {
             resetAttackTurn();
+            MakeVunerable();
         }
 
         public void attack()

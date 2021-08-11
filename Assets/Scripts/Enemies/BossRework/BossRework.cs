@@ -154,7 +154,7 @@ public class BossRework : MonoBehaviour
             entireUI.SetActive(false);
             swordCollider.enabled = false;
             attackCollider.enabled = false;
-            EventManager.Trigger("EndFade");
+            EventManager.Trigger("EndLongFade");
         }
 
         if(transform.position.y <= -200)

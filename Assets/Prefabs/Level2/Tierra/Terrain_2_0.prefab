@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2845381006475459118}
   - component: {fileID: 2671934981913737167}
   - component: {fileID: 5698406791335755224}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Terrain_2_0
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5747592352574135184}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.23, y: -0, z: -0.8}
-  m_LocalScale: {x: 120.46722, y: 120.46722, z: 120.46722}
+  m_LocalRotation: {x: -0.00000011618803, y: -0.9673333, z: 0.00000008121224, w: -0.25350782}
+  m_LocalPosition: {x: 0.013571526, y: -0.0037062697, z: 0.023813816}
+  m_LocalScale: {x: 2.4990292, y: 2.499026, z: 2.4990292}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 57.087, z: 0}
 --- !u!33 &2845381006475459118
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5747592352574135184}
-  m_Mesh: {fileID: 5472440556479178490, guid: 48bca9133c562b14a8aecdb7052a9d96, type: 3}
+  m_Mesh: {fileID: 5472440556479178490, guid: de318fee9fc1f4841a4e14acdd8d8138, type: 3}
 --- !u!23 &2671934981913737167
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab14423abdf33954e81098198d76642b, type: 2}
+  - {fileID: 2100000, guid: e274aa972585b1b4fa3c721719219111, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,4 +92,4 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 5472440556479178490, guid: 48bca9133c562b14a8aecdb7052a9d96, type: 3}
+  m_Mesh: {fileID: 5472440556479178490, guid: de318fee9fc1f4841a4e14acdd8d8138, type: 3}

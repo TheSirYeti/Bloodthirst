@@ -10772,7 +10772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd5dd81bb3d718a48be5d781b90401d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 6
+  level: 5
   loadingPng: {fileID: 1116215527}
 --- !u!222 &2117722238894136104
 CanvasRenderer:
@@ -10848,7 +10848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2117722238894136109
 RectTransform:
   m_ObjectHideFlags: 0

@@ -93,9 +93,11 @@ public class PlayerController : MonoBehaviour
         } else EventManager.Trigger("DisableSpecialParticles");
 
 
-        if (Input.GetButtonDown("SwitchWeapon") && !movement.isAttacking)
+        if (Input.GetButtonDown("SwitchWeapon") && !movement.isAttacking && !movement.isDashing)
         {
             basicAttacks.changeWeapons();
+            EventManager.Trigger("ShowSword");
+            EventManager.Trigger("SetWeaponImageUI", basicAttacks.currentWeapon);
             SoundManager.instance.PlaySound(SoundID.CHANGE_SWORD);
         }
 

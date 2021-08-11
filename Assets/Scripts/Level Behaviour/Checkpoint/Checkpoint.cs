@@ -27,6 +27,7 @@ public class Checkpoint : MonoBehaviour
             checkpointParticles.Play();
             SoundManager.instance.PlaySound(SoundID.CHECKPOINT);
             EventManager.Trigger("AddHP", 10f);
+            EventManager.Trigger("HealingEffect");
         }
     }
 }

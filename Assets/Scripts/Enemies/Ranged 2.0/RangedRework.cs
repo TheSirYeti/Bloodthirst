@@ -7,6 +7,7 @@ public class RangedRework : Enemy
     [Header("Main Arguments")]
     public GameObject fireAttackPrefab;
     public float minimumAttackDistance;
+    [SerializeField] float currentDistance;
     public float minimumMeleeDistance;
     public Transform attackSpawnPoint;
     public float attackCooldown;
@@ -28,14 +29,15 @@ public class RangedRework : Enemy
 
     private void Update()
     {
+        currentDistance = Vector3.Distance(transform.position, player.transform.position);
         transform.LookAt(new Vector3(player.transform.position.x, transform.position.y, player.transform.position.z));
-        if(Vector3.Distance(transform.position, player.transform.position) <= minimumAttackDistance && !isInRange)
+        if(currentDistance <= minimumAttackDistance && !isInRange)
         {
             isInRange = true;
             StartCooldown();
         }
 
-        if (Vector3.Distance(transform.position, player.transform.position) >= minimumAttackDistance && isInRange)
+        if (currentDistance >= minimumAttackDistance && isInRange)
         {
             isInRange = false;
         }
@@ -48,7 +50,7 @@ public class RangedRework : Enemy
 
     public override void takeDamage(int amount)
     {
-        minimumAttackDistance = 99999f;
+        minimumAttackDistance = 40f;
         EventManager.Trigger("AddSpecial", 0.005f);
         SoundManager.instance.PlaySound(SoundID.BLOOD_1);
         blood.Stop();
@@ -71,7 +73,8 @@ public class RangedRework : Enemy
 
     public void StartCooldown()
     {
-        StartCoroutine(SetUpAttack());
+        if(isInRange)
+            StartCoroutine(SetUpAttack());
     }
 
     IEnumerator SetUpAttack()

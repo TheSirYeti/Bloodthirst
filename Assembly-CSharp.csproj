@@ -155,6 +155,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerBullet.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerLife.cs" />
+    <Compile Include="Assets\Scripts\Player\ShowSword.cs" />
     <Compile Include="Assets\Scripts\Player\swordEffects.cs" />
     <Compile Include="Assets\Scripts\Sounds\PlayMusic.cs" />
     <Compile Include="Assets\Scripts\Sounds\playSounds.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Assets\Scripts\UI\newUI\SpecialBar.cs" />
     <Compile Include="Assets\Scripts\UI\PauseMenu\enablePause.cs" />
     <Compile Include="Assets\Scripts\UI\startScreens\autoSkip.cs" />
+    <Compile Include="Assets\Scripts\UI\WeaponUI.cs" />
     <Compile Include="Assets\Scripts\VFX\PlayerVFX.cs" />
     <Compile Include="Assets\Scripts\WallScript.cs" />
     <Compile Include="Assets\Textures\Eitan\models and textures\map\Standard Assets\2D\Scripts\Camera2DFollow.cs" />

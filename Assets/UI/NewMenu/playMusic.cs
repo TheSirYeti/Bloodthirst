@@ -8,6 +8,6 @@ public class playMusic : MonoBehaviour
     {
         SoundManager.instance.StopAllMusic();
         SoundManager.instance.StopAllSounds();
-        SoundManager.instance.PlayMusic(MusicID.NEW_MENU);
+        SoundManager.instance.PlayMusic(MusicID.NEW_MENU, true);
     }
 }

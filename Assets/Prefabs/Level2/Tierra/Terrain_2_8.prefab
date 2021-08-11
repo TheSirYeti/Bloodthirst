@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 3072171326860256375}
   - component: {fileID: 7682708991273984354}
   - component: {fileID: 8414871269571732495}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Terrain_2_8
-  m_TagString: Floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6207429099950910891}
-  m_LocalRotation: {x: 0, y: -0.09011713, z: -0, w: 0.9959312}
-  m_LocalPosition: {x: -6.51, y: 0.12, z: 0.448}
-  m_LocalScale: {x: 191.07321, y: 191.07321, z: 191.07321}
+  m_LocalRotation: {x: 0.03116801, y: 0.3436129, z: 0.07538104, w: 0.93556213}
+  m_LocalPosition: {x: 0.10924825, y: -0.0015388943, z: -0.09717058}
+  m_LocalScale: {x: 3.058648, y: 3.058644, z: 3.0586476}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.37300003, y: -53.178, z: 9.35}
 --- !u!33 &3072171326860256375
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -40,7 +40,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6207429099950910891}
-  m_Mesh: {fileID: 4713333346558827842, guid: 48bca9133c562b14a8aecdb7052a9d96, type: 3}
+  m_Mesh: {fileID: 4713333346558827842, guid: de318fee9fc1f4841a4e14acdd8d8138, type: 3}
 --- !u!23 &7682708991273984354
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ab14423abdf33954e81098198d76642b, type: 2}
+  - {fileID: 2100000, guid: e274aa972585b1b4fa3c721719219111, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,4 +92,4 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
-  m_Mesh: {fileID: 4713333346558827842, guid: 48bca9133c562b14a8aecdb7052a9d96, type: 3}
+  m_Mesh: {fileID: 4713333346558827842, guid: de318fee9fc1f4841a4e14acdd8d8138, type: 3}

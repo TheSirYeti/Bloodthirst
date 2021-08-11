@@ -22,6 +22,7 @@ TagManager:
   - skeletonMelee
   - snakeEnemyAttack
   - heavyAttackFX
+  - Snake
   layers:
   - Default
   - TransparentFX

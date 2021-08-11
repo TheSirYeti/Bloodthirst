@@ -26,6 +26,7 @@ namespace Player.Behaviour
         public bool TwoDimensionMovement;
         public bool runningSFXPlaying;
 
+        public bool isDashing;
         private float floatingTime = 0.75f;
         private float cooldown;
         private float rollCooldown;
@@ -134,6 +135,7 @@ namespace Player.Behaviour
 
         public void roll()
         {
+            StartCoroutine(TimerDashing());
             Debug.Log(Input.GetAxis(verticalAxis));
             inputVector = cameraDirection.forward * Input.GetAxis(verticalAxis) + cameraDirection.right * Input.GetAxis(horizontalAxis);
             inputVector.y = 0;
@@ -163,6 +165,13 @@ namespace Player.Behaviour
         public void resetMovement()
         {
             movementSpeed = originalMovementSpeedValue;
+        }
+
+        public IEnumerator TimerDashing()
+        {
+            isDashing = true;
+            yield return new WaitForSeconds(0.85f);
+            isDashing = false;
         }
     }
 }

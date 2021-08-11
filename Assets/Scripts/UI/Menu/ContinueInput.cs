@@ -12,6 +12,7 @@ public class ContinueInput : MonoBehaviour
     private void Start()
     {
         EventManager.Subscribe("EndFade", fadeProgram);
+        EventManager.Subscribe("EndLongFade", LongFadeProgram);
     }
     void Update()
     {
@@ -28,9 +29,23 @@ public class ContinueInput : MonoBehaviour
             SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
     }
 
+    public void LongFadeProgram(object[] parameters)
+    {
+        animator.SetTrigger("longFade");
+        if (allowed)
+            SoundManager.instance.PlaySound(SoundID.SELECT, false, 1);
+    }
+
     public void fade()
     {
         animator.SetTrigger("fade");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LongFade()
+    {
+        animator.SetTrigger("longFade");
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

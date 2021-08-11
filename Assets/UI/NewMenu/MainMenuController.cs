@@ -10,6 +10,12 @@ public class MainMenuController : MonoBehaviour
     public GameObject mainMenuButton, creditsButton, optionsButton, controlsButton, soundButton, quitButton, levelButton;
     public GameObject backButtonMainMenu, backButtonOptions, backButtonCredits;
 
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void Update()
     {
         if(Input.GetButtonDown("SwitchWeapon"))
